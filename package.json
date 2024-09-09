@@ -21,8 +21,10 @@
 	},
 	"dependencies": {
 		"@radix-icons/vue": "^1.0.0",
+		"@vueuse/core": "^11.0.3",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
+		"mitt": "^3.0.1",
 		"pinia": "^2.1.7",
 		"radix-vue": "^1.9.5",
 		"tailwind-merge": "^2.5.2",
