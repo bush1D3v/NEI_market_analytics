@@ -1,0 +1,10 @@
+.github
+.vscode
+.git
+.gitignore
+biome.json
+COMMIT_PATTERN.md
+CONTRIBUTING.md
+LICENSE
+README.md
+SECURITY.md

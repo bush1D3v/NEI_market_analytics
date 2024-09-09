@@ -1,0 +1,11 @@
+{
+	"recommendations": [
+		"Vue.volar",
+		"biomejs.biome",
+		"streetsidesoftware.code-spell-checker",
+		"streetsidesoftware.code-spell-checker-portuguese-brazilian",
+		"ms-azuretools.vscode-docker",
+		"Selemondev.shadcn-vue",
+		"EditorConfig.EditorConfig"
+	]
+}
