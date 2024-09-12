@@ -4,7 +4,6 @@
 
 @layer base {
     :root {
-        --background: rgb(0, 0, 0);
         --foreground: rgb(245, 106, 36);
 
         --muted: rgb(12, 12, 12);
@@ -19,11 +18,47 @@
         --border: rgb(25, 19, 15);
         --input: rgb(25, 19, 15);
 
-        --primary: rgb(230, 107, 25);
-        --primary-foreground: rgb(22, 22, 22);
-
-        --secondary: rgb(12, 12, 12);
-        --secondary-foreground: rgb(230, 107, 25);
+        --text: #ffffff;
+        --primary: #157efb;
+        --primary-foreground: #ffffff;
+        --secondary: #0088cc;
+        --secondary-foreground: #eeeeee;
+        --surface: #17192e;
+        --material: #252d4a;
+        --texture: #161727;
+        --positive: #28c686;
+        --negative: #d34545;
+        --positive-lighter: #41d99b;
+        --positive-darker: #21a26e;
+        --negative-lighter: #db6868;
+        --negative-darker: #bf2d2d;
+        --background: #0f101d;
+        --fg: #ffffff;
+        --fg-dim: #BAC8D2;
+        --fg-muted: #8b94a3;
+        --secondary-lighter: #333f67;
+        --secondary-darker: #171b2d;
+        --surface-lighter: #20223f;
+        --surface-darker: #0e101d;
+        --material-lighter: #2d375b;
+        --material-darker: #1d2339;
+        --texture-lighter: #1f2137;
+        --texture-darker: #0d0d17;
+        --on-primary: #ffffff;
+        --twitter: #000000;
+        --telegram: #0088cc;
+        --reddit: #ff4500;
+        --facebook: #1877f2;
+        --medium: #00ab6c;
+        --github: #333;
+        --discord: #5865f2;
+        --linkedin: #0a66c2;
+        --instagram: #c13584;
+        --youtube: #ff0000;
+        --primary-lighter: #4095fc;
+        --primary-darker: #0469e1;
+        --primary-darker: #ef233c;
+        --primary-darker: #edf2f4;
 
         --accent: rgb(12, 12, 12);
         --accent-foreground: rgb(230, 107, 25);
@@ -73,7 +108,7 @@
         @apply border-border p-0 m-0 box-border;
     }
     body {
-        @apply min-h-screen bg-background text-foreground;
+        @apply min-h-screen bg-background text-text;
     }
     h1 {
         @apply text-4xl font-bold;
@@ -91,7 +126,7 @@
 }
 
 .layout {
-    @apply bg-secondary min-h-[8dvh];
+    @apply bg-surface min-h-[8dvh];
 }
 
 ::-webkit-scrollbar {
