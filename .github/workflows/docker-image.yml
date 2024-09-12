@@ -3,10 +3,10 @@ on:
   schedule:
     - cron: '36 20 * * *'
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
 
 env:
   REGISTRY: ghcr.io
