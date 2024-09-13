@@ -56,14 +56,18 @@
 		"autoprefixer": "^10.4.20",
 		"jsdom": "^25.0.0",
 		"npm-run-all2": "^6.2.0",
+		"postcss": "^8.4.45",
 		"shadcn-nuxt": "^0.10.4",
 		"start-server-and-test": "^2.0.4",
 		"storybook": "^8.2.9",
+		"tailwindcss": "^3.4.11",
 		"typescript": "~5.5.4",
 		"vite": "^5.3.1",
 		"vite-plugin-vue-devtools": "^7.3.1",
 		"vitest": "^2.0.5",
 		"vue-tsc": "^2.0.21"
 	},
-	"trustedDependencies": ["@biomejs/biome"]
+	"trustedDependencies": [
+		"@biomejs/biome"
+	]
 }
