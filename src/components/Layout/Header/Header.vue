@@ -1,7 +1,7 @@
-<script setup lang="ts"></script>
+<script setup >
+import NavBar from "./NavBar.vue";
+</script>
 
 <template>
-    <header class="layout container min-w-full">
-        Header
-    </header>
+    <NavBar />
 </template>
