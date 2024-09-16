@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import {RouterLink} from "vue-router";
-import {Button} from "../components/ui/button";
 </script>
 
 <template>
-    <main class="container">
-        <RouterLink to="/about">
-            <Button>
-                About
-            </Button>
+    <main class="container justify-center">
+        <RouterLink to="/about-us">
+            <h1 class="hover:underline hover:opacity-50 ease-in-out duration-150">NEI Market Analytics</h1>
         </RouterLink>
     </main>
 </template>
