@@ -1,0 +1,30 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion Component Tests > Should be able to snapshot the component correctly 1`] = `
+"<div class="w-full" data-testid="Accordion">
+  <div data-state="closed" data-orientation="vertical" class="border-b">
+    <h3 data-orientation="vertical" data-state="closed" class="flex"><button type="button" aria-controls="" aria-expanded="false" data-state="closed" id="radix-vue-accordion-trigger-1" data-radix-vue-collection-item="" data-orientation="vertical" class="flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180">O que é o NEI Market Analytics?<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-textForeground transition-transform duration-200">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z" fill="currentColor"></path>
+        </svg></button></h3>
+    <div role="region" hidden="" aria-labelledby="radix-vue-accordion-trigger-1" data-state="closed" data-orientation="vertical" style="--radix-accordion-content-width: var(--radix-collapsible-content-width); --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-collapsible-content-height: 0px; --radix-collapsible-content-width: 0px;" class="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down" id="radix-vue-collapsible-content-2">
+      <!---->
+    </div>
+  </div>
+  <div data-state="closed" data-orientation="vertical" class="border-b">
+    <h3 data-orientation="vertical" data-state="closed" class="flex"><button type="button" aria-controls="" aria-expanded="false" data-state="closed" id="radix-vue-accordion-trigger-3" data-radix-vue-collection-item="" data-orientation="vertical" class="flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180">O que preciso fazer para participar?<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-textForeground transition-transform duration-200">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z" fill="currentColor"></path>
+        </svg></button></h3>
+    <div role="region" hidden="" aria-labelledby="radix-vue-accordion-trigger-3" data-state="closed" data-orientation="vertical" style="--radix-accordion-content-width: var(--radix-collapsible-content-width); --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-collapsible-content-height: 0px; --radix-collapsible-content-width: 0px;" class="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down" id="radix-vue-collapsible-content-4">
+      <!---->
+    </div>
+  </div>
+  <div data-state="closed" data-orientation="vertical" class="border-b">
+    <h3 data-orientation="vertical" data-state="closed" class="flex"><button type="button" aria-controls="" aria-expanded="false" data-state="closed" id="radix-vue-accordion-trigger-5" data-radix-vue-collection-item="" data-orientation="vertical" class="flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&amp;[data-state=open]>svg]:rotate-180">Onde reporto um possível erro crítico?<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0 text-textForeground transition-transform duration-200">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z" fill="currentColor"></path>
+        </svg></button></h3>
+    <div role="region" hidden="" aria-labelledby="radix-vue-accordion-trigger-5" data-state="closed" data-orientation="vertical" style="--radix-accordion-content-width: var(--radix-collapsible-content-width); --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-collapsible-content-height: 0px; --radix-collapsible-content-width: 0px;" class="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down" id="radix-vue-collapsible-content-6">
+      <!---->
+    </div>
+  </div>
+</div>"
+`;
