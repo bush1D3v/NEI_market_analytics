@@ -1,2 +1,4 @@
 User-agent: *
+Disallow: /private/
 Allow: /
+Sitemap: http://localhost:5173/sitemap.xml

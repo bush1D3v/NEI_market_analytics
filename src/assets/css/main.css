@@ -1,78 +1,148 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 20 14.3% 4.1%;
- 
-    --muted: 60 4.8% 95.9%;
-    --muted-foreground: 25 5.3% 44.7%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14.3% 4.1%;
- 
-    --card: 0 0% 100%;
-    --card-foreground: 20 14.3% 4.1%;
- 
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
- 
-    --primary: 24 9.8% 10%;
-    --primary-foreground: 60 9.1% 97.8%;
- 
-    --secondary: 60 4.8% 95.9%;
-    --secondary-foreground: 24 9.8% 10%;
- 
-    --accent: 60 4.8% 95.9%;
-    --accent-foreground: 24 9.8% 10%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9.1% 97.8%;
- 
-    --ring: 20 14.3% 4.1%;
- 
-    --radius: 0.5rem;
-  }
- 
-  .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
- 
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
- 
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
- 
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
- 
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
- 
-    --primary: 60 9.1% 97.8%;
-    --primary-foreground: 24 9.8% 10%;
- 
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
- 
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 60 9.1% 97.8%;
- 
-    --ring: 24 5.7% 82.9%;
-  }
+    :root {
+        --foreground: rgb(245, 106, 36);
+
+        --muted: rgb(12, 12, 12);
+        --muted-foreground: rgb(141, 67, 14);
+
+        --popover: rgb(0, 0, 0);
+        --popover-foreground: rgb(245, 106, 36);
+
+        --card: rgb(0, 0, 0);
+        --card-foreground: rgb(245, 106, 36);
+
+        --border: rgb(25, 19, 15);
+        --input: rgb(25, 19, 15);
+
+        --text: #ffffff;
+        --primary: #157efb;
+        --primary-foreground: #ffffff;
+        --secondary: #0088cc;
+        --secondary-foreground: #eeeeee;
+        --surface: #17192e;
+        --material: #252d4a;
+        --texture: #161727;
+        --positive: #28c686;
+        --negative: #d34545;
+        --positive-lighter: #41d99b;
+        --positive-darker: #21a26e;
+        --negative-lighter: #db6868;
+        --negative-darker: #bf2d2d;
+        --background: #0f101d;
+        --fg: #ffffff;
+        --fg-dim: #BAC8D2;
+        --fg-muted: #8b94a3;
+        --secondary-lighter: #333f67;
+        --secondary-darker: #171b2d;
+        --surface-lighter: #20223f;
+        --surface-darker: #0e101d;
+        --material-lighter: #2d375b;
+        --material-darker: #1d2339;
+        --texture-lighter: #1f2137;
+        --texture-darker: #0d0d17;
+        --on-primary: #ffffff;
+        --twitter: #000000;
+        --telegram: #0088cc;
+        --reddit: #ff4500;
+        --facebook: #1877f2;
+        --medium: #00ab6c;
+        --github: #333;
+        --discord: #5865f2;
+        --linkedin: #0a66c2;
+        --instagram: #c13584;
+        --youtube: #ff0000;
+        --primary-lighter: #4095fc;
+        --primary-darker: #0469e1;
+        --primary-darker: #ef233c;
+        --primary-darker: #edf2f4;
+
+        --accent: rgb(12, 12, 12);
+        --accent-foreground: rgb(230, 107, 25);
+
+        --destructive: rgb(149, 149, 149);
+        --destructive-foreground: rgb(22, 22, 22);
+
+        --ring: rgb(245, 106, 36);
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: rgb(245, 106, 36);
+        --foreground: rgb(22, 22, 22);
+
+        --muted: rgb(216, 57, 17);
+        --muted-foreground: rgb(92, 45, 14);
+
+        --popover: rgb(245, 106, 36);
+        --popover-foreground: rgb(22, 22, 22);
+
+        --card: rgb(245, 106, 36);
+        --card-foreground: rgb(22, 22, 22);
+
+        --border: rgb(216, 57, 17);
+        --input: rgb(216, 57, 17);
+
+        --primary: rgb(22, 22, 22);
+        --primary-foreground: rgb(230, 107, 25);
+
+        --secondary: rgb(216, 57, 17);
+        --secondary-foreground: rgb(22, 22, 22);
+
+        --accent: rgb(216, 57, 17);
+        --accent-foreground: rgb(22, 22, 22);
+
+        --destructive: rgb(177, 160, 160);
+        --destructive-foreground: rgb(22, 22, 22);
+
+        --ring: rgb(44, 26, 15);
+    }
 }
- 
+
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+    * {
+        @apply border-border p-0 m-0 box-border;
+    }
+    body {
+        @apply min-h-screen bg-background text-text;
+    }
+    h1 {
+        @apply text-4xl font-bold;
+    }
+    h2 {
+        @apply text-3xl font-bold;
+    }
+    h3 {
+        @apply text-2xl font-bold;
+    }
+}
+
+.container {
+    @apply flex flex-col justify-center items-center min-h-[84dvh];
+}
+
+.layout {
+    @apply bg-surface min-h-[8dvh];
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-alt);
+}
+
+::selection {
+    background: var(--primary);
+    color: var(--light);
 }

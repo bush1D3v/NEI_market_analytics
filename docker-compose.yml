@@ -1,28 +1,28 @@
 version: '3.2'
 
 services:
-  vue:
-    image: node:20
-    volumes:
-      - .:/app
-    working_dir: /app
-    environment:
-      - GIT_USER_EMAIL=${GIT_USER_EMAIL}
-      - GIT_USER_NAME=${GIT_USER_NAME}
-    command: sh -c "git config --global user.email \"$GIT_USER_EMAIL\" && git config --global user.name \"$GIT_USER_NAME\" && git config --global --add safe.directory /app && npm run dev"
-    ports:
-      - "3000:3000"
+    vue:
+        image: node:20
+        volumes:
+            - .:/app
+        working_dir: /app
+        environment:
+            - GIT_USER_EMAIL=${GIT_USER_EMAIL}
+            - GIT_USER_NAME=${GIT_USER_NAME}
+        command: sh -c "git config --global user.email \"$GIT_USER_EMAIL\" && git config --global user.name \"$GIT_USER_NAME\" && git config --global --add safe.directory /app && npm run dev"
+        ports:
+            - "5173:5173"
 
-  storybook:
-    image: node:20
-    volumes:
-      - .:/app
-    working_dir: /app
-    environment:
-      - GIT_USER_EMAIL=${GIT_USER_EMAIL}
-      - GIT_USER_NAME=${GIT_USER_NAME}
-    command: sh -c "apt-get update && apt-get install -y xdg-utils && git config --global user.email \"$GIT_USER_EMAIL\" && git config --global user.name \"$GIT_USER_NAME\" && git config --global --add safe.directory /app && npm run storybook"
-    ports:
-      - "6006:6006"
-    depends_on:
-      - vue
+    storybook:
+        image: node:20
+        volumes:
+            - .:/app
+        working_dir: /app
+        environment:
+            - GIT_USER_EMAIL=${GIT_USER_EMAIL}
+            - GIT_USER_NAME=${GIT_USER_NAME}
+        command: sh -c "apt-get update && apt-get install -y xdg-utils && git config --global user.email \"$GIT_USER_EMAIL\" && git config --global user.name \"$GIT_USER_NAME\" && git config --global --add safe.directory /app && npm run storybook"
+        ports:
+            - "6006:6006"
+        depends_on:
+            - vue
