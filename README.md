@@ -27,7 +27,8 @@ O **NEI Market Analytics** é um projeto de código aberto projetado para fornec
    <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' /> &nbsp;
    <img align='center' height='60' width='50' title='Vitest' alt='vitest' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/74803ee6-3f6e-4335-9f56-cb887a4285ff' />  &nbsp;&nbsp;
    <img align='center' height='54' width='44' title='Storybook-js' alt='storybook-js' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/213c8aa4-ce24-4b30-8e07-dceb476e8589' /> &nbsp;&nbsp;&nbsp;
-   <img align='center' height='50' width='50' title='VueUse' alt='vueuse' src='https://github.com/user-attachments/assets/c4eb21ad-858d-4f28-a2c7-1dd0c23342c1' /> &nbsp;
+   <img align='center' height='50' width='50' title='VueUse' alt='vueuse' src='https://github.com/user-attachments/assets/c4eb21ad-858d-4f28-a2c7-1dd0c23342c1' /> &nbsp;&nbsp;
+   <img align='center' height='50' width='60' title='Playwright' alt='playwright' src='https://github.com/user-attachments/assets/1ce5b208-a75b-48e0-bd5c-e663f4e02302' /> &nbsp;
    <img align='center' height='50' width='60' title='Biomejs' alt='biomejs' src='https://github.com/user-attachments/assets/b3d8a249-e17f-4e64-9608-4a4783b7bbc0' /> &nbsp;
    <img align='center' height='50' width='50' title='Chromatic' alt='chromatic' src='https://github.com/user-attachments/assets/6edd5832-5db7-4e2a-a8e4-4bbe7b8e7208' /> &nbsp;
 </div>
@@ -73,7 +74,13 @@ bun build
 ### Executar testes de unidade com [Vitest](https://vitest.dev/)
 
 ```sh
-bun tests
+bun test:unit
+```
+
+### Executar testes de ponta a ponta com [Playwright](https://playwright.dev/)
+
+```sh
+bun test:e2e
 ```
 
 Isso executa os testes de ponta a ponta no servidor de desenvolvimento Vite.
@@ -109,7 +116,8 @@ The **NEI Market Analytics** is an open-source project designed to provide compr
    <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' /> &nbsp;
    <img align='center' height='54' width='44' title='Vitest' alt='vitest' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/74803ee6-3f6e-4335-9f56-cb887a4285ff' />  &nbsp;&nbsp;
    <img align='center' height='54' width='44' title='Storybook-js' alt='storybook-js' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/213c8aa4-ce24-4b30-8e07-dceb476e8589' /> &nbsp;&nbsp;&nbsp;
-   <img align='center' height='50' width='50' title='VueUse' alt='vueuse' src='https://github.com/user-attachments/assets/c4eb21ad-858d-4f28-a2c7-1dd0c23342c1' /> &nbsp;
+   <img align='center' height='50' width='50' title='VueUse' alt='vueuse' src='https://github.com/user-attachments/assets/c4eb21ad-858d-4f28-a2c7-1dd0c23342c1' /> &nbsp;&nbsp;
+   <img align='center' height='50' width='60' title='Playwright' alt='playwright' src='https://github.com/user-attachments/assets/1ce5b208-a75b-48e0-bd5c-e663f4e02302' /> &nbsp;
    <img align='center' height='50' width='60' title='Biomejs' alt='biomejs' src='https://github.com/user-attachments/assets/b3d8a249-e17f-4e64-9608-4a4783b7bbc0' /> &nbsp;
    <img align='center' height='50' width='50' title='Chromatic' alt='chromatic' src='https://github.com/user-attachments/assets/6edd5832-5db7-4e2a-a8e4-4bbe7b8e7208' /> &nbsp;
 </div>
@@ -155,5 +163,11 @@ bun build
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-bun tests
+bun test:unit
+```
+
+### Run E2E Tests with [Playwright](https://playwright.dev/)
+
+```sh
+bun test:e2e
 ```

@@ -20,7 +20,7 @@ const preview: Preview = {
 			values: [
 				{
 					name: "dark",
-					value: "#333333",
+					value: "#0f101d",
 				},
 				{
 					name: "light",
@@ -29,8 +29,18 @@ const preview: Preview = {
 			],
 		},
 	},
-	tags: ["autodocs"],
-	decorators: [withActions],
+	tags: ["autodocs", "autodocs"],
+	decorators: [
+		withActions,
+		(story) => ({
+			components: {story},
+			template: `
+                <div style="display: flex; justify-content: center; align-items: center; width: 50dvw; height: 50dvh;">
+                    <story />
+                </div>
+            `,
+		}),
+	],
 };
 
 export default preview;

@@ -4,25 +4,25 @@
 
 @layer base {
     :root {
-        --foreground: rgb(245, 106, 36);
+        --foreground: #ffffff;
 
         --muted: rgb(12, 12, 12);
         --muted-foreground: rgb(141, 67, 14);
 
         --popover: rgb(0, 0, 0);
-        --popover-foreground: rgb(245, 106, 36);
+        --popover-foreground: #ffffff;
 
         --card: rgb(0, 0, 0);
-        --card-foreground: rgb(245, 106, 36);
+        --card-foreground: #ffffff;
 
-        --border: rgb(25, 19, 15);
         --input: rgb(25, 19, 15);
+        --dark: #1e293b;
 
         --text: #ffffff;
+        --text-foreground: #eeeeee;
         --primary: #157efb;
         --primary-foreground: #ffffff;
         --secondary: #0088cc;
-        --secondary-foreground: #eeeeee;
         --surface: #17192e;
         --material: #252d4a;
         --texture: #161727;
@@ -36,7 +36,7 @@
         --fg: #ffffff;
         --fg-dim: #BAC8D2;
         --fg-muted: #8b94a3;
-        --secondary-lighter: #333f67;
+        --border: #222a44;
         --secondary-darker: #171b2d;
         --surface-lighter: #20223f;
         --surface-darker: #0e101d;
@@ -60,73 +60,43 @@
         --primary-darker: #ef233c;
         --primary-darker: #edf2f4;
 
-        --accent: rgb(12, 12, 12);
-        --accent-foreground: rgb(230, 107, 25);
+        --accent: #2d375b;
+        --accent-foreground: #ffffff;
 
         --destructive: rgb(149, 149, 149);
         --destructive-foreground: rgb(22, 22, 22);
 
-        --ring: rgb(245, 106, 36);
+        --ring: #ffffff;
 
         --radius: 0.5rem;
-    }
-
-    .dark {
-        --background: rgb(245, 106, 36);
-        --foreground: rgb(22, 22, 22);
-
-        --muted: rgb(216, 57, 17);
-        --muted-foreground: rgb(92, 45, 14);
-
-        --popover: rgb(245, 106, 36);
-        --popover-foreground: rgb(22, 22, 22);
-
-        --card: rgb(245, 106, 36);
-        --card-foreground: rgb(22, 22, 22);
-
-        --border: rgb(216, 57, 17);
-        --input: rgb(216, 57, 17);
-
-        --primary: rgb(22, 22, 22);
-        --primary-foreground: rgb(230, 107, 25);
-
-        --secondary: rgb(216, 57, 17);
-        --secondary-foreground: rgb(22, 22, 22);
-
-        --accent: rgb(216, 57, 17);
-        --accent-foreground: rgb(22, 22, 22);
-
-        --destructive: rgb(177, 160, 160);
-        --destructive-foreground: rgb(22, 22, 22);
-
-        --ring: rgb(44, 26, 15);
     }
 }
 
 @layer base {
     * {
         @apply border-border p-0 m-0 box-border;
+        font-family: "Roboto", ui-sans-serif, system-ui, -apple-system, sans-serif;
     }
     body {
         @apply min-h-screen bg-background text-text;
     }
     h1 {
-        @apply text-4xl font-bold;
+        @apply text-3xl md:text-4xl lg:text-5xl font-bold;
     }
     h2 {
-        @apply text-3xl font-bold;
+        @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
     }
     h3 {
-        @apply text-2xl font-bold;
+        @apply text-xl md:text-2xl lg:text-3xl font-semibold;
     }
 }
 
 .container {
-    @apply flex flex-col justify-center items-center min-h-[84dvh];
+    @apply flex flex-col items-center min-h-[80dvh] py-[3dvh] md:py-0 md:min-h-[84dvh] px-4 md:px-8;
 }
 
 .layout {
-    @apply bg-surface min-h-[8dvh];
+    @apply bg-transparent min-h-[8dvh];
 }
 
 ::-webkit-scrollbar {

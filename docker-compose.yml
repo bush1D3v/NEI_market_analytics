@@ -6,10 +6,7 @@ services:
         volumes:
             - .:/app
         working_dir: /app
-        environment:
-            - GIT_USER_EMAIL=${GIT_USER_EMAIL}
-            - GIT_USER_NAME=${GIT_USER_NAME}
-        command: sh -c "git config --global user.email \"$GIT_USER_EMAIL\" && git config --global user.name \"$GIT_USER_NAME\" && git config --global --add safe.directory /app && npm run dev"
+        command: npm run dev
         ports:
             - "5173:5173"
 
@@ -24,5 +21,16 @@ services:
         command: sh -c "apt-get update && apt-get install -y xdg-utils && git config --global user.email \"$GIT_USER_EMAIL\" && git config --global user.name \"$GIT_USER_NAME\" && git config --global --add safe.directory /app && npm run storybook"
         ports:
             - "6006:6006"
+        depends_on:
+            - vue
+
+    playwright:
+        image: node:20
+        volumes:
+            - .:/app
+        working_dir: /app
+        command: sh -c "npx playwright install-deps && npx playwright install chromium && npx playwright install firefox && apt-get install -y xvfb xauth && xvfb-run -- npx playwright test --ui"
+        ports:
+            - "9323:9323"
         depends_on:
             - vue

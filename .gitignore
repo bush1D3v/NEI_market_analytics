@@ -35,3 +35,5 @@ yarn.lock
 pnpm-lock.yaml
 
 *storybook.log
+test-results
+playwright-report
