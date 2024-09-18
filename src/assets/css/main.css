@@ -105,14 +105,14 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color: var(--primary);
+    background-color: var(--border);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--primary-alt);
+    background-color: var(--accent);
 }
 
 ::selection {
     background: var(--primary);
-    color: var(--light);
+    color: var(--text);
 }

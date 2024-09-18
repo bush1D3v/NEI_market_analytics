@@ -1,6 +1,6 @@
 import type {Item} from "@/components/Accordion.vue";
 
-export const AccordionDto: Item[] = [
+export const AccordionMock: Item[] = [
 	{
 		value: "item-1",
 		title: "O que é o NEI Market Analytics?",

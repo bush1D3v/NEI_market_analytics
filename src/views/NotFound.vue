@@ -1,0 +1,27 @@
+<script setup lang="ts">
+import NotFoundImage from "@/assets/images/404.png";
+import Button from "@/components/ui/button/Button.vue";
+import Image from "@/tags/Image.vue";
+import RouterLink from "@/tags/RouterLink.vue";
+</script>
+
+<template>
+    <main class="container justify-center">
+        <div class="flex flex-col items-center text-center gap-4 pb-2">
+            <h1 class="max-w-3xl">
+                Você tentou acessar uma página <br />
+                que se perdeu pelo caminho
+            </h1>
+            <p class="max-w-5xl text-lg">
+                A página que você tentou acessar não existe, mas você pode começar um novo caminho
+                voltando para a página inicial 😀
+            </p>
+        </div>
+        <Image :src="NotFoundImage" alt="Not Found Image" width="500" height="500" class="-my-20" />
+        <RouterLink to="/" class="z-10">
+            <Button class="text-lg">
+                Página Inicial
+            </Button>
+        </RouterLink>
+    </main>
+</template>

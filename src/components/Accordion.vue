@@ -1,50 +1,35 @@
-<script lang="ts">
+<script lang="ts" setup>
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import {AccordionDto} from "./Dto/AccordionDto";
-import type {PropType} from "vue";
+import type {HTMLAttributes} from "vue";
 
-export interface AccordionProps {
+export interface Item {
 	value: string;
 	title: string;
 	content: string;
 }
 
-export default {
-	props: {
-		items: {
-			type: Array as PropType<AccordionProps[]>,
-			default: () => AccordionDto,
-		},
-		type: {
-			type: String as PropType<"single" | "multiple" | undefined>,
-			default: "single",
-		},
-		collapsible: {
-			type: Boolean,
-			default: true,
-		},
-		class: {
-			type: String,
-			default: "w-full",
-		},
-	},
-	components: {
-		Accordion,
-		AccordionContent,
-		AccordionItem,
-		AccordionTrigger,
-	},
-};
+export interface AccordionProps {
+	items: Item[];
+	type?: "single" | "multiple" | undefined;
+	collapsible?: boolean;
+	class?: HTMLAttributes["class"];
+}
+
+const props = withDefaults(defineProps<AccordionProps>(), {
+	type: "single",
+	collapsible: true,
+	class: "w-full",
+});
 </script>
 
 <template>
-    <Accordion :type="$props.type" :class="$props.class" :collapsible="$props.collapsible" data-testid="Accordion">
-        <AccordionItem v-for="item in $props.items" :key="item.value" :value="item.value">
+    <Accordion :type="props.type" :class="props.class" :collapsible="props.collapsible" data-testid="Accordion">
+        <AccordionItem v-for="item in props.items" :key="item.value" :value="item.value">
             <AccordionTrigger>{{ item.title }}</AccordionTrigger>
             <AccordionContent>
                 {{ item.content }}

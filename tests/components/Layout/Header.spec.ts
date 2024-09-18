@@ -1,9 +1,9 @@
 import {test, expect, describe} from "vitest";
 import Header from "@/components/Layout/Header.vue";
-import {mount} from "@vue/test-utils";
+import {shallowMount} from "@vue/test-utils";
 
 describe("Header Component Tests", () => {
-	const wrapper = mount(Header);
+	const wrapper = shallowMount(Header);
 	const headerComponent = wrapper.findComponent(Header);
 
 	test("Should be able to render the component correctly", async () => {
@@ -14,15 +14,13 @@ describe("Header Component Tests", () => {
 		expect(headerComponent.html()).toMatchSnapshot();
 	});
 
-	test("Should be able to render the component with the correct text", async () => {
-		expect(headerComponent.text()).toStrictEqual("Header");
-	});
-
 	test("Should be able to render the component with the correct classes", async () => {
 		expect(headerComponent.classes()).toStrictEqual([
 			"layout",
-			"container",
-			"justify-center",
+			"flex",
+			"justify-between",
+			"px-8",
+			"items-center",
 			"min-w-full",
 			"border-b",
 		]);

@@ -31,6 +31,7 @@ O **NEI Market Analytics** é um projeto de código aberto projetado para fornec
    <img align='center' height='50' width='60' title='Playwright' alt='playwright' src='https://github.com/user-attachments/assets/1ce5b208-a75b-48e0-bd5c-e663f4e02302' /> &nbsp;
    <img align='center' height='50' width='60' title='Biomejs' alt='biomejs' src='https://github.com/user-attachments/assets/b3d8a249-e17f-4e64-9608-4a4783b7bbc0' /> &nbsp;
    <img align='center' height='50' width='50' title='Chromatic' alt='chromatic' src='https://github.com/user-attachments/assets/6edd5832-5db7-4e2a-a8e4-4bbe7b8e7208' /> &nbsp;
+    <img align='center' height='50' width='50' title='i18next' alt='i18next' src='https://github.com/user-attachments/assets/166d58bf-9e8e-46d7-94ce-cb1910bc6932' /> &nbsp;
 </div>
 
 ## 🏗 Estrutura e Arquitetura
@@ -120,6 +121,7 @@ The **NEI Market Analytics** is an open-source project designed to provide compr
    <img align='center' height='50' width='60' title='Playwright' alt='playwright' src='https://github.com/user-attachments/assets/1ce5b208-a75b-48e0-bd5c-e663f4e02302' /> &nbsp;
    <img align='center' height='50' width='60' title='Biomejs' alt='biomejs' src='https://github.com/user-attachments/assets/b3d8a249-e17f-4e64-9608-4a4783b7bbc0' /> &nbsp;
    <img align='center' height='50' width='50' title='Chromatic' alt='chromatic' src='https://github.com/user-attachments/assets/6edd5832-5db7-4e2a-a8e4-4bbe7b8e7208' /> &nbsp;
+    <img align='center' height='50' width='50' title='i18next' alt='i18next' src='https://github.com/user-attachments/assets/166d58bf-9e8e-46d7-94ce-cb1910bc6932' /> &nbsp;
 </div>
 
 ## 🏗 Structure and Architecture

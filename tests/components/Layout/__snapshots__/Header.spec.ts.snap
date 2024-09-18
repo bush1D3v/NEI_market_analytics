@@ -1,3 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header Component Tests > Should be able to snapshot the component correctly 1`] = `"<header class="layout container justify-center min-w-full border-b" data-testid="Header"> Header </header>"`;
+exports[`Header Component Tests > Should be able to snapshot the component correctly 1`] = `
+"<header class="layout flex justify-between px-8 items-center min-w-full border-b" data-testid="Header">
+  <div class="flex gap-4 items-center">
+    <router-link-stub to="/"></router-link-stub>
+    <dropdown-stub buttontile="Mercados" label="Tópicos" menu="[object Object],[object Object],[object Object]"></dropdown-stub>
+  </div>
+  <search-bar-stub></search-bar-stub>
+</header>"
+`;

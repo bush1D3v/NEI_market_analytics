@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { CalendarIcon } from "@radix-icons/vue";
+import {CalendarIcon} from "@radix-icons/vue";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {Button} from "@/components/ui/button";
+import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card";
 
 export interface HoverCardProps {
-    title: string;
-    description: string;
-    startDate: string;
-    avatarSrc: string;
-    avatarFallback: string;
+	title: string;
+	description: string;
+	startDate: string;
+	avatarSrc: string;
+	avatarFallback: string;
 }
 
 const props = defineProps<HoverCardProps>();

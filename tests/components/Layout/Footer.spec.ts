@@ -1,9 +1,9 @@
 import {test, expect, describe} from "vitest";
 import Footer from "@/components/Layout/Footer.vue";
-import {mount} from "@vue/test-utils";
+import {shallowMount} from "@vue/test-utils";
 
 describe("Footer Component Tests", () => {
-	const wrapper = mount(Footer);
+	const wrapper = shallowMount(Footer);
 	const footerComponent = wrapper.findComponent(Footer);
 
 	test("Should be able to render the component correctly", async () => {

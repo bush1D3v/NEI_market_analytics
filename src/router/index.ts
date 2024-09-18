@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import Home from "@/views/Home.vue";
 import AboutUs from "@/views/AboutUs.vue";
+import NotFound from "@/views/NotFound.vue";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,13 +35,28 @@ const router = createRouter({
 				ogTitle: "Sobre Nós | NEI Market Analytics",
 				ogDescription: "Learn more about NEI Market Analytics and our mission.",
 				ogImage: "/logo.svg",
-				ogUrl: "http://localhost:5173/aboutus",
+				ogUrl: "http://localhost:5173/",
+			},
+		},
+		{
+			path: "/:pathMatch(.*)*",
+			name: "Not Found",
+			component: NotFound,
+			meta: {
+				title: "404 | NEI Market Analytics",
+				description: "Page not found",
+				keywords: "404, page not found, NEI Market Analytics",
+				robots: "noindex, nofollow",
+				ogTitle: "404 | NEI Market Analytics",
+				ogDescription: "Page not found",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/",
 			},
 		},
 	],
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
 	document.title = (to.meta.title as string) || "NEI Market Analytics";
 
 	const metaTags = [
