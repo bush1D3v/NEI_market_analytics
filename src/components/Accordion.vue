@@ -28,11 +28,18 @@ const props = withDefaults(defineProps<AccordionProps>(), {
 </script>
 
 <template>
-    <Accordion :type="props.type" :class="props.class" :collapsible="props.collapsible" data-testid="Accordion">
+    <Accordion :type="props.type" :class="props.class" :collapsible="props.collapsible" data-testid="Accordion"
+        ignoreGlobalMixins>
         <AccordionItem v-for="item in props.items" :key="item.value" :value="item.value">
-            <AccordionTrigger>{{ item.title }}</AccordionTrigger>
+            <AccordionTrigger>
+                <span v-translate>
+                    {{ item.title }}
+                </span>
+            </AccordionTrigger>
             <AccordionContent>
-                {{ item.content }}
+                <span v-translate>
+                    {{ item.content }}
+                </span>
             </AccordionContent>
         </AccordionItem>
     </Accordion>

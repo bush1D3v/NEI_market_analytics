@@ -1,10 +1,10 @@
 import {test, expect, describe} from "vitest";
 import Accordion from "@/components/Accordion.vue";
-import {shallowMount} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import {AccordionMock} from "../../mocks/components/Accordion";
 
 describe("Accordion Component Tests", () => {
-	const wrapper = shallowMount(Accordion, {props: {items: AccordionMock}});
+	const wrapper = mount(Accordion, {props: {items: AccordionMock}});
 	const accordionComponent = wrapper.findComponent(Accordion);
 
 	test("Should be able to render the component correctly", async () => {

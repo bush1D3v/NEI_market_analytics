@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import type { HTMLAttributes } from "vue";
-import { cn } from "@/lib/utils";
+import type {HTMLAttributes} from "vue";
+import {cn} from "@/lib/utils";
 
-export interface LinkProps {
-    class?: HTMLAttributes[ "class" ];
-    to: string;
+export interface RouterLinkProps {
+	class?: HTMLAttributes["class"];
+	to: string;
 }
 
-const props = defineProps<LinkProps>();
+const props = defineProps<RouterLinkProps>();
 </script>
 
 <template>

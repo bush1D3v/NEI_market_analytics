@@ -3,6 +3,9 @@ import Accordion from "@/components/Accordion.vue";
 import Badges from "@/components/Badges.vue";
 import {AccordionDto} from "@/components/Dto/AccordionDto";
 import {BadgesDto} from "@/components/Dto/BadgesDto";
+import {useTranslation} from "@/config/composable/translateMixin";
+
+useTranslation();
 </script>
 
 <template>
@@ -16,7 +19,7 @@ import {BadgesDto} from "@/components/Dto/BadgesDto";
             <p class="text-center text-2xl md:text-3xl pb-2 font-semibold border-b">Por Trás dos Códigos</p>
             <Badges :badges="BadgesDto" />
         </div>
-        <div class="w-full h-fit">
+        <div class="w-full h-fit accordion">
             <Accordion :items="AccordionDto" />
         </div>
     </main>

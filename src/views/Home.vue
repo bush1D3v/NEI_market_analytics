@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import {RouterLink} from "vue-router";
+import {useTranslation} from "@/config/composable/translateMixin";
+
+useTranslation();
 </script>
 
 <template>

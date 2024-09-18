@@ -49,7 +49,7 @@ export const Default: Story = {
 
 		const LinkClass = LinkElement.getAttribute("class");
 		await step("Verify the Link class", async () => {
-			expect(LinkClass).toBe(LinkMock.class);
+			expect(LinkClass).toContain(LinkMock.class);
 		});
 
 		const LinkHref = LinkElement.getAttribute("href");

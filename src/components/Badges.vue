@@ -10,7 +10,6 @@ export interface BadgeProps {
 	nickname: string;
 	description: string;
 	startDate: string;
-	initialLetters: string;
 }
 
 const props = defineProps<{badges: BadgeProps[]}>();
@@ -31,7 +30,7 @@ const props = defineProps<{badges: BadgeProps[]}>();
                     <span class="ml-[2px] -mt-[6px]">{{ badge.occupation }}</span>
                 </div>
                 <HoverCard :description="badge.description" :title="badge.nickname" :start-date="badge.startDate"
-                    :avatar-src="badge.github + '.png'" :avatar-fallback="badge.initialLetters" />
+                    :avatar-src="badge.github + '.png'" />
             </div>
         </li>
     </ul>

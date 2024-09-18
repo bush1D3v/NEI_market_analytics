@@ -1,10 +1,10 @@
 import {test, expect, describe} from "vitest";
 import Badges from "@/components/Badges.vue";
-import {shallowMount} from "@vue/test-utils";
+import {mount} from "@vue/test-utils";
 import {BadgesMock} from "../../mocks/components/Badges";
 
 describe("Badges Component Tests", () => {
-	const wrapper = shallowMount(Badges, {props: {badges: BadgesMock}});
+	const wrapper = mount(Badges, {props: {badges: BadgesMock}});
 	const badgesComponent = wrapper.findComponent(Badges);
 
 	test("Should be able to render the component correctly", async () => {

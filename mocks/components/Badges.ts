@@ -8,7 +8,6 @@ export const BadgesMock: BadgeProps[] = [
 		nickname: "bush1D3v",
 		description: "Software Engineer | Vue.js | Rust | TypeScript | PHP | Docker | CI/CD",
 		startDate: "February 2023",
-		initialLetters: "VN",
 	},
 	{
 		name: "Erackson Souza",
@@ -17,7 +16,6 @@ export const BadgesMock: BadgeProps[] = [
 		nickname: "eracksonsouza",
 		description: "Web Developer | HTML | CSS | GIT | JavaScript | React | TypeScrip",
 		startDate: "February 2024",
-		initialLetters: "ES",
 	},
 	{
 		name: "Israel Pina",
@@ -26,6 +24,5 @@ export const BadgesMock: BadgeProps[] = [
 		nickname: "IsraelPina32",
 		description: "Software Engineer | Typescript | React | Tailwind | Next.js | Node.js",
 		startDate: "January 2022",
-		initialLetters: "IP",
 	},
 ];

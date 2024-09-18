@@ -1,6 +1,6 @@
-import type {Menu} from "../Dropdown.vue";
+import type {Menu} from "@/components/Dropdown.vue";
 
-export const DropdownDto: Menu[] = [
+export const DropdownMock: Menu[] = [
 	{
 		title: "Cripto moedas",
 		link: "/criptos",

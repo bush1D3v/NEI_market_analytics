@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import {CalendarIcon} from "@radix-icons/vue";
 
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Button} from "@/components/ui/button";
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card";
+import Image from "@/tags/Image.vue";
 
 export interface HoverCardProps {
 	title: string;
 	description: string;
 	startDate: string;
 	avatarSrc: string;
-	avatarFallback: string;
 }
 
 const props = defineProps<HoverCardProps>();
@@ -20,15 +19,12 @@ const props = defineProps<HoverCardProps>();
     <HoverCard>
         <HoverCardTrigger as-child>
             <Button variant="link" class="p-0 justify-start w-fit" data-testid="HoverCardButton">
-                @{{ props.title }}
+                <span>@{{ props.title }}</span>
             </Button>
         </HoverCardTrigger>
         <HoverCardContent class="w-80">
             <div class="flex justify-between space-x-4">
-                <Avatar>
-                    <AvatarImage :src="props.avatarSrc" />
-                    <AvatarFallback>{{ props.avatarFallback }}</AvatarFallback>
-                </Avatar>
+                <Image :src="props.avatarSrc" :alt="props.title" width="80" height="80" class="rounded-full" />
                 <div class="space-y-1">
                     <h4 class="text-sm font-semibold">
                         @{{ props.title }}
