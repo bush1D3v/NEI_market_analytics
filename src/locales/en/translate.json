@@ -5,6 +5,7 @@
 	"Erro": "Error",
 	"Ocorreu um erro": "An error occurred",
 	"Por favor, tente novamente": "Please try again",
+	"Por favor, tente novamente mais tarde": "Please, try again later",
 	"Tente novamente mais tarde": "Try again later",
 	"Nenhum resultado encontrado": "No results found",
 	"Nenhum resultado": "No results",
@@ -27,7 +28,7 @@
 	"Tópicos": "Topics",
 	"Cripto moedas": "Cryptocurrencies",
 	"Moedas globais": "Global currencies",
-	"Skins CS:GO": "CS:GO Skins",
+	"Skins CS2": "CS2 Skins",
 	"Você tentou acessar uma página que se perdeu pelo caminho": "You tried to access a page that has been lost by the path",
 	"A página que você tentou acessar não existe, mas você pode começar um novo caminho voltando para a página inicial": "The page you tried to access does not exist, but you can start a new path going back to the home page",
 	"Página Inicial": "Home Page"

@@ -36,6 +36,11 @@ export const DropdownDto: Menu[] = [
                 link: "/coins?coin=euro",
                 icon: "Euro",
             },
+            {
+                title: "Real",
+                link: "/coins?coin=real",
+                icon: "real",
+            },
         ]
     },
     {

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Accordion from "@/components/Accordion.vue";
 import Badges from "@/components/Badges.vue";
-import {AccordionDto} from "@/components/Dto/AccordionDto";
-import {BadgesDto} from "@/components/Dto/BadgesDto";
-import {useTranslation} from "@/config/composable/translateMixin";
+import { AccordionDto } from "@/components/Dto/AccordionDto";
+import { BadgesDto } from "@/components/Dto/BadgesDto";
+import { useTranslation } from "@/config/composable/translate";
 
 useTranslation();
 </script>
