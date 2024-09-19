@@ -39,8 +39,24 @@ export const DropdownDto: Menu[] = [
         ]
     },
     {
-        title: "Skins CS:GO",
+        title: "Skins CS2",
         link: "/skins",
-        subContent: null,
+        subContent: [
+            {
+                title: "Dragon Lore",
+                link: "/skins?skin=dragon-lore",
+                icon: "csgo",
+            },
+            {
+                title: "Butterfly",
+                link: "/skins?skin=butterfly",
+                icon: "csgo",
+            },
+            {
+                title: "Ak blue-gem",
+                link: "/skins?skin=ak-blue-gem",
+                icon: "csgo",
+            }
+        ]
     },
 ];
