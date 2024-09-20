@@ -42,8 +42,8 @@ const props = defineProps<DropdownProps>();
 </script>
 
 <template>
-    <DropdownMenu>
-        <DropdownMenuTrigger as-child>
+    <DropdownMenu >
+        <DropdownMenuTrigger as-child class="bg-border text-white dark:text-white dark:bg-#0f101d">
             <Button variant="outline" data-testid="Dropdown">
                 {{ props.buttonTile }}
             </Button>
