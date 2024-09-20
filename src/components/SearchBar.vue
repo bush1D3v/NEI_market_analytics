@@ -124,44 +124,7 @@ onMounted(() => {
                         <span class="material-icons mr-2 text-base text-light">add</span>
                         <span class="text-light">Criar</span>
                     </CommandItem>
-                    <CommandItem value="Raiva" to="/reminders/angry?page=1" @click="saveToLocalStorage('Raiva')">
-                        <i class="fi fi-rr-angry mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Raiva</span>
-                    </CommandItem>
-                    <CommandItem value="Ansiedade" to="/reminders/anxiety?page=1"
-                        @click="saveToLocalStorage('Ansiedade')">
-                        <i class="fi fi-rr-face-explode mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Ansiedade</span>
-                    </CommandItem>
-                    <CommandItem value="Tristeza" to="/reminders/sad?page=1" @click="saveToLocalStorage('Tristeza')">
-                        <i class="fi fi-rr-sad-tear mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Tristeza</span>
-                    </CommandItem>
-                    <CommandItem value="Inveja" to="/reminders/envy?page=1" @click="saveToLocalStorage('Inveja')">
-                        <i class="fi fi-rr-face-unamused mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Inveja</span>
-                    </CommandItem>
-                    <CommandItem value="Nojinho" to="/reminders/disgust?page=1" @click="saveToLocalStorage('Nojinho')">
-                        <i class="fi fi-rr-face-confounded mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Nojinho</span>
-                    </CommandItem>
-                    <CommandItem value="Tédio" to="/reminders/boredom?page=1" @click="saveToLocalStorage('Tédio')">
-                        <i class="fi fi-rr-meh mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Tédio</span>
-                    </CommandItem>
-                    <CommandItem value="Alegria" to="/reminders/happiness?page=1"
-                        @click="saveToLocalStorage('Alegria')">
-                        <i class="fi fi-rr-grin mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Alegria</span>
-                    </CommandItem>
-                    <CommandItem value="Medo" to="/reminders/fear?page=1" @click="saveToLocalStorage('Medo')">
-                        <i class="fi fi-rr-face-sad-sweat mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Medo</span>
-                    </CommandItem>
-                    <CommandItem value="Vergonha" to="/reminders/shame?page=1" @click="saveToLocalStorage('Vergonha')">
-                        <i class="fi fi-rr-tired mt-1 mr-2 text-light"></i>
-                        <span class="text-light">Vergonha</span>
-                    </CommandItem>
+
                 </CommandGroup>
             </CommandList>
         </CommandDialog>
