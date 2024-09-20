@@ -31,5 +31,8 @@
 	"Skins CS2": "CS2 Skins",
 	"Você tentou acessar uma página que se perdeu pelo caminho": "You tried to access a page that has been lost by the path",
 	"A página que você tentou acessar não existe, mas você pode começar um novo caminho voltando para a página inicial": "The page you tried to access does not exist, but you can start a new path going back to the home page",
-	"Página Inicial": "Home Page"
+	"Página Inicial": "Home Page",
+	"Vá para moedas globais": "Go to global currencies",
+	"Vá para cripto moedas": "Go to cryptocurrencies",
+	"Sair": "Logout"
 }
