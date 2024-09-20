@@ -1,35 +1,35 @@
 import type {Menu} from "@/components/Dropdown.vue";
+import Ethereum from "@/assets/images/ethereum.png";
+import Bitcoin from "@/assets/images/bitcoin.png";
+import Dogecoin from "@/assets/images/dogecoin.png";
 
-export const DropdownMock: Menu[] = [
+export const DropdownDto: Menu[] = [
 	{
+		emoji: "&#129689;",
 		title: "Cripto moedas",
-		link: "/criptos",
+		link: "/cryptos",
 		subContent: [
 			{
 				title: "Bitcoin",
-				link: "/criptos?coin=bitcoin",
-				icon: "bitcoin",
+				link: "/cryptos?coin=bitcoin",
+				logo: Bitcoin,
 			},
 			{
 				title: "Ethereum",
-				link: "/criptos?coin=ethereum",
-				icon: "ethereum",
+				link: "/cryptos?coin=ethereum",
+				logo: Ethereum,
 			},
 			{
 				title: "Dogecoin",
-				link: "/criptos?coin=dogecoin",
-				icon: "dogecoin",
+				link: "/cryptos?coin=dogecoin",
+				logo: Dogecoin,
 			},
 		],
 	},
 	{
+		emoji: "&#128181;",
 		title: "Moedas globais",
-		link: "/moedas",
-		subContent: null,
-	},
-	{
-		title: "Skins CS:GO",
-		link: "/skins",
+		link: "/coins",
 		subContent: null,
 	},
 ];
