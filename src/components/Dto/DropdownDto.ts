@@ -1,67 +1,76 @@
-import type { Menu } from "../Dropdown.vue";
+import type {Menu} from "../Dropdown.vue";
+import Ethereum from "@/assets/images/ethereum.png";
+import Bitcoin from "@/assets/images/bitcoin.png";
+import Dogecoin from "@/assets/images/dogecoin.png";
+import Dollar from "@/assets/images/dollar.png";
+import Euro from "@/assets/images/euro.png";
+import Real from "@/assets/images/real.png";
 
 export const DropdownDto: Menu[] = [
-    {
-        title: "Cripto moedas",
-        link: "/criptos",
-        subContent: [
-            {
-                title: "Bitcoin",
-                link: "/criptos?coin=bitcoin",
-                icon: "bitcoin",
-            },
-            {
-                title: "Ethereum",
-                link: "/criptos?coin=ethereum",
-                icon: "ethereum",
-            },
-            {
-                title: "Dogecoin",
-                link: "/criptos?coin=dogecoin",
-                icon: "dogecoin",
-            },
-        ],
-    },
-    {
-        title: "Moedas globais",
-        link: "/coins",
-        subContent: [
-            {
-                title: "Dollar",
-                link: "/coins?coin=dollar",
-                icon: "dollar",
-            },
-            {
-                title: "Euro",
-                link: "/coins?coin=euro",
-                icon: "Euro",
-            },
-            {
-                title: "Real",
-                link: "/coins?coin=real",
-                icon: "real",
-            },
-        ]
-    },
-    {
-        title: "Skins CS2",
-        link: "/skins",
-        subContent: [
-            {
-                title: "Dragon Lore",
-                link: "/skins?skin=dragon-lore",
-                icon: "csgo",
-            },
-            {
-                title: "Butterfly",
-                link: "/skins?skin=butterfly",
-                icon: "csgo",
-            },
-            {
-                title: "Ak blue-gem",
-                link: "/skins?skin=ak-blue-gem",
-                icon: "csgo",
-            }
-        ]
-    },
+	{
+		emoji: "&#129689;",
+		title: "Cripto moedas",
+		link: "/cryptos",
+		subContent: [
+			{
+				title: "Bitcoin",
+				link: "/cryptos/bitcoin",
+				logo: Bitcoin,
+			},
+			{
+				title: "Ethereum",
+				link: "/cryptos/ethereum",
+				logo: Ethereum,
+			},
+			{
+				title: "Dogecoin",
+				link: "/cryptos/dogecoin",
+				logo: Dogecoin,
+			},
+		],
+	},
+	{
+		emoji: "&#128181;",
+		title: "Moedas globais",
+		link: "/coins",
+		subContent: [
+			{
+				title: "Dollar",
+				link: "/coins/dollar",
+				logo: Dollar,
+			},
+			{
+				title: "Real",
+				link: "/coins/real",
+				logo: Real,
+			},
+			{
+				title: "Euro",
+				link: "/coins/euro",
+				logo: Euro,
+			},
+		],
+	},
+	// {
+	//     emoji: "&#128299;",
+	//     title: "Skins CS2",
+	//     link: "/skins",
+	//     subContent: [
+	//         {
+	//             title: "Dragon Lore",
+	//             link: "/skins?skin=dragon-lore",
+	//             logo: "csgo",
+	//         },
+	//         {
+	//             title: "Butterfly",
+	//             link: "/skins?skin=butterfly",
+	//             logo: "csgo",
+	//         },
+	//         {
+	//             title: "Ak blue-gem",
+	//             link: "/skins?skin=ak-blue-gem",
+	//             logo: "csgo",
+	//         },
+	//     ],
+	// },
 ];
