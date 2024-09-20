@@ -12,7 +12,7 @@ useTranslation();
     <main class="justify-around container">
         <div class="flex flex-col gap-2 text-center">
             <h1>Impulsionando o Futuro Juntos</h1>
-            <h2 class="font-light text-fgDim dark:text-textureDarker text-base md:text-xl">Colaborando para um amanhã mais tecnológico.
+            <h2 class="font-light text-fgDim dark:text-textureDarker text-base md:text-xl" >Colaborando para um amanhã mais tecnológico.
             </h2>
         </div>
         <div class="flex flex-col gap-8 my-10 md:mt-0">
