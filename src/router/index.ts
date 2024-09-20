@@ -2,6 +2,10 @@ import {createRouter, createWebHistory} from "vue-router";
 import Home from "@/views/Home.vue";
 import AboutUs from "@/views/AboutUs.vue";
 import NotFound from "@/views/NotFound.vue";
+import Coins from "@/views/Coins.vue";
+import Cryptos from "@/views/Cryptos.vue";
+import CryptoDetail from "@/views/CryptoDetail.vue";
+import CoinDetail from "@/views/CoinDetail.vue";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,8 +39,68 @@ const router = createRouter({
 				ogTitle: "Sobre Nós | NEI Market Analytics",
 				ogDescription: "Learn more about NEI Market Analytics and our mission.",
 				ogImage: "/logo.svg",
-				ogUrl: "http://localhost:5173/",
+				ogUrl: "http://localhost:5173/about-u",
 			},
+		},
+		{
+			path: "/coins",
+			name: "Coins",
+			component: Coins,
+			meta: {
+				title: "Coins | NEI Market Analytics",
+				description: "Explore our comprehensive list of digital assets.",
+				keywords: "coins, digital assets, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "Coins | NEI Market Analytics",
+				ogDescription: "Explore our comprehensive list of digital assets.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/coins",
+			},
+		},
+		{
+			path: "/coins/:coin",
+			name: "CoinDetail",
+			component: CoinDetail,
+			meta: {
+				description: "Explore our comprehensive list of digital assets.",
+				keywords: "coins, digital assets, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "Coins | NEI Market Analytics",
+				ogDescription: "Explore our comprehensive list of digital assets.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/coins/:coin",
+			},
+			props: (route) => ({key: route.params.coin}),
+		},
+		{
+			path: "/cryptos",
+			name: "Cryptos",
+			component: Cryptos,
+			meta: {
+				title: "Crypto | NEI Market Analytics",
+				description: "Explore our comprehensive list of crypto assets.",
+				keywords: "crypto, crypto assets, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "Crypto | NEI Market Analytics",
+				ogDescription: "Explore our comprehensive list of crypto assets.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/cryptos",
+			},
+		},
+		{
+			path: "/cryptos/:crypto",
+			name: "CryptoDetail",
+			component: CryptoDetail,
+			meta: {
+				description: "Explore our comprehensive crypto.",
+				keywords: "crypto, crypto assets, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "Crypto | NEI Market Analytics",
+				ogDescription: "Explore our comprehensive crypto.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/cryptos/:crypto",
+			},
+			props: (route) => ({key: route.params.crypto}),
 		},
 		{
 			path: "/:pathMatch(.*)*",

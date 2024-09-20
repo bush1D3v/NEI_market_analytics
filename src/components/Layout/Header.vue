@@ -3,8 +3,8 @@ import Dropdown from "@/components/Dropdown.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
-import { DropdownDto } from "@/components/Dto/DropdownDto";
-import { useTranslation } from "@/config/composable/translate";
+import {DropdownDto} from "@/components/Dto/DropdownDto";
+import {useTranslation} from "@/config/composable/translate";
 
 useTranslation();
 </script>

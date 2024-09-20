@@ -1,29 +1,29 @@
 <script lang="ts" setup>
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
 } from "@/components/ui/accordion";
-import type { HTMLAttributes } from "vue";
+import type {HTMLAttributes} from "vue";
 
 export interface Item {
-    value: string;
-    title: string;
-    content: string;
+	value: string;
+	title: string;
+	content: string;
 }
 
 export interface AccordionProps {
-    items: Item[];
-    type?: "single" | "multiple" | undefined;
-    collapsible?: boolean;
-    class?: HTMLAttributes[ "class" ];
+	items: Item[];
+	type?: "single" | "multiple" | undefined;
+	collapsible?: boolean;
+	class?: HTMLAttributes["class"];
 }
 
 const props = withDefaults(defineProps<AccordionProps>(), {
-    type: "single",
-    collapsible: true,
-    class: "w-full",
+	type: "single",
+	collapsible: true,
+	class: "w-full",
 });
 </script>
 
