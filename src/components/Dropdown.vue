@@ -14,14 +14,19 @@ import {
 	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Image from "@/tags/Image.vue";
 
 export interface SubContent {
+	/**
+	 * Imagem referente ao subItem
+	 */
+	logo: string;
 	title: string;
 	link: string;
-	icon: string;
 }
 
 export interface Menu {
+	emoji: string;
 	title: string;
 	link: string;
 	subContent: SubContent[] | null;
@@ -53,13 +58,15 @@ const props = defineProps<DropdownProps>();
             <DropdownMenuGroup>
                 <template v-for="menu in props.menu">
                     <RouterLink v-if="menu.subContent === null" :to="menu.link">
-                        <DropdownMenuItem class="group cursor-pointer">
+                        <DropdownMenuItem class="group cursor-pointer flex gap-3">
+                            <span v-html="menu.emoji"></span>
                             <span v-translate>{{ menu.title }}</span>
                         </DropdownMenuItem>
                     </RouterLink>
                     <DropdownMenuSub v-else>
                         <RouterLink :to="menu.link">
-                            <DropdownMenuSubTrigger class="group cursor-pointer">
+                            <DropdownMenuSubTrigger class="group cursor-pointer flex gap-3">
+                                <div v-html="menu.emoji"></div>
                                 <span v-translate>{{ menu.title }}</span>
                             </DropdownMenuSubTrigger>
                         </RouterLink>
@@ -67,9 +74,9 @@ const props = defineProps<DropdownProps>();
                             <DropdownMenuSubContent>
                                 <template v-for="subContent in menu.subContent">
                                     <RouterLink :to="subContent.link">
-                                        <DropdownMenuItem class="group cursor-pointer gap-1">
-                                            <span>{{ subContent.icon }}</span>
-                                            <span v-translate>{{ subContent.title }}</span>
+                                        <DropdownMenuItem class="group cursor-pointer gap-3">
+                                            <Image :src="subContent.logo" alt="Logo" width="20" height="20" />
+                                            <span>{{ subContent.title }}</span>
                                         </DropdownMenuItem>
                                     </RouterLink>
                                 </template>
