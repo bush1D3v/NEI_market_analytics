@@ -43,7 +43,7 @@ const props = defineProps<DropdownProps>();
 
 <template>
     <DropdownMenu >
-        <DropdownMenuTrigger as-child class="bg-border text-white dark:text-white dark:bg-#0f101d">
+        <DropdownMenuTrigger as-child class="bg-border text-white dark:text-white dark:bg-#0f101d" >
             <Button variant="outline" data-testid="Dropdown">
                 {{ props.buttonTile }}
             </Button>
