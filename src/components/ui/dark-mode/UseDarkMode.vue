@@ -1,12 +1,9 @@
 <script setup>
 import { useDark, useToggle } from "@vueuse/core";
 import { watchEffect, ref } from "vue";
-
 import { Icon } from "@iconify/vue";
-
 const savedTheme = localStorage.getItem("theme");
 const isDark = ref(savedTheme === "dark" || savedTheme === null);
-
 // Função para alternar o tema
 const toggleDark = useToggle(isDark);
 
@@ -23,7 +20,7 @@ watchEffect(() => {
 
 <template>
     <button @click="toggleDark()" aria-label="Toggle dark mode">
-        <!-- Colocar isso em estado para mudar de icone, e consequentemente mudar o tema  -->
+        
         <a v-if="isDark">🌙</a>
         <a v-else>🌞</a>
     </button>
