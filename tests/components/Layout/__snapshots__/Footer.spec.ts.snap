@@ -1,3 +1,31 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Footer Component Tests > Should be able to snapshot the component correctly 1`] = `"<footer class="layout container justify-center min-w-full border-t" data-testid="Footer"> Footer </footer>"`;
+exports[`Footer Component Tests > Should be able to snapshot the component correctly 1`] = `
+"<footer data-v-936543d0="" class="layout container justify-center min-w-full border-t text-dark" data-testid="Footer">
+  <ul data-v-936543d0="" class="flex justify-around w-full py-12">
+    <li data-v-936543d0="" class="flex flex-col gap-4">
+      <image-stub data-v-936543d0="" src="/logo.svg" alt="NEI Logo" width="200" height="71.59"></image-stub><span data-v-936543d0="">© 2024 Todos os direitos reservados.</span>
+    </li>
+    <li data-v-936543d0="" class="flex flex-col gap-5">
+      <h3 data-v-936543d0="">Info</h3>
+      <ul data-v-936543d0="" class="flex flex-col gap-2">
+        <li data-v-936543d0="">
+          <router-link-stub data-v-936543d0="" to="/about-us" class="hover:opacity-50"></router-link-stub>
+        </li>
+        <li data-v-936543d0="">
+          <router-link-stub data-v-936543d0="" to="/privacy-policy" class="hover:opacity-50"></router-link-stub>
+        </li>
+        <li data-v-936543d0="">
+          <router-link-stub data-v-936543d0="" to="/cookie-policy" class="hover:opacity-50"></router-link-stub>
+        </li>
+      </ul>
+    </li>
+    <li data-v-936543d0="" class="flex flex-col gap-5">
+      <h3 data-v-936543d0="">Modo Escuro</h3>
+      <toggle-theme-stub data-v-936543d0="" variant="airplane"></toggle-theme-stub>
+      <h3 data-v-936543d0="">Redes Sociais</h3>
+      <link-stub data-v-936543d0="" href="https://github.com/bush1D3v/NEI_market_analytics/tree/dev" target="_blank"></link-stub>
+    </li>
+  </ul>
+</footer>"
+`;

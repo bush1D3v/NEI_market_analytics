@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Header Component Tests > Should be able to snapshot the component correctly 1`] = `
-"<header data-v-5f758600="" class="layout flex justify-between px-8 items-center min-w-full border-b" data-testid="Header">
+"<header data-v-5f758600="" class="layout flex justify-between px-8 py-3 items-center min-w-full border-b" data-testid="Header">
   <div data-v-5f758600="" class="gap-4 items-center">
     <router-link-stub data-v-5f758600="" to="/" class="hover:opacity-50"></router-link-stub>
     <dropdown-stub data-v-5f758600="" buttontile="Mercados" label="Tópicos" menu="[object Object],[object Object]"></dropdown-stub>
@@ -10,7 +10,7 @@ exports[`Header Component Tests > Should be able to snapshot the component corre
     <search-bar-stub data-v-5f758600=""></search-bar-stub>
   </div>
   <div data-v-5f758600="" class="justify-end">
-    <toggle-theme-stub data-v-5f758600=""></toggle-theme-stub>
+    <toggle-theme-stub data-v-5f758600="" variant="switch"></toggle-theme-stub>
   </div>
 </header>"
 `;
