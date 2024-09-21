@@ -20,6 +20,7 @@ describe("Header Component Tests", () => {
 			"flex",
 			"justify-between",
 			"px-8",
+			"py-3",
 			"items-center",
 			"min-w-full",
 			"border-b",
