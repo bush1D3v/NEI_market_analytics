@@ -14,8 +14,11 @@ describe("Footer Component Tests", () => {
 		expect(footerComponent.html()).toMatchSnapshot();
 	});
 
-	test("Should be able to render the component with the correct text", async () => {
-		expect(footerComponent.text()).toStrictEqual("Footer");
+	test("Should be able to render the component with the correct texts", async () => {
+		expect(footerComponent.text()).toContain("© 2024 Todos os direitos reservados.");
+		expect(footerComponent.text()).toContain("Info");
+		expect(footerComponent.text()).toContain("Modo Escuro");
+		expect(footerComponent.text()).toContain("Redes Sociais");
 	});
 
 	test("Should be able to render the component with the correct classes", async () => {
@@ -25,6 +28,7 @@ describe("Footer Component Tests", () => {
 			"justify-center",
 			"min-w-full",
 			"border-t",
+			"text-dark",
 		]);
 	});
 });
