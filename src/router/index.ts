@@ -6,6 +6,8 @@ import Coins from "@/views/Coins.vue";
 import Cryptos from "@/views/Cryptos.vue";
 import CryptoDetail from "@/views/CryptoDetail.vue";
 import CoinDetail from "@/views/CoinDetail.vue";
+import CookiePolicy from "@/views/CookiePolicy.vue";
+import PrivacyPolicy from "@/views/PrivacyPolicy.vue";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,14 +34,44 @@ const router = createRouter({
 			name: "About Us",
 			component: AboutUs,
 			meta: {
-				title: "Sobre Nós | NEI Market Analytics",
+				title: "About Us | NEI Market Analytics",
 				description: "Learn more about NEI Market Analytics and our mission.",
 				keywords: "about us, NEI Market Analytics, company information",
 				robots: "index, follow",
-				ogTitle: "Sobre Nós | NEI Market Analytics",
+				ogTitle: "About Us | NEI Market Analytics",
 				ogDescription: "Learn more about NEI Market Analytics and our mission.",
 				ogImage: "/logo.svg",
 				ogUrl: "http://localhost:5173/about-u",
+			},
+		},
+		{
+			path: "/privacy-policy",
+			name: "PrivacyPolicy",
+			component: PrivacyPolicy,
+			meta: {
+				title: "Privacy Policy | NEI Market Analytics",
+				description: "Learn more about our privacy policy.",
+				keywords: "privacy policy, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "Privacy Policy | NEI Market Analytics",
+				ogDescription: "Learn more about our privacy policy.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/privacy-policy",
+			},
+		},
+		{
+			path: "/cookie-policy",
+			name: "CookiePolicy",
+			component: CookiePolicy,
+			meta: {
+				title: "Cookie Policy | NEI Market Analytics",
+				description: "Learn more about our cookie policy.",
+				keywords: "cookie policy, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "Cookie Policy | NEI Market Analytics",
+				ogDescription: "Learn more about our cookie policy.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/cookie-policy",
 			},
 		},
 		{
