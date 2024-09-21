@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import Dropdown from "@/components/Dropdown.vue";
 import SearchBar from "@/components/SearchBar.vue";
-import ToggleTheme from "../ToggleTheme.vue";
+import ToggleTheme from "@/components/ToggleTheme.vue";
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import {DropdownDto} from "@/components/Dto/DropdownDto";
@@ -11,8 +11,7 @@ useTranslation();
 </script>
 
 <template>
-
-    <header class="layout flex justify-between px-8 items-center min-w-full border-b" data-testid="Header">
+    <header class="layout flex justify-between px-8 py-3 items-center min-w-full border-b" data-testid="Header">
         <div class="gap-4 items-center">
             <RouterLink to="/" class="hover:opacity-50">
                 <Image class="w-[150px] h-[53.69px]" src="/logo.svg" alt="NEI Logo" width="150" height="53.69" />
@@ -23,7 +22,7 @@ useTranslation();
             <SearchBar />
         </div>
         <div class="justify-end">
-            <ToggleTheme />
+            <ToggleTheme variant="switch" />
         </div>
     </header>
 </template>
