@@ -51,7 +51,6 @@ export const theme = {
 			"primary-darker": "var(--primary-darker)",
 			background: "var(--background)",
 			surface: "var(--surface)",
-			blue: "var(--blue)",
 			text: "var(--text)",
 			border: "var(--border)",
 			input: "var(--input)",
