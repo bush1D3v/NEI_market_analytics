@@ -3,7 +3,7 @@ import Ethereum from "@/assets/images/ethereum.png";
 import Bitcoin from "@/assets/images/bitcoin.png";
 import Dogecoin from "@/assets/images/dogecoin.png";
 
-export const DropdownDto: Menu[] = [
+export const DropdownMock: Menu[] = [
 	{
 		emoji: "&#129689;",
 		title: "Cripto moedas",
