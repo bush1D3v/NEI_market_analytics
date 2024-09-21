@@ -3,7 +3,7 @@ import vTranslate from "../directive/v-translate";
 
 export function useTranslation() {
 	const applyTranslation = () => {
-		const tagsToTranslate = ["span", "p", "h1", "h2", "h3", "button"];
+		const tagsToTranslate = ["span", "p", "h1", "h2", "h3", "h4", "a", "strong", "button"];
 
 		for (const tag of tagsToTranslate) {
 			const elements = document.querySelectorAll(tag);
