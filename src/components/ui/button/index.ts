@@ -7,12 +7,15 @@ export const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: "bg-primary text-primary-foreground shadow hover:bg-accent",
-				destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-accent",
-				outline: "border bg-background shadow-sm hover:bg-accent hover:text-textForeground",
-				secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-accent",
-				ghost: "hover:bg-accent hover:text-textForeground",
-				link: "text-primary underline-offset-4 hover:underline",
+				default: "bg-primary text-primary-foreground shadow hover:bg-accent duration-300",
+				destructive:
+					"bg-destructive text-destructive-foreground shadow-sm hover:bg-accent duration-300",
+				outline:
+					"border bg-background shadow-sm hover:bg-accent hover:text-textForeground duration-300",
+				secondary:
+					"bg-secondary text-secondary-foreground shadow-sm hover:bg-accent duration-300",
+				ghost: "hover:bg-accent hover:text-textForeground duration-300",
+				link: "text-primary underline-offset-4 hover:underline duration-300",
 			},
 			size: {
 				default: "h-9 px-4 py-2",
