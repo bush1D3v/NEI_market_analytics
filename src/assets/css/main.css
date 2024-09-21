@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+    .dark {
+        --text: #ffffff;
+        --text-foreground: #eeeeee;
+        --background: #0f101d;
+        --secondary-darker: #171b2d;
+        --border: #222a44;
+        --accent: #2d375b;
+    }
+
     :root {
         --foreground: #ffffff;
 
@@ -18,8 +27,9 @@
         --input: rgb(25, 19, 15);
         --dark: #1e293b;
 
-        --text: #ffffff;
-        --text-foreground: #eeeeee;
+        --yellow: #fff000;
+        --text: #000000;
+        --text-foreground: #111111;
         --primary: #157efb;
         --primary-foreground: #ffffff;
         --secondary: #0088cc;
@@ -32,15 +42,15 @@
         --positive-darker: #21a26e;
         --negative-lighter: #db6868;
         --negative-darker: #bf2d2d;
-        --background: #0f101d;
+        --background: #f3f2ed;
         --fg: #ffffff;
         --fg-dim: #BAC8D2;
         --fg-muted: #8b94a3;
-        --border: #222a44;
-        --secondary-darker: #171b2d;
+        --border: #191e31;
+        --secondary-lighter: #2e365a;
         --surface-lighter: #20223f;
         --surface-darker: #0e101d;
-        --material-lighter: #2d375b;
+        --material-lighter: #0a0c13;
         --material-darker: #1d2339;
         --texture-lighter: #1f2137;
         --texture-darker: #0d0d17;
@@ -60,7 +70,7 @@
         --primary-darker: #ef233c;
         --primary-darker: #edf2f4;
 
-        --accent: #2d375b;
+        --accent: #d6d6d8;
         --accent-foreground: #ffffff;
 
         --destructive: rgb(149, 149, 149);
@@ -79,6 +89,7 @@
     }
     body {
         @apply min-h-screen bg-background text-text;
+        transition: background-color 0.3s ease-in-out, color 0.2s ease-in-out;
     }
     h1 {
         @apply text-3xl md:text-4xl lg:text-5xl font-bold;
