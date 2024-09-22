@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Link from "@/tags/Link.vue";
-import {useTranslation} from "@/config/composable/translate";
+import { useTranslation } from "@/config/composable/translate";
 
 useTranslation();
 </script>
@@ -143,8 +143,8 @@ useTranslation();
         <h3>Mais Informações sobre Cookies</h3>
         <div class="separator">
             <p>Você pode aprender mais sobre cookies aqui:</p>
-            <Link href="https://www.termsfeed.com/blog/cookies/" target="_blank">Tudo
-            Sobre Cookies por TermsFeed.</Link>
+            <Link href="https://www.termsfeed.com/blog/cookies/" target="_blank"><span>Tudo
+                Sobre Cookies por TermsFeed.</span></Link>
         </div>
         <h3>Contate-Nos</h3>
         <p>Se você tiver alguma dúvida sobre esta Política de Cookies, você pode nos contatar:</p>
