@@ -35,9 +35,12 @@ import Link from "@/tags/Link.vue";
             <li class="flex flex-col gap-5">
                 <h3>Modo Escuro</h3>
                 <ToggleTheme variant="airplane" />
-                <h3>Redes Sociais</h3>
+                    <h3>Redes Sociais</h3>
                 <Link href="https://github.com/bush1D3v/NEI_market_analytics/tree/dev" target="_blank">
-                <span>Ver no GitHub</span>
+                    <div class="flex justify-center gap-3">
+                        <img src="@/assets/images/github.png" alt="GitHub" width="24" height="300" />
+                        <span>Veja nosso no GitHub</span>
+                    </div>
                 </Link>
             </li>
         </ul>
