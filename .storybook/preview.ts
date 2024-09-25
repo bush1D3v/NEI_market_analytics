@@ -2,7 +2,7 @@ import {themes} from "@storybook/theming";
 import {withActions} from "@storybook/addon-actions/decorator";
 import type {Preview} from "@storybook/vue3";
 import {vueRouter} from "storybook-vue3-router";
-import "../src/assets/css/main.css";
+import "../app/assets/css/main.css";
 
 const preview: Preview = {
 	parameters: {
