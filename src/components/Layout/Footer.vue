@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
+import github from "@/assets/images/github.png";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import Link from "@/tags/Link.vue";
 </script>
@@ -38,7 +39,7 @@ import Link from "@/tags/Link.vue";
                     <h3>Redes Sociais</h3>
                 <Link href="https://github.com/bush1D3v/NEI_market_analytics/tree/dev" target="_blank">
                     <div class="flex justify-center gap-3">
-                        <img src="@/assets/images/github.png" alt="GitHub" width="24" height="300" />
+                        <Image :src="github" alt="GitHub Logo" width="20" height="20" />
                         <span>Veja nosso no GitHub</span>
                     </div>
                 </Link>
