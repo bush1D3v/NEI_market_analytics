@@ -3,6 +3,7 @@ import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import Link from "@/tags/Link.vue";
+import github from "@/assets/images/github.png";
 </script>
 
 <template>
@@ -37,7 +38,10 @@ import Link from "@/tags/Link.vue";
                 <ToggleTheme variant="airplane" />
                 <h3>Redes Sociais</h3>
                 <Link href="https://github.com/bush1D3v/NEI_market_analytics/tree/dev" target="_blank">
-                <span>Ver no GitHub</span>
+                <div class="flex gap-3">
+                    <Image :src="github" alt="GitHub Logo" width="24" height="24" />
+                    <span>Ver no GitHub</span>
+                </div>
                 </Link>
             </li>
         </ul>
