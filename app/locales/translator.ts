@@ -74,7 +74,7 @@ i18next
 			},
 		},
 		backend: {
-			loadPath: "/src/locales/{{lng}}/translate.json",
+			loadPath: "/app/locales/{{lng}}/translate.json",
 		},
 		detection: {
 			order: [

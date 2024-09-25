@@ -2,21 +2,21 @@
 	"extends": "@vue/tsconfig/tsconfig.dom.json",
 	"include": [
 		"env.d.ts",
-		"src/**/*",
-		"src/**/*.vue",
+		"app/**/*",
+		"app/**/*.vue",
 		"tests/**/*",
 		"stories/**/*",
 		"mocks/**/*",
-		"src/locales"
+		"app/locales"
 	],
-	"exclude": ["src/**/__tests__/*"],
+	"exclude": ["app/**/__tests__/*"],
 	"compilerOptions": {
 		"composite": true,
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["app/*"]
 		}
 	}
 }

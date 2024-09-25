@@ -6,6 +6,8 @@
 		"streetsidesoftware.code-spell-checker-portuguese-brazilian",
 		"ms-azuretools.vscode-docker",
 		"Selemondev.shadcn-vue",
-		"EditorConfig.EditorConfig"
+		"EditorConfig.EditorConfig",
+		"ms-playwright.playwright",
+		"vitest.explorer"
 	]
 }

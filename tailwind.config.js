@@ -4,7 +4,7 @@ import animate from "tailwindcss-animate";
 export const darkMode = ["class"];
 export const safelist = ["dark"];
 export const prefix = "";
-export const content = ["./src/**/*.{ts,tsx,vue}"];
+export const content = ["./app/**/*.{ts,tsx,vue}"];
 export const theme = {
 	container: {
 		center: true,
