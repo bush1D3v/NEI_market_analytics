@@ -9,13 +9,13 @@ import Link from "@/tags/Link.vue";
 <template>
     <footer class="layout container justify-center min-w-full border-t text-dark" data-testid="Footer">
         <ul class="flex justify-around w-full py-12">
-            <li class="flex flex-col gap-4">
+            <li class="flex flex-col gap-6">
                 <Image src="/logo.svg" alt="NEI Logo" width="200" height="71.59" />
                 <span>© 2024 Todos os direitos reservados.</span>
             </li>
             <li class="flex flex-col gap-5">
                 <h3>Info</h3>
-                <ul class="flex flex-col gap-2">
+                <ul class="flex flex-col gap-6">
                     <li>
                         <RouterLink to="/about-us" class="hover:opacity-50">
                             <span>Sobre nós</span>
