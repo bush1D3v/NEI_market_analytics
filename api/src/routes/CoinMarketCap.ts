@@ -1,5 +1,5 @@
 import express from "express";
-import { listingsLatest } from "../proxy/CoinMarketCap.ts";
+import {listingsLatest} from "../proxy/CoinMarketCap.ts";
 
 const coinMarketCapRoutes = express();
 
