@@ -1,8 +1,8 @@
 import express from "express";
-import { getMap } from "../proxy/CoinMarketCap.ts";
+import { listingsLatest } from "../proxy/CoinMarketCap.ts";
 
 const coinMarketCapRoutes = express();
 
-coinMarketCapRoutes.get("/v1/cryptocurrency/map", getMap);
+coinMarketCapRoutes.get("/v1/cryptocurrency/listings/latest", listingsLatest);
 
 export default coinMarketCapRoutes;

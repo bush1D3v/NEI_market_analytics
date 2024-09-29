@@ -11,22 +11,34 @@
         --border: #222a44;
         --accent: #2d375b;
         --dark: #8b94a3;
+        --card: #2d375b;
+        --muted: #eeeeee;
     }
 
     :root {
         --foreground: #ffffff;
 
-        --muted: rgb(12, 12, 12);
+        --muted: #111111;
         --muted-foreground: rgb(141, 67, 14);
 
-        --popover: rgb(0, 0, 0);
+        --popover: rgb(255, 0, 0);
         --popover-foreground: #ffffff;
 
-        --card: rgb(0, 0, 0);
+        --card: #c9c9c9;
         --card-foreground: #ffffff;
 
         --input: rgb(25, 19, 15);
         --dark: #607585;
+
+        --vis-tooltip-background-color: none !important;
+        --vis-tooltip-border-color: none !important;
+        --vis-tooltip-text-color: none !important;
+        --vis-tooltip-shadow-color: none !important;
+        --vis-tooltip-backdrop-filter: none !important;
+        --vis-tooltip-padding: none !important;
+        --vis-primary-color: var(--primary);
+        --vis-secondary-color: 160 81% 40%;
+        --vis-text-color: var(--secondary);
 
         --yellow: #fff000;
         --text: #000000;
@@ -44,11 +56,12 @@
         --negative-lighter: #db6868;
         --negative-darker: #bf2d2d;
         --background: #f7fafd;
+        --secondary-darker: #eeeeee;
         --fg: #ffffff;
         --fg-dim: #BAC8D2;
         --fg-muted: #8b94a3;
         --border: #191e31;
-        --secondary-lighter: #2e365a;
+        --secondary-lighter: #3c4366;
         --surface-lighter: #20223f;
         --surface-darker: #0e101d;
         --material-lighter: #0a0c13;
@@ -103,6 +116,12 @@
     }
     h4 {
         @apply text-lg md:text-xl lg:text-2xl font-semibold;
+    }
+    h5 {
+        @apply text-base md:text-lg lg:text-xl font-semibold;
+    }
+    h6 {
+        @apply text-sm md:text-base lg:text-lg font-semibold;
     }
 }
 

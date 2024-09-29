@@ -17,18 +17,26 @@ interface ResponseData {
     data: CryptoCurrency[];
 }
 
-export async function getMap(req: Request, res: Response) {
-    const { limit = 10 } = req.query;
-
+/**
+ * Handles the request to get the latest cryptocurrency listings.
+ *
+ * @param {Request} req - The request object
+ * @param {Response} res - The response object
+ * @returns {void}
+ * @throws {Error} If the request to the external API fails
+ */
+export async function listingsLatest(req: Request, res: Response): Promise<void> {
+    const { limit = 12, start = 1 } = req.query;
     try {
         const response = await get(
-            `${BASE_API_URL}/v1/cryptocurrency/map?limit=${limit}`,
+            `${BASE_API_URL}/v1/cryptocurrency/listings/latest?limit=${limit}&start=${start}`,
             defaultHeaders,
         );
 
         if (!response.ok) throw new Error(await response.json());
 
         const data: ResponseData = await response.json();
+
         res.json(data.data);
     } catch (error) {
         console.error(error);

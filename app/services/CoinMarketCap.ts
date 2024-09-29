@@ -1,10 +1,10 @@
 import { get } from "@/server/HttpClient";
 import type { CryptoCurrency } from "@/types/CoinMarketCap/CryptoCurrency";
 
-export async function listBitcoin(limit = 10): Promise<CryptoCurrency[] | undefined> {
+export async function listBitcoin(limit = 12, start = 1): Promise<CryptoCurrency[] | undefined> {
     try {
         const response = await get(
-            `/v1/cryptocurrency/map?limit=${limit}`,
+            `/v1/cryptocurrency/listings/latest?limit=${limit}&start=${start}`,
         );
 
         if (!response.ok) throw new Error(await response.json());

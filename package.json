@@ -25,7 +25,9 @@
 	},
 	"dependencies": {
 		"@radix-icons/vue": "^1.0.0",
-		"@vueuse/core": "^11.0.3",
+		"@unovis/ts": "^1.4.3-beta.0",
+		"@unovis/vue": "^1.4.3-beta.0",
+		"@vueuse/core": "^11.1.0",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
 		"i18next": "^23.15.1",
@@ -75,5 +77,7 @@
 		"vitest": "^2.0.5",
 		"vue-tsc": "^2.0.21"
 	},
-	"trustedDependencies": ["@biomejs/biome"]
+	"trustedDependencies": [
+		"@biomejs/biome"
+	]
 }

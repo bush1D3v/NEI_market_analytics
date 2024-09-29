@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Link from "@/tags/Link.vue";
-import {useTranslation} from "@/config/composable/translate";
+import { useTranslation } from "@/config/composable/translate";
 
 useTranslation();
 </script>
 
 <template>
-    <main class="flex flex-col py-4 max-w-7xl m-auto gap-4">
+    <main class="flex flex-col my-4 max-w-7xl m-auto gap-4">
         <h1>Política de Privacidade</h1>
         <p>Última atualização: 21 de setembro de 2024</p>
         <p>Esta Política de Privacidade descreve as nossas políticas e procedimentos sobre a coleta, uso e divulgação
