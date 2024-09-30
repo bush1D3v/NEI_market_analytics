@@ -123,6 +123,9 @@
     h6 {
         @apply text-sm md:text-base lg:text-lg font-semibold;
     }
+    p {
+        @apply text-destructive;
+    }
 }
 
 .container {

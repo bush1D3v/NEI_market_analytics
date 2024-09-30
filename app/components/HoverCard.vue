@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import {CalendarIcon} from "@radix-icons/vue";
+import { CalendarIcon } from "@radix-icons/vue";
 
-import {Button} from "@/components/ui/button";
-import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card";
+import { Button } from "@/components/ui/button";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import Image from "@/tags/Image.vue";
 
 export interface HoverCardProps {
-	title: string;
-	description: string;
-	startDate: string;
-	avatarSrc: string;
+    title: string;
+    description: string;
+    startDate: string;
+    avatarSrc: string;
 }
 
 const props = defineProps<HoverCardProps>();
@@ -29,9 +29,9 @@ const props = defineProps<HoverCardProps>();
                     <h4 class="text-sm font-semibold">
                         @{{ props.title }}
                     </h4>
-                    <p class="text-sm">
+                    <span class="text-sm">
                         {{ props.description }}
-                    </p>
+                    </span>
                     <div class="flex items-center pt-2">
                         <CalendarIcon class="mr-2 h-4 w-4 opacity-70" />
                         <span class="text-xs text-textForeground">

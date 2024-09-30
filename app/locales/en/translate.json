@@ -31,7 +31,7 @@
 	"Skins CS2": "CS2 Skins",
 	"Você tentou acessar uma página que se perdeu pelo caminho": "You tried to access a page that has been lost by the path",
 	"A página que você tentou acessar não existe, mas você pode começar um novo caminho voltando para a página inicial": "The page you tried to access does not exist, but you can start a new path going back to the home page",
-	"Página Inicial": "Home Page",
+	"Vá para Página Inicial": "Go to Homepage",
 	"Vá para moedas globais": "Go to global currencies",
 	"Vá para cripto moedas": "Go to cryptocurrencies",
 	"Sair": "Logout",
@@ -179,5 +179,7 @@
 	"Volume": "Volume",
 	"Explore": "Explore",
 	"Carregar Mais": "Load More",
-	"Carregando...": "Loading..."
+	"Carregando...": "Loading...",
+	"Algo deu errado, tente novamente mais tarde": "Something went wrong, please try again later",
+	"Erro Interno do Servidor": "Internal Server Error"
 }
