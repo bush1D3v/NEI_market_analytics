@@ -1,5 +1,5 @@
 import express from "express";
-import { latestList } from "@/proxy/WorldCurrencyList";
+import { latestList } from "@/proxy/TradingView";
 
 const coinsMarketWorldRoutes = express();
 
