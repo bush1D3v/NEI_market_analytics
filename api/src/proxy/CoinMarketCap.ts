@@ -37,9 +37,10 @@ export async function listingsLatest(req: Request, res: Response): Promise<void>
 
         const data: ResponseData = await response.json();
 
-        res.json(data.data);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error });
-    }
+		res.json(data.data).status(200);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({error: error});
+	}
+
 }
