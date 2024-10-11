@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {useThemeStore} from "@/stores/useThemeStore";
+import { useThemeStore } from "@/stores/useThemeStore";
 
 export interface ToggleThemeProps {
-	variant: "switch" | "airplane";
+    variant: "switch" | "airplane";
 }
 
 const props = defineProps<ToggleThemeProps>();

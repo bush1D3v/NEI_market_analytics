@@ -31,7 +31,7 @@
 	"Skins CS2": "Skins de CS2",
 	"Você tentou acessar uma página que se perdeu pelo caminho": "Intentaste acceder a una página que se perdió en el camino",
 	"A página que você tentou acessar não existe, mas você pode começar um novo caminho voltando para a página inicial": "La página que intentaste acceder no existe, pero puedes comenzar un nuevo camino volviendo a la página de inicio",
-	"Página Inicial": "Página de Inicio",
+	"Vá para Página Inicial": "Ir a la Página de Inicio",
 	"Vá para moedas globais": "Ir a monedas globales",
 	"Vá para cripto moedas": "Ir a criptomonedas",
 	"Sair": "Cerrar sesión",
@@ -179,5 +179,7 @@
 	"Volume": "Volumen",
 	"Explore": "Explorar",
 	"Carregar Mais": "Cargar Más",
-	"Carregando...": "Cargando..."
+	"Carregando...": "Cargando...",
+	"Algo deu errado, tente novamente mais tarde": "Algo salio mal, intentelo de nuevo mas tarde",
+	"Erro Interno do Servidor": "Error Interno del Servidor"
 }

@@ -1,66 +1,67 @@
 <script setup lang="ts">
-import {onMounted, ref, watch} from "vue";
-import {useMagicKeys} from "@vueuse/core";
-import {PlusIcon} from "@radix-icons/vue";
-import {RoutesEnum} from "@/enum/RoutesEnum";
-import {t} from "i18next";
+import { onMounted, ref, watch } from "vue";
+import { useMagicKeys } from "@vueuse/core";
+import { PlusIcon } from "@radix-icons/vue";
+import { RoutesEnum } from "@/enum/RoutesEnum";
+import { t } from "i18next";
 import {
-	Command,
-	CommandEmpty,
-	CommandGroup,
-	CommandInput,
-	CommandItem,
-	CommandList,
-	CommandSeparator,
-	CommandDialog,
+    Command,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandDialog,
 } from "@/components/ui/command";
 const inputValue = ref("");
 const searchValue = JSON.parse(localStorage.getItem("searchValue") || "[]") as string[];
 function saveToLocalStorage(input: string): void {
-	const treatedValue = RoutesEnum.findClosestTextMatch(input) as string;
-	if (
-		!searchValue.includes(treatedValue) &&
-		treatedValue !== undefined &&
-		treatedValue !== "" &&
-		treatedValue !== null
-	) {
-		if (searchValue.length === 4) {
-			searchValue.pop();
-		}
-		searchValue.unshift(treatedValue);
-	}
-	localStorage.setItem("searchValue", JSON.stringify(searchValue));
-	inputValue.value = "";
-	blur();
+    const treatedValue = RoutesEnum.findClosestTextMatch(input) as string;
+    if (
+        !searchValue.includes(treatedValue) &&
+        treatedValue !== undefined &&
+        treatedValue !== "" &&
+        treatedValue !== null
+    ) {
+        if (searchValue.length === 4) {
+            searchValue.pop();
+        }
+        searchValue.unshift(treatedValue);
+    }
+    localStorage.setItem("searchValue", JSON.stringify(searchValue));
+    inputValue.value = "";
+    blur();
 }
 const isFocused = ref(false);
 function focus() {
-	isFocused.value = true;
+    isFocused.value = true;
 }
 function blur() {
-	isFocused.value = false;
+    isFocused.value = false;
 }
 function handleOpenChange() {
-	isFocused.value = !isFocused.value;
+    isFocused.value = !isFocused.value;
 }
-const {Meta_J, Ctrl_J} = useMagicKeys({
-	passive: false,
-	onEventFired(e) {
-		if (e.key === "j" && (e.metaKey || e.ctrlKey)) e.preventDefault();
-	},
+const { Meta_J, Ctrl_J } = useMagicKeys({
+    passive: false,
+    onEventFired(e) {
+        if (e.key === "j" && (e.metaKey || e.ctrlKey)) e.preventDefault();
+    },
 });
-watch([Meta_J, Ctrl_J], (v) => {
-	if (v[0] || v[1]) handleOpenChange();
+watch([ Meta_J, Ctrl_J ], (v) => {
+    if (v[ 0 ] || v[ 1 ]) handleOpenChange();
 });
 onMounted(() => {
-	blur();
+    blur();
 });
 </script>
 
 <template>
     <Command class="group rounded-lg border shadow-md max-w-80 md:max-w-[450px] mx-0 z-50 relative duration-300">
         <div class="w-full" cmdk-input-wrapper>
-            <CommandInput @click="focus" :icon-text="'dark'" :placeholder="t('Pesquisar...')" class="w-full" />
+            <CommandInput @click="focus" :icon-text="'dark'" :placeholder="t('Pesquisar...')" class="w-full"
+                name="fake-search" />
         </div>
         <kbd
             class="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium text-text opacity-100 absolute top-[10px] right-4 bg-transparent my-0">
@@ -69,7 +70,7 @@ onMounted(() => {
         <CommandDialog v-model:open="isFocused">
             <div class="flex items-center border-b bg-darkAlt pl-4" cmdk-input-wrapper>
                 <CommandInput :placeholder="t('Pesquisar...')" @input="inputValue = $event.target.value"
-                    :icon-text="'light'" />
+                    :icon-text="'light'" name="search" />
             </div>
             <CommandList>
                 <CommandGroup heading="Recentes" v-if="searchValue.length > 0 && inputValue.length === 0">
