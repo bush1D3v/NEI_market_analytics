@@ -13,8 +13,8 @@ const defaultHeaders = {
 	"X-CMC_PRO_API_KEY": API_KEY,
 };
 
-interface ResponseData {
-	data: CryptoCurrency[];
+interface ResponseListingLatestData {
+    data: CryptoCurrency[];
 }
 
 /**
@@ -35,7 +35,38 @@ export async function listingsLatest(req: Request, res: Response): Promise<void>
 
 		if (!response.ok) throw new Error(await response.json());
 
-		const data: ResponseData = await response.json();
+        const data: ResponseListingLatestData = await response.json();
+
+        res.json(data.data);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: error });
+    }
+}
+
+interface ResponseDetailData {
+    data: CryptoCurrency;
+}
+
+/**
+ * Handles the request to get the latest cryptocurrency listings.
+ *
+ * @param {Request} req - The request object
+ * @param {Response} res - The response object
+ * @returns {void}
+ * @throws {Error} If the request to the external API fails
+ */
+export async function detail(req: Request, res: Response): Promise<void> {
+    try {
+        const { slug } = req.query;
+        const response = await get(
+            `${BASE_API_URL}/v2/cryptocurrency/info?slug=${slug}`,
+            defaultHeaders,
+        );
+
+        if (!response.ok) throw new Error(await response.json());
+
+        const data: ResponseDetailData = await response.json();
 
 		res.json(data.data).status(200);
 	} catch (error) {
