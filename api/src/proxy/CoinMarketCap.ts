@@ -13,8 +13,13 @@ const defaultHeaders = {
 	"X-CMC_PRO_API_KEY": API_KEY,
 };
 
+interface ListingsLatestQueryParams {
+	limit?: number;
+	start?: number;
+}
+
 interface ResponseListingLatestData {
-    data: CryptoCurrency[];
+	data: CryptoCurrency[];
 }
 
 /**
@@ -26,26 +31,29 @@ interface ResponseListingLatestData {
  * @throws {Error} If the request to the external API fails
  */
 export async function listingsLatest(req: Request, res: Response): Promise<void> {
-	const {limit = 12, start = 1} = req.query;
+	const {limit = 12, start = 1}: ListingsLatestQueryParams = req.query;
+	const url = `${BASE_API_URL}/v1/cryptocurrency/listings/latest?limit=${limit}&start=${start}`;
+
 	try {
-		const response = await get(
-			`${BASE_API_URL}/v1/cryptocurrency/listings/latest?limit=${limit}&start=${start}`,
-			defaultHeaders,
-		);
+		const response = await get(url, defaultHeaders);
 
 		if (!response.ok) throw new Error(await response.json());
 
-        const data: ResponseListingLatestData = await response.json();
+		const data: ResponseListingLatestData = await response.json();
 
-        res.json(data.data);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: error });
-    }
+		res.json(data.data);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({error: error});
+	}
+}
+
+interface DetailQueryParams {
+	slug?: string;
 }
 
 interface ResponseDetailData {
-    data: CryptoCurrency;
+	data: CryptoCurrency;
 }
 
 /**
@@ -57,16 +65,15 @@ interface ResponseDetailData {
  * @throws {Error} If the request to the external API fails
  */
 export async function detail(req: Request, res: Response): Promise<void> {
-    try {
-        const { slug } = req.query;
-        const response = await get(
-            `${BASE_API_URL}/v2/cryptocurrency/info?slug=${slug}`,
-            defaultHeaders,
-        );
+	const {slug}: DetailQueryParams = req.query;
+	const url = `${BASE_API_URL}/v2/cryptocurrency/info?slug=${slug}`;
 
-        if (!response.ok) throw new Error(await response.json());
+	try {
+		const response = await get(url, defaultHeaders);
 
-        const data: ResponseDetailData = await response.json();
+		if (!response.ok) throw new Error(await response.json());
+
+		const data: ResponseDetailData = await response.json();
 
 		res.json(data.data).status(200);
 	} catch (error) {

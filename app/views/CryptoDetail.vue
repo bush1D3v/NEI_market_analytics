@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
-import { useCryptoCurrencyStore } from "@/stores/useCryptoCurrencyStore";
-import type { CryptoCurrency } from "@/types/CoinMarketCap/CryptoCurrency";
-import { detailBitcoin } from "@/services/CoinMarketCap";
+import {onMounted, ref} from "vue";
+import {useRoute} from "vue-router";
+import {useCryptoCurrencyStore} from "@/stores/useCryptoCurrencyStore";
+import type {CryptoCurrency} from "@/types/CoinMarketCap/CryptoCurrency";
+import {detailBitcoin} from "@/services/CoinMarketCap";
 import LineCryptoChat from "@/components/LineCryptoChat.vue";
 
 const route = useRoute();
@@ -14,24 +14,24 @@ const error = ref<boolean>(false);
 const loading = ref<boolean>(true);
 
 const capitalizeFirstLetter = (string: string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+	return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
 document.title = `${capitalizeFirstLetter(crypto)} | NEI Market Analytics`;
 
 onMounted(async () => {
-    cryptoData.value = cryptoCurrencyStore.detailCryptoCurrencyByName(crypto);
+	cryptoData.value = cryptoCurrencyStore.detailCryptoCurrencyByName(crypto);
 
-    if (!cryptoData.value) {
-        loading.value = false;
-        try {
-            cryptoData.value = await detailBitcoin(crypto.toLowerCase()) as CryptoCurrency;
-        } catch (err) {
-            error.value = true;
-        }
-    }
+	if (!cryptoData.value) {
+		loading.value = false;
+		try {
+			cryptoData.value = (await detailBitcoin(crypto.toLowerCase())) as CryptoCurrency;
+		} catch (err) {
+			error.value = true;
+		}
+	}
 
-    loading.value = false;
+	loading.value = false;
 });
 </script>
 

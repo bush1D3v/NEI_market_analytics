@@ -1,4 +1,4 @@
-import type { Menu } from "../Dropdown.vue";
+import type {Menu} from "../Dropdown.vue";
 import Ethereum from "@/assets/images/ethereum.png";
 import Bitcoin from "@/assets/images/bitcoin.png";
 import Dogecoin from "@/assets/images/dogecoin.png";
