@@ -1,59 +1,59 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
-import { useMagicKeys } from "@vueuse/core";
-import { PlusIcon } from "@radix-icons/vue";
-import { RoutesEnum } from "@/enum/RoutesEnum";
-import { t } from "i18next";
+import {onMounted, ref, watch} from "vue";
+import {useMagicKeys} from "@vueuse/core";
+import {PlusIcon} from "@radix-icons/vue";
+import {RoutesEnum} from "@/enum/RoutesEnum";
+import {t} from "i18next";
 import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-    CommandSeparator,
-    CommandDialog,
+	Command,
+	CommandEmpty,
+	CommandGroup,
+	CommandInput,
+	CommandItem,
+	CommandList,
+	CommandSeparator,
+	CommandDialog,
 } from "@/components/ui/command";
 const inputValue = ref("");
 const searchValue = JSON.parse(localStorage.getItem("searchValue") || "[]") as string[];
 function saveToLocalStorage(input: string): void {
-    const treatedValue = RoutesEnum.findClosestTextMatch(input) as string;
-    if (
-        !searchValue.includes(treatedValue) &&
-        treatedValue !== undefined &&
-        treatedValue !== "" &&
-        treatedValue !== null
-    ) {
-        if (searchValue.length === 4) {
-            searchValue.pop();
-        }
-        searchValue.unshift(treatedValue);
-    }
-    localStorage.setItem("searchValue", JSON.stringify(searchValue));
-    inputValue.value = "";
-    blur();
+	const treatedValue = RoutesEnum.findClosestTextMatch(input) as string;
+	if (
+		!searchValue.includes(treatedValue) &&
+		treatedValue !== undefined &&
+		treatedValue !== "" &&
+		treatedValue !== null
+	) {
+		if (searchValue.length === 4) {
+			searchValue.pop();
+		}
+		searchValue.unshift(treatedValue);
+	}
+	localStorage.setItem("searchValue", JSON.stringify(searchValue));
+	inputValue.value = "";
+	blur();
 }
 const isFocused = ref(false);
 function focus() {
-    isFocused.value = true;
+	isFocused.value = true;
 }
 function blur() {
-    isFocused.value = false;
+	isFocused.value = false;
 }
 function handleOpenChange() {
-    isFocused.value = !isFocused.value;
+	isFocused.value = !isFocused.value;
 }
-const { Meta_J, Ctrl_J } = useMagicKeys({
-    passive: false,
-    onEventFired(e) {
-        if (e.key === "j" && (e.metaKey || e.ctrlKey)) e.preventDefault();
-    },
+const {Meta_J, Ctrl_J} = useMagicKeys({
+	passive: false,
+	onEventFired(e) {
+		if (e.key === "j" && (e.metaKey || e.ctrlKey)) e.preventDefault();
+	},
 });
-watch([ Meta_J, Ctrl_J ], (v) => {
-    if (v[ 0 ] || v[ 1 ]) handleOpenChange();
+watch([Meta_J, Ctrl_J], (v) => {
+	if (v[0] || v[1]) handleOpenChange();
 });
 onMounted(() => {
-    blur();
+	blur();
 });
 </script>
 

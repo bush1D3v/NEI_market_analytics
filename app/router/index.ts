@@ -4,8 +4,10 @@ import AboutUs from "@/views/AboutUs.vue";
 import NotFound from "@/views/NotFound.vue";
 import Coins from "@/views/Coins.vue";
 import Cryptos from "@/views/Cryptos.vue";
+import Stocks from "@/views/Stocks.vue";
 import CryptoDetail from "@/views/CryptoDetail.vue";
 import CoinDetail from "@/views/CoinDetail.vue";
+import StockDetail from "@/views/StockDetail.vue";
 import CookiePolicy from "@/views/CookiePolicy.vue";
 import PrivacyPolicy from "@/views/PrivacyPolicy.vue";
 
@@ -120,6 +122,21 @@ const router = createRouter({
 			},
 		},
 		{
+			path: "/stocks",
+			name: "Stocks",
+			component: Stocks,
+			meta: {
+				title: "Stocks | NEI Market Analytics",
+				description: "Explore our comprehensive list of stocks.",
+				keywords: "stocks, stock assets, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "Stocks | NEI Market Analytics",
+				ogDescription: "Explore our comprehensive list of stocks.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/stocks",
+			},
+		},
+		{
 			path: "/cryptos/:crypto",
 			name: "CryptoDetail",
 			component: CryptoDetail,
@@ -133,6 +150,21 @@ const router = createRouter({
 				ogUrl: "http://localhost:5173/cryptos/:crypto",
 			},
 			props: (route) => ({key: route.params.crypto}),
+		},
+		{
+			path: "/stocks/:stock",
+			name: "StockDetail",
+			component: StockDetail,
+			meta: {
+				description: "Explore our comprehensive list of stocks.",
+				keywords: "stocks, stock assets, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "Stocks | NEI Market Analytics",
+				ogDescription: "Explore our comprehensive list of stocks.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/stocks/:stock",
+			},
+			props: (route) => ({key: route.params.stock}),
 		},
 		{
 			path: "/:pathMatch(.*)*",
@@ -160,7 +192,10 @@ router.beforeEach((to, _from, next) => {
 		{name: "keywords", content: to.meta.keywords as string},
 		{name: "robots", content: to.meta.robots as string},
 		{property: "og:title", content: to.meta.ogTitle as string},
-		{property: "og:description", content: to.meta.ogDescription as string},
+		{
+			property: "og:description",
+			content: to.meta.ogDescription as string,
+		},
 		{property: "og:image", content: to.meta.ogImage as string},
 		{property: "og:url", content: to.meta.ogUrl as string},
 	];
