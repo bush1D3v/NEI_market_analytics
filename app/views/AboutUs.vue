@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import Accordion from "@/components/Accordion.vue";
 import Badges from "@/components/Badges.vue";
-import {AccordionDto} from "@/components/Dto/AccordionDto";
-import {BadgesDto} from "@/components/Dto/BadgesDto";
-import {useTranslation} from "@/config/composable/translate";
+import { AccordionDto } from "@/components/Dto/AccordionDto";
+import { BadgesDto } from "@/components/Dto/BadgesDto";
+import { useTranslation } from "@/config/composable/translate";
 
 useTranslation();
 </script>
@@ -19,7 +19,7 @@ useTranslation();
             <span class="text-center text-2xl md:text-3xl pb-2 font-semibold border-b">Por Trás dos Códigos</span>
             <Badges :badges="BadgesDto" />
         </div>
-        <div class="w-full h-fit accordion">
+        <div class="w-full h-fit translate-ignore">
             <Accordion :items="AccordionDto" />
         </div>
     </main>

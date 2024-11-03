@@ -146,7 +146,7 @@ useTranslation();
             <Link href="https://www.termsfeed.com/blog/cookies/" target="_blank"><span>Tudo
                 Sobre Cookies por TermsFeed.</span></Link>
         </div>
-        <h3>Contate-Nos</h3>
+        <h2>Contate-Nos</h2>
         <p>Se você tiver alguma dúvida sobre esta Política de Cookies, você pode nos contatar:</p>
         <ul>
             <li>

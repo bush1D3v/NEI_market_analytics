@@ -160,9 +160,6 @@ export interface Rates {
 	USD: number;
 	UYU: number;
 	UZS: number;
-	VEF_BLKMKT: number;
-	VEF_DICOM: number;
-	VEF_DIPRO: number;
 	VES: number;
 	VND: number;
 	VUV: number;

@@ -10,9 +10,12 @@
 		--secondary-darker: #171b2d;
 		--border: #222a44;
 		--accent: #2d375b;
+        --button-bg: #2d375b;
 		--dark: #8b94a3;
 		--card: #2d375b;
 		--muted: #eeeeee;
+        --destructive: #959595;
+        --material: #252d4a;
 	}
 
 	:root {
@@ -21,7 +24,6 @@
 		--muted: #111111;
 		--muted-foreground: rgb(141, 67, 14);
 
-		--popover: rgb(255, 0, 0);
 		--popover-foreground: #ffffff;
 
 		--card: #c9c9c9;
@@ -47,7 +49,7 @@
 		--primary-foreground: #ffffff;
 		--secondary: #0088cc;
 		--surface: #17192e;
-		--material: #252d4a;
+        --material: #eeeeee;
 		--texture: #161727;
 		--positive: #28c686;
 		--negative: #d34545;
@@ -56,7 +58,7 @@
 		--negative-lighter: #db6868;
 		--negative-darker: #bf2d2d;
 		--background: #f7fafd;
-		--secondary-darker: #eeeeee;
+		--secondary-darker: #ffffff;
 		--fg: #ffffff;
 		--fg-dim: #bac8d2;
 		--fg-muted: #8b94a3;
@@ -68,7 +70,6 @@
 		--material-darker: #1d2339;
 		--texture-lighter: #1f2137;
 		--texture-darker: #0d0d17;
-		--on-primary: #ffffff;
 		--twitter: #000000;
 		--telegram: #0088cc;
 		--reddit: #ff4500;
@@ -84,10 +85,12 @@
 		--primary-darker: #ef233c;
 		--primary-darker: #edf2f4;
 
-		--accent: #d6d6d8;
+		--accent: #ededed;
 		--accent-foreground: #ffffff;
 
-		--destructive: rgb(149, 149, 149);
+        --button-bg: #d6d6d8;
+
+		--destructive: #5a5a5a;
 		--destructive-foreground: rgb(22, 22, 22);
 
 		--ring: #ffffff;

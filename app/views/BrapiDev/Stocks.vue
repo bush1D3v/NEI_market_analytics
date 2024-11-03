@@ -3,44 +3,45 @@ import Button from "@/components/ui/button/Button.vue";
 import Skeleton from "@/components/Skeletons/views/Cryptos.vue";
 import EntityCard from "@/components/EntityCard.vue";
 import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
-import { ref, onMounted } from "vue";
-import { listStocks } from "@/services/BrapiDev";
-import { useTranslation } from "@/config/composable/translate";
-import { useStocksCurrencyStore } from "@/stores/useStocksCurrencyStore";
+import {ref, onMounted} from "vue";
+import {listStocks} from "@/services/BrapiDev";
+import {useTranslation} from "@/config/composable/translate";
+import {useStocksCurrencyStore} from "@/stores/useStocksCurrencyStore";
+import {t} from "i18next";
 
 useTranslation();
 
-const { addStocksCurrencies, detailStocksCurrency, stocksCurrencies } = useStocksCurrencyStore();
+const {addStocksCurrencies, detailStocksCurrency, stocksCurrencies} = useStocksCurrencyStore();
 const isLoading = ref<boolean>(true);
 const isLoadingMore = ref<boolean>(false);
 const start = ref<number>(1);
 const error = ref<boolean>(false);
 
 async function loadStocks() {
-    return await listStocks(12, start.value);
+	return await listStocks(12, start.value);
 }
 
 async function loadMore() {
-    isLoadingMore.value = true;
-    start.value += 12;
-    const newStocks = await loadStocks();
+	isLoadingMore.value = true;
+	start.value += 12;
+	const newStocks = await loadStocks();
 
-    if (newStocks) {
-        addStocksCurrencies(newStocks);
-    } else {
-        error.value = true;
-    }
+	if (newStocks) {
+		addStocksCurrencies(newStocks);
+	} else {
+		error.value = true;
+	}
 
-    isLoadingMore.value = false;
+	isLoadingMore.value = false;
 }
 
 onMounted(async () => {
-    if (!stocksCurrencies.length) {
-        const data = await loadStocks();
-        if (!data) error.value = true;
-        else addStocksCurrencies(data);
-    }
-    isLoading.value = false;
+	if (!stocksCurrencies.length) {
+		const data = await loadStocks();
+		if (!data) error.value = true;
+		else addStocksCurrencies(data);
+	}
+	isLoading.value = false;
 });
 </script>
 
@@ -56,7 +57,7 @@ onMounted(async () => {
         </ul>
         <div v-if="!error && !isLoading" class="flex justify-center mt-4">
             <Button @click="loadMore" :disabled="isLoadingMore">
-                {{ isLoadingMore ? 'Carregando...' : 'Carregar Mais' }}
+                {{ isLoadingMore ? t('Carregando...') : t('Carregar Mais') }}
             </Button>
         </div>
         <InternalServerError v-if="error" />

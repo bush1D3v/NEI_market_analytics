@@ -3,44 +3,45 @@ import Button from "@/components/ui/button/Button.vue";
 import Skeleton from "@/components/Skeletons/views/Cryptos.vue";
 import EntityCard from "@/components/EntityCard.vue";
 import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
-import { ref, onMounted } from "vue";
-import { listBitcoin } from "@/services/CoinMarketCap";
-import { useTranslation } from "@/config/composable/translate";
-import { useCryptoCurrencyStore } from "@/stores/useCryptoCurrencyStore";
+import {ref, onMounted} from "vue";
+import {listBitcoin} from "@/services/CoinMarketCap";
+import {useTranslation} from "@/config/composable/translate";
+import {useCryptoCurrencyStore} from "@/stores/useCryptoCurrencyStore";
+import {t} from "i18next";
 
 useTranslation();
 
-const { addCryptoCurrencies, cryptoCurrencies } = useCryptoCurrencyStore();
+const {addCryptoCurrencies, cryptoCurrencies} = useCryptoCurrencyStore();
 const isLoading = ref<boolean>(true);
 const isLoadingMore = ref<boolean>(false);
 const start = ref<number>(1);
 const error = ref<boolean>(false);
 
 async function loadCryptos() {
-    return await listBitcoin(12, start.value);
+	return await listBitcoin(12, start.value);
 }
 
 async function loadMore() {
-    isLoadingMore.value = true;
-    start.value += 12;
-    const newCryptos = await loadCryptos();
+	isLoadingMore.value = true;
+	start.value += 12;
+	const newCryptos = await loadCryptos();
 
-    if (newCryptos) {
-        addCryptoCurrencies(newCryptos);
-    } else {
-        error.value = true;
-    }
+	if (newCryptos) {
+		addCryptoCurrencies(newCryptos);
+	} else {
+		error.value = true;
+	}
 
-    isLoadingMore.value = false;
+	isLoadingMore.value = false;
 }
 
 onMounted(async () => {
-    if (!cryptoCurrencies.length) {
-        const data = await loadCryptos();
-        if (!data) error.value = true;
-        else addCryptoCurrencies(data);
-    }
-    isLoading.value = false;
+	if (!cryptoCurrencies.length) {
+		const data = await loadCryptos();
+		if (!data) error.value = true;
+		else addCryptoCurrencies(data);
+	}
+	isLoading.value = false;
 });
 </script>
 
@@ -58,7 +59,7 @@ onMounted(async () => {
         </ul>
         <div v-if="!error && !isLoading" class="flex justify-center mt-4">
             <Button @click="loadMore" :disabled="isLoadingMore">
-                {{ isLoadingMore ? 'Carregando...' : 'Carregar Mais' }}
+                {{ isLoadingMore ? t('Carregando...') : t('Carregar Mais') }}
             </Button>
         </div>
         <InternalServerError v-if="error" />

@@ -7,7 +7,8 @@
 		"tests/**/*",
 		"stories/**/*",
 		"mocks/**/*",
-		"app/locales"
+		"app/locales",
+		"tailwind.config.js"
 	],
 	"exclude": ["app/**/__tests__/*"],
 	"compilerOptions": {

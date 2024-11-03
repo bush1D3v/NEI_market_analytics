@@ -201,7 +201,7 @@
 	"Franco Burundiano (BIF)": "Franco burundés (BIF)",
 	"Dólar das Bermudas (BMD)": "Dólar bermudeño (BMD)",
 	"Dólar de Brunei (BND)": "Dólar de Brunéi (BND)",
-	"Boliviano Boliviano (BOB)": "Boliviano boliviano (BOB)",
+	"Boliviano da Bolívia (BOB)": "Boliviano de Bolivia (BOB)",
 	"Real Brasileiro (BRL)": "Real brasileño (BRL)",
 	"Dólar das Bahamas (BSD)": "Dólar bahameño (BSD)",
 	"Bitcoin (BTC)": "Bitcoin (BTC)",
@@ -373,5 +373,9 @@
 	"EarthCoin (EAC)": "EarthCoin (EAC)",
 	"Vertcoin (VTC)": "Vertcoin (VTC)",
 	"Emercoin (EMC)": "Emercoin (EMC)",
-	"Factom (FCT)": "Factom (FCT)"
+	"Factom (FCT)": "Factom (FCT)",
+	"Nenhuma moeda encontrada.": "Ninguna moneda encontrada.",
+	"Procurar moeda...": "Buscar moneda...",
+	"Conversor de moedas": "Conversor de monedas",
+	"Alternar": "Alternar"
 }
