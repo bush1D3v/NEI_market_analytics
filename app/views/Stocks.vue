@@ -49,7 +49,7 @@ onMounted(async () => {
         <ul v-if="!error" class="grid grid-cols-3 gap-4">
             <li v-if="!isLoading" v-for="(stockCurrency, index) in stockCurrencyStore.stocksCurrencies" :key="index">
                 <EntityCard :image="stockCurrency.logo" :name="stockCurrency.name" :symbol="stockCurrency.stock"
-                    :id="index" :circulating_supply="stockCurrency.change" :price="stockCurrency.close"
+                    :id="index" :circulating_supply="stockCurrency.volume" :price="stockCurrency.close"
                     :market_cap="stockCurrency.market_cap || 0" :router-link-to="`/stocks/${stockCurrency.name}`" />
             </li>
             <Skeleton v-else v-for="i in 12" :key="i" />

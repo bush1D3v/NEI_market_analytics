@@ -181,5 +181,6 @@
 	"Carregar Mais": "Load More",
 	"Carregando...": "Loading...",
 	"Algo deu errado, tente novamente mais tarde": "Something went wrong, please try again later",
-	"Erro Interno do Servidor": "Internal Server Error"
+	"Erro Interno do Servidor": "Internal Server Error",
+	"Cotação de Moedas": "Currency quote"
 }
