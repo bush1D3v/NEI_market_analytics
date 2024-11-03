@@ -10,7 +10,7 @@ import { useStocksCurrencyStore } from "@/stores/useStocksCurrencyStore";
 
 useTranslation();
 
-const stockCurrencyStore = useStocksCurrencyStore();
+const { addStocksCurrencies, detailStocksCurrency, stocksCurrencies } = useStocksCurrencyStore();
 const isLoading = ref<boolean>(true);
 const isLoadingMore = ref<boolean>(false);
 const start = ref<number>(1);
@@ -26,7 +26,7 @@ async function loadMore() {
     const newStocks = await loadStocks();
 
     if (newStocks) {
-        stockCurrencyStore.addStocksCurrencies(newStocks);
+        addStocksCurrencies(newStocks);
     } else {
         error.value = true;
     }
@@ -35,10 +35,10 @@ async function loadMore() {
 }
 
 onMounted(async () => {
-    if (!stockCurrencyStore.stocksCurrencies.length) {
+    if (!stocksCurrencies.length) {
         const data = await loadStocks();
         if (!data) error.value = true;
-        else stockCurrencyStore.addStocksCurrencies(data);
+        else addStocksCurrencies(data);
     }
     isLoading.value = false;
 });
@@ -47,7 +47,7 @@ onMounted(async () => {
 <template>
     <main class="container justify-center my-4">
         <ul v-if="!error" class="grid grid-cols-3 gap-4">
-            <li v-if="!isLoading" v-for="(stockCurrency, index) in stockCurrencyStore.stocksCurrencies" :key="index">
+            <li v-if="!isLoading" v-for="(stockCurrency, index) in stocksCurrencies" :key="index">
                 <EntityCard :image="stockCurrency.logo" :name="stockCurrency.name" :symbol="stockCurrency.stock"
                     :id="index" :circulating_supply="stockCurrency.volume" :price="stockCurrency.close"
                     :market_cap="stockCurrency.market_cap || 0" :router-link-to="`/stocks/${stockCurrency.name}`" />

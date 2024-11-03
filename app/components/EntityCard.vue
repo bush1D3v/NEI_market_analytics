@@ -4,14 +4,14 @@ import Button from "@/components/ui/button/Button.vue";
 import numberFormatter from "@/utils/numberFormatter";
 
 export interface EntityCardProps {
-    id: string | number;
-    name: string;
-    symbol: string;
-    image: string;
-    routerLinkTo: string;
-    price: number;
-    market_cap: number;
-    circulating_supply: number;
+	id: string | number;
+	name: string;
+	symbol: string;
+	image: string;
+	routerLinkTo: string;
+	price: number;
+	market_cap: number;
+	circulating_supply: number;
 }
 
 const props = defineProps<EntityCardProps>();

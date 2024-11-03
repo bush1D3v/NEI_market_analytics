@@ -23,7 +23,7 @@ interface ResponseListingLatestData {
 }
 
 /**
- * Handles the request to get the latest cryptocurrency listings.
+ * @description Handles the request to get the latest cryptocurrency listings.
  *
  * @param {Request} req - The request object
  * @param {Response} res - The response object
@@ -57,7 +57,7 @@ interface ResponseDetailData {
 }
 
 /**
- * Handles the request to get the latest cryptocurrency listings.
+ * @description Handles the request to get the latest cryptocurrency listings.
  *
  * @param {Request} req - The request object
  * @param {Response} res - The response object

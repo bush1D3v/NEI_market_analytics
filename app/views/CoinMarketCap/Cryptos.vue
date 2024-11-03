@@ -10,7 +10,7 @@ import { useCryptoCurrencyStore } from "@/stores/useCryptoCurrencyStore";
 
 useTranslation();
 
-const cryptoCurrencyStore = useCryptoCurrencyStore();
+const { addCryptoCurrencies, cryptoCurrencies } = useCryptoCurrencyStore();
 const isLoading = ref<boolean>(true);
 const isLoadingMore = ref<boolean>(false);
 const start = ref<number>(1);
@@ -26,7 +26,7 @@ async function loadMore() {
     const newCryptos = await loadCryptos();
 
     if (newCryptos) {
-        cryptoCurrencyStore.addCryptoCurrencies(newCryptos);
+        addCryptoCurrencies(newCryptos);
     } else {
         error.value = true;
     }
@@ -35,10 +35,10 @@ async function loadMore() {
 }
 
 onMounted(async () => {
-    if (!cryptoCurrencyStore.cryptoCurrencies.length) {
+    if (!cryptoCurrencies.length) {
         const data = await loadCryptos();
         if (!data) error.value = true;
-        else cryptoCurrencyStore.addCryptoCurrencies(data);
+        else addCryptoCurrencies(data);
     }
     isLoading.value = false;
 });
@@ -47,8 +47,7 @@ onMounted(async () => {
 <template>
     <main class="container justify-center my-4">
         <ul v-if="!error" class="grid grid-cols-3 gap-4">
-            <li v-if="!isLoading" v-for="cryptoCurrency in cryptoCurrencyStore.cryptoCurrencies"
-                :key="cryptoCurrency.id">
+            <li v-if="!isLoading" v-for="cryptoCurrency in cryptoCurrencies" :key="cryptoCurrency.id">
                 <EntityCard :image="`https://s2.coinmarketcap.com/static/img/coins/64x64/${cryptoCurrency.id}.png`"
                     :name="cryptoCurrency.name" :symbol="cryptoCurrency.symbol" :id="cryptoCurrency.id"
                     :circulating_supply="cryptoCurrency.circulating_supply" :price="cryptoCurrency.quote.USD.price"

@@ -29,14 +29,4 @@ test.describe("About Us Page Tests", () => {
 		const badges = page.locator("[data-testid='Badges']");
 		await expect(badges).toBeVisible();
 	});
-
-	// test("Checks navigation back to home", async ({ page }) => {
-	//     await page.goto("/about-us");
-
-	//     const homeLink = page.locator("a[href='/']");
-	//     await expect(homeLink).toBeVisible();
-	//     await homeLink.click();
-
-	//     await expect(page).toHaveURL("/");
-	// });
 });

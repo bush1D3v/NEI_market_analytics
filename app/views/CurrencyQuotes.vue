@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { useTranslation } from "@/config/composable/translate";
 import Button from "@/components/ui/button/Button.vue";
+import {useTranslation} from "@/config/composable/translate";
+import {useCurrencyQuotesStore} from "@/stores/useCurrencyQuotesStore";
 
 useTranslation();
+
+const {currencyQuotes, leftCurrency, rightCurrency, invertCurrencies} = useCurrencyQuotesStore();
 </script>
 
 <template>

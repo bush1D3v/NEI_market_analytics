@@ -14,10 +14,8 @@ export interface ImageProps extends /* @vue-ignore */ ImgHTMLAttributes {
 
 const props = defineProps<ImageProps>();
 
-// Data
 const loading = ref<boolean>(true);
 
-// Methods
 function onImageLoad() {
 	loading.value = false;
 }

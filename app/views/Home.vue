@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTranslation } from "@/config/composable/translate";
+import {useTranslation} from "@/config/composable/translate";
 import Button from "@/components/ui/button/Button.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 
