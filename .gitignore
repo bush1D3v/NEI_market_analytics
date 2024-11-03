@@ -37,3 +37,5 @@ pnpm-lock.yaml
 *storybook.log
 test-results
 playwright-report
+
+vite.config.ts.timestamp*

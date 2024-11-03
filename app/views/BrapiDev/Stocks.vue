@@ -2,7 +2,7 @@
 import Button from "@/components/ui/button/Button.vue";
 import Skeleton from "@/components/Skeletons/views/Cryptos.vue";
 import EntityCard from "@/components/EntityCard.vue";
-import InternalServerError from "@/views/InternalServerError.vue";
+import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
 import { ref, onMounted } from "vue";
 import { listStocks } from "@/services/BrapiDev";
 import { useTranslation } from "@/config/composable/translate";

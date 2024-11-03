@@ -1,15 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import AboutUs from "@/views/AboutUs.vue";
-import NotFound from "@/views/NotFound.vue";
-import Coins from "@/views/Coins.vue";
-import Cryptos from "@/views/Cryptos.vue";
-import Stocks from "@/views/Stocks.vue";
-import CryptoDetail from "@/views/CryptoDetail.vue";
-import CoinDetail from "@/views/CoinDetail.vue";
-import StockDetail from "@/views/StockDetail.vue";
-import CookiePolicy from "@/views/CookiePolicy.vue";
-import PrivacyPolicy from "@/views/PrivacyPolicy.vue";
+import NotFound from "@/views/Exceptions/NotFound.vue";
+import Cryptos from "@/views/CoinMarketCap/Cryptos.vue";
+import CryptoDetail from "@/views/CoinMarketCap/CryptoDetail.vue";
+import Stocks from "@/views/BrapiDev/Stocks.vue";
+import StockDetail from "@/views/BrapiDev/StockDetail.vue";
+import CookiePolicy from "@/views/Policies/CookiePolicy.vue";
+import PrivacyPolicy from "@/views/Policies/PrivacyPolicy.vue";
 import CurrencyQuotes from "@/views/CurrencyQuotes.vue";
 
 const router = createRouter({
@@ -76,36 +74,6 @@ const router = createRouter({
                 ogImage: "/logo.svg",
                 ogUrl: "http://localhost:5173/cookie-policy",
             },
-        },
-        {
-            path: "/coins",
-            name: "Coins",
-            component: Coins,
-            meta: {
-                title: "Coins | NEI Market Analytics",
-                description: "Explore our comprehensive list of digital assets.",
-                keywords: "coins, digital assets, NEI Market Analytics",
-                robots: "index, follow",
-                ogTitle: "Coins | NEI Market Analytics",
-                ogDescription: "Explore our comprehensive list of digital assets.",
-                ogImage: "/logo.svg",
-                ogUrl: "http://localhost:5173/coins",
-            },
-        },
-        {
-            path: "/coins/:coin",
-            name: "CoinDetail",
-            component: CoinDetail,
-            meta: {
-                description: "Explore our comprehensive list of digital assets.",
-                keywords: "coins, digital assets, NEI Market Analytics",
-                robots: "index, follow",
-                ogTitle: "Coins | NEI Market Analytics",
-                ogDescription: "Explore our comprehensive list of digital assets.",
-                ogImage: "/logo.svg",
-                ogUrl: "http://localhost:5173/coins/:coin",
-            },
-            props: (route) => ({ key: route.params.coin }),
         },
         {
             path: "/cryptos",
