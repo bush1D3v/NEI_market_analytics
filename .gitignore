@@ -39,3 +39,4 @@ test-results
 playwright-report
 
 vite.config.ts.timestamp*
+vitest.config.ts.timestamp*
