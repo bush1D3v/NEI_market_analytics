@@ -13,6 +13,7 @@ import { CaretSortIcon, CheckIcon } from "@radix-icons/vue";
 import { CurrencyQuotesDto } from "@/components/Dto/CurrencyQuotesDto";
 import { ref } from "vue";
 import { t } from "i18next";
+import { cn } from "@/lib/utils";
 import { listCurrencyQuotes } from "@/services/CurrencyQuotes";
 import { useCurrencyQuotesStore } from "@/stores/useCurrencyQuotesStore";
 import { onMounted } from "vue";
@@ -33,9 +34,12 @@ async function loadCurrencyQuotes() {
 
 function selectItem(currency: KeyValue) {
     open.value = false;
-    selectedValue.value = currency.value;
-    if (props.direction === "left") currencyQuotesStore.leftCurrency = currency.value;
-    else currencyQuotesStore.rightCurrency = currency.value;
+    selectedValue.value = currency.key;
+    if (props.direction === "right") {
+        currencyQuotesStore.rightCode = currency.key;
+    } else {
+        currencyQuotesStore.leftCode = currency.key;
+    }
 }
 
 onMounted(async () => {
@@ -50,8 +54,7 @@ onMounted(async () => {
                 lastupdate: "2024-11-03T18:21:47.000000-03:00", // ISO 8601 date string
             };
             currencyQuotesStore.setCurrencyQuotes(currencies);
-        }
-        else currencyQuotesStore.setCurrencyQuotes(data);
+        } else currencyQuotesStore.setCurrencyQuotes(data);
     }
 });
 
@@ -60,44 +63,56 @@ interface KeyValue {
     value: string;
 }
 
-const open = ref(false)
-const selectedValue = props.direction === "left" ? ref(currencyQuotesStore.leftCurrency) : ref(currencyQuotesStore.rightCurrency)
+const open = ref(false);
+const selectedValue =
+    props.direction === "left"
+        ? ref(currencyQuotesStore.leftCode)
+        : ref(currencyQuotesStore.rightCode);
 const currencies: KeyValue[] = Object.entries(CurrencyQuotesDto)
     .map(([ key, value ]) => ({ key, value }))
-    .sort((a, b) => a.value.localeCompare(b.value))
+    .sort((a, b) => a.value.localeCompare(b.value));
 
-watch(() => currencyQuotesStore.leftCurrency, (value) => {
-    if (props.direction === 'left') {
-        selectedValue.value = value;
-    }
-});
+watch(
+    () => currencyQuotesStore.leftCode,
+    (value) => {
+        if (props.direction === "left") {
+            selectedValue.value = value;
+        }
+    },
+);
 
-watch(() => currencyQuotesStore.rightCurrency, (value) => {
-    if (props.direction === 'right') {
-        selectedValue.value = value;
-    }
-});
+watch(
+    () => currencyQuotesStore.rightCode,
+    (value) => {
+        if (props.direction === "right") {
+            selectedValue.value = value;
+        }
+    },
+);
 </script>
 
 <template>
     <Popover v-model:open="open">
         <PopoverTrigger as-child>
-            <Button variant="outline" role="combobox" :aria-expanded="open" class="w-[200px] justify-between">
-                {{ t(selectedValue) || t("Search currency...") }}
+            <Button variant="ghost" role="combobox" :aria-expanded="open"
+                class="w-[90px] justify-between border border-input">
+                <span>{{ selectedValue }}</span>
                 <CaretSortIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
         </PopoverTrigger>
-        <PopoverContent class="w-[290px] p-0">
+        <PopoverContent class="w-[250px] p-0 mr-1">
             <Command>
-                <CommandInput class="h-9" placeholder="Search currency..." />
-                <CommandEmpty>{{ t("Nenhuma moeda encontrada.") }}</CommandEmpty>
+                <CommandInput class="h-9" :placeholder="t('Procurar moeda...')" />
+                <CommandEmpty>{{ t("Moeda não encontrada") }}</CommandEmpty>
                 <CommandList>
                     <CommandGroup>
-                        <CommandItem v-for="currency in currencies" :key="currency.key" :value="currency.value"
-                            @select="() => selectItem(currency)">
+                        <CommandItem v-for="currency in currencies" :key="currency.key" :value="currency.key"
+                            @select="selectItem(currency)">
                             {{ t(currency.value) }}
-                            <CheckIcon
-                                :class="`ml-auto h-4 w-4 ${selectedValue === currency.value ? 'opacity-100' : 'opacity-0'}`" />
+                            <CheckIcon :class="cn(
+                                'ml-auto h-4 w-4',
+                                selectedValue === currency.value ? 'opacity-100' : 'opacity-0',
+                            )" />
                         </CommandItem>
                     </CommandGroup>
                 </CommandList>

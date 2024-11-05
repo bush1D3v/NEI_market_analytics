@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTranslation } from "@/config/composable/translate";
+import {useTranslation} from "@/config/composable/translate";
 
 useTranslation();
 </script>

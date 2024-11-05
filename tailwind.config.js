@@ -16,7 +16,7 @@ export const theme = {
 	extend: {
 		colors: {
 			primaryForeground: "var(--primary-foreground)",
-            buttonBg: "var(--button-bg)",
+			buttonBg: "var(--button-bg)",
 			textForeground: "var(--text-foreground)",
 			material: "var(--material)",
 			dark: "var(--dark)",

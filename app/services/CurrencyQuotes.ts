@@ -1,6 +1,5 @@
-import {get} from "@/server/HttpClient";
-
-import type {CurrencyQuotes} from "@/types/CurrencyQuotes/CurrencyQuotes";
+import { get } from "@/server/HttpClient";
+import type { CurrencyQuotes } from "@/types/CurrencyQuotes/CurrencyQuotes";
 
 /**
  * @description Handles the request to get the list of currency quotes.
@@ -9,15 +8,15 @@ import type {CurrencyQuotes} from "@/types/CurrencyQuotes/CurrencyQuotes";
  * @throws {Error} If the request to the proxy fails
  */
 export async function listCurrencyQuotes(): Promise<CurrencyQuotes | undefined> {
-	try {
-		const response = await get("/api/latest.json");
+    try {
+        const response = await get("/api/latest.json");
 
-		if (!response.ok) throw new Error(await response.json());
+        if (!response.ok) throw new Error(await response.json());
 
-		const jsonData: CurrencyQuotes = await response.json();
+        const jsonData: CurrencyQuotes = await response.json();
 
-		return jsonData;
-	} catch (error) {
-		console.error(error);
-	}
+        return jsonData;
+    } catch (error) {
+        console.error(error);
+    }
 }

@@ -5,26 +5,28 @@ import type { CurrencyQuotes } from "@/types/CurrencyQuotes/CurrencyQuotes";
 
 export const useCurrencyQuotesStore = defineStore("currencyQuotes", () => {
     const currencyQuotes = ref<CurrencyQuotes>();
-    const leftCurrency = ref<string>("");
-    const rightCurrency = ref<string>("");
+    const currency = ref<number>(1);
+    const leftCode = ref<string>("USD");
+    const rightCode = ref<string>("BRL");
 
     function setCurrencyQuotes(quotes: CurrencyQuotes): void {
         currencyQuotes.value = quotes;
     }
 
-    function invertCurrencies(): void {
-        const lastRightValue = rightCurrency.value;
-        const lastLeftValue = leftCurrency.value;
+    function invertCodes(): void {
+        const lastRightCode = rightCode.value;
+        const lastLeftCode = leftCode.value;
 
-        leftCurrency.value = lastRightValue;
-        rightCurrency.value = lastLeftValue;
+        leftCode.value = lastRightCode;
+        rightCode.value = lastLeftCode;
     }
 
     return {
         currencyQuotes,
-        leftCurrency,
-        rightCurrency,
+        currency,
+        leftCode,
+        rightCode,
         setCurrencyQuotes,
-        invertCurrencies,
+        invertCodes,
     };
 });

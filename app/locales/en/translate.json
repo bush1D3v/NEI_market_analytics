@@ -213,7 +213,7 @@
 	"Dólar Canadense (CAD)": "Canadian Dollar (CAD)",
 	"Franco Congolês (CDF)": "Congolese Franc (CDF)",
 	"Franco Suíço (CHF)": "Swiss Franc (CHF)",
-	"Unidade de Conta Chilena (UF) (CLF)": "Chilean Unit of Account (UF) (CLF)",
+	"Unidade de Conta Chilena (CLF)": "Chilean Unit of Account (CLF)",
 	"Peso Chileno (CLP)": "Chilean Peso (CLP)",
 	"Yuan Chinês (Offshore) (CNH)": "Chinese Yuan (Offshore) (CNH)",
 	"Yuan Chinês (CNY)": "Chinese Yuan (CNY)",
@@ -376,6 +376,13 @@
 	"Factom (FCT)": "Factom (FCT)",
 	"Nenhuma moeda encontrada.": "No currency found.",
 	"Procurar moeda...": "Search currency...",
+	"Moeda não encontrada": "Currency not found",
 	"Conversor de moedas": "Currency converter",
-	"Alternar": "Toggle"
+	"Alternar": "Toggle",
+	"Converter": "Convert",
+	"De": "From",
+	"Para": "To",
+	"Inverter": "Reverse",
+	"Abrir": "Open",
+	"Fechar": "Close"
 }

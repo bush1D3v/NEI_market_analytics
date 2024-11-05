@@ -29,7 +29,7 @@ export const CurrencyQuotesDto = {
     CAD: "Dólar Canadense (CAD)",
     CDF: "Franco Congolês (CDF)",
     CHF: "Franco Suíço (CHF)",
-    CLF: "Unidade de Conta Chilena (UF) (CLF)",
+    CLF: "Unidade de Conta Chilena (CLF)",
     CLP: "Peso Chileno (CLP)",
     CNH: "Yuan Chinês (Offshore) (CNH)",
     CNY: "Yuan Chinês (CNY)",
