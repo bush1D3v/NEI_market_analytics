@@ -1,34 +1,69 @@
 <script setup lang="ts">
 import CurrencySelect from "@/components/CurrencyQuotes/CurrencySelect.vue";
 import ValueSelect from "@/components/CurrencyQuotes/ValueSelect.vue";
+import Dialog from "@/components/CurrencyQuotes/Dialog.vue";
 import Tooltip from "@/components/Tooltip.vue";
-import type { Rates } from "@/types/CurrencyQuotes/Rates";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDownIcon, ChevronUpIcon, DoubleArrowRightIcon } from "@radix-icons/vue";
-import { useCurrencyQuotesStore } from "@/stores/useCurrencyQuotesStore";
-import { listCurrencyQuotes } from "@/services/CurrencyQuotes";
-import { Button } from "@/components/ui/button";
-import { t } from "i18next";
-import { ref } from "vue";
+import type {Rates} from "@/types/CurrencyQuotes/Rates";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible";
+import {ChevronDownIcon, ChevronUpIcon, DoubleArrowRightIcon} from "@radix-icons/vue";
+import {useCurrencyQuotesStore} from "@/stores/useCurrencyQuotesStore";
+import {listCurrencyQuotes} from "@/services/CurrencyQuotes";
+import {Button} from "@/components/ui/button";
+import {t} from "i18next";
+import {ref, watch} from "vue";
+import {CurrencyQuotesDtoValues} from "../Dto/CurrencyQuotesDtoValues";
 
 const currencyQuotesStore = useCurrencyQuotesStore();
 
 const isOpen = ref(false);
+const isLoading = ref(false);
+const isModalOpen = ref(false);
+const crossRateResult = ref<number>();
 
-async function calculateCrossRate(): Promise<number | null> {
-    let rates: Rates;
-    if (!currencyQuotesStore.currencyQuotes?.rates) {
-        const data = await listCurrencyQuotes();
-        rates = data?.rates as Rates;
-    } else {
-        rates = currencyQuotesStore.currencyQuotes.rates;
-    }
+async function calculateCrossRate(): Promise<void> {
+	isLoading.value = true;
+	let rates: Rates;
 
-    const rightRate = rates[ currencyQuotesStore.rightCode as keyof typeof rates ];
-    const leftRate = rates[ currencyQuotesStore.leftCode as keyof typeof rates ];
+	if (currencyQuotesStore.currencyQuotes?.rates) {
+		rates = currencyQuotesStore.currencyQuotes.rates;
+	} else {
+		const data = await listCurrencyQuotes();
 
-    return leftRate / rightRate * currencyQuotesStore.currency;
+		if (data) {
+			rates = data.rates;
+		} else {
+			rates = CurrencyQuotesDtoValues;
+		}
+	}
+
+	const rightRate = rates[currencyQuotesStore.rightCode as keyof typeof rates];
+	const leftRate = rates[currencyQuotesStore.leftCode as keyof typeof rates];
+
+	crossRateResult.value = (rightRate / leftRate) * currencyQuotesStore.currency;
+	isLoading.value = false;
+	isModalOpen.value = true;
 }
+
+watch(
+	() => currencyQuotesStore.leftCode,
+	(value) => {
+		currencyQuotesStore.leftCode = value;
+	},
+);
+
+watch(
+	() => currencyQuotesStore.rightCode,
+	(value) => {
+		currencyQuotesStore.rightCode = value;
+	},
+);
+
+watch(
+	() => currencyQuotesStore.currency,
+	(value) => {
+		currencyQuotesStore.currency = value;
+	},
+);
 </script>
 
 <template>
@@ -58,7 +93,7 @@ async function calculateCrossRate(): Promise<number | null> {
                 </div>
             </div>
             <div class="w-full flex justify-between items-center">
-                <hr class="h-[1.1px] w-5/12 bg-text" />
+                <hr class="h-[1px] w-5/12" />
                 <Tooltip>
                     <template #trigger>
                         <Button variant="default" class="w-9 p-0 rounded-full">
@@ -71,13 +106,18 @@ async function calculateCrossRate(): Promise<number | null> {
                         <p class="text-text">{{ t("Inverter") }}</p>
                     </template>
                 </Tooltip>
-                <hr class="h-[1.1px] w-5/12 bg-text" />
+                <hr class="h-[1px] w-5/12" />
             </div>
             <div class="flex justify-center">
                 <ValueSelect :currency="currencyQuotesStore.leftCode" direction="left" />
             </div>
-            <Button class="w-full" :onclick="calculateCrossRate">{{ t("Converter")
-                }}</Button>
+            <Dialog v-model:open="isModalOpen" :result="crossRateResult">
+                <template #trigger>
+                    <Button class="w-full" @click="calculateCrossRate">
+                        {{ isLoading ? t("Convertendo...") : t("Converter") }}
+                    </Button>
+                </template>
+            </Dialog>
         </CollapsibleContent>
     </Collapsible>
 </template>

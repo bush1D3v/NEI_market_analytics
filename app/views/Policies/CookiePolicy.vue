@@ -6,7 +6,7 @@ useTranslation();
 </script>
 
 <template>
-    <main class="flex flex-col py-4 max-w-7xl m-auto gap-4">
+    <section class="flex flex-col py-4 max-w-7xl m-auto gap-4">
         <h1>Política de Cookies</h1>
         <p>Última atualização: 21 de setembro de 2024</p>
         <p>Esta Política de Cookies explica o que são Cookies e como os usamos. Você deve ler esta política para
@@ -163,7 +163,7 @@ useTranslation();
                 <p>Pelo número de telefone: (21) 99572-7079</p>
             </li>
         </ul>
-    </main>
+    </section>
 </template>
 
 <style scoped>

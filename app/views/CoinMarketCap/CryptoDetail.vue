@@ -36,7 +36,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <main v-if="!loading" class="container justify-center">
+    <section v-if="!loading" class="container justify-center">
         <LineCryptoChart />
         <ul v-if="!error">
             <li v-for="(data, index) in cryptoData" :key="index">
@@ -47,6 +47,6 @@ onMounted(async () => {
             <h1>Not Found</h1>
             <p>The requested cryptocurrency could not be found.</p>
         </div>
-    </main>
+    </section>
 
 </template>

@@ -15,7 +15,8 @@
 		--card: #2d375b;
 		--muted: #eeeeee;
         --destructive: #959595;
-        --material: #252d4a;
+        --material: #171b2d;
+        --link: #99C3FF;
 	}
 
 	:root {
@@ -42,6 +43,7 @@
 		--vis-secondary-color: 160 81% 40%;
 		--vis-text-color: var(--secondary);
 
+        --link: #4693ff;
 		--yellow: #fff000;
 		--text: #000000;
 		--text-foreground: #111111;
@@ -49,7 +51,7 @@
 		--primary-foreground: #ffffff;
 		--secondary: #0088cc;
 		--surface: #17192e;
-        --material: #eeeeee;
+        --material: #ffffff;
 		--texture: #161727;
 		--positive: #28c686;
 		--negative: #d34545;
@@ -81,8 +83,6 @@
 		--instagram: #c13584;
 		--youtube: #ff0000;
 		--primary-lighter: #4095fc;
-		--primary-darker: #0469e1;
-		--primary-darker: #ef233c;
 		--primary-darker: #edf2f4;
 
 		--accent: #ededed;
@@ -127,7 +127,10 @@
 		@apply text-sm md:text-base lg:text-lg font-semibold;
 	}
 	p {
-		@apply text-destructive;
+		@apply text-sm md:text-base text-destructive;
+	}
+    strong {
+		@apply text-sm md:text-base;
 	}
 }
 

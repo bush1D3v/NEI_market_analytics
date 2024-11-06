@@ -13,7 +13,7 @@ document.title = `${capitalizeFirstLetter(stock)} | NEI Market Analytics`;
 
 
 <template>
-    <main class="container justify-center">
+    <section class="container justify-center">
         <h1 class="hover:underline hover:opacity-50 ease-in-out duration-150">{{ stock }}</h1>
-    </main>
+    </section>
 </template>

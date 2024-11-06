@@ -1,6 +1,8 @@
 import type {Request, Response} from "express";
 import {get} from "../helpers/HttpClient.ts";
+import dotenv from "dotenv";
 import type {CurrencyQuotes} from "../types/CurrencyQuotes/CurrencyQuotes.ts";
+dotenv.config();
 
 const BASE_API_URL = process.env.CURRENCYQUOTES_HOST as string;
 

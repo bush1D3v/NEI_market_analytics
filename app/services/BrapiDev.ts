@@ -1,3 +1,4 @@
+import {bus} from "@/events/brapiDevEventEmitter";
 import {get} from "@/server/HttpClient";
 import type {Stock} from "@/types/BrapiDev/Stock";
 
@@ -15,9 +16,11 @@ export async function listStocks(limit = 12, page = 1): Promise<Stock[] | undefi
 
 		if (!response.ok) throw new Error(await response.json());
 
-		const jsonData: Stock[] = await response.json();
+		const stocks: Stock[] = await response.json();
 
-		return jsonData;
+		bus.emit("getCurrencyStocks", {stocks});
+
+		return stocks;
 	} catch (error) {
 		console.error(error);
 	}

@@ -8,6 +8,7 @@ import Stocks from "@/views/BrapiDev/Stocks.vue";
 import StockDetail from "@/views/BrapiDev/StockDetail.vue";
 import CookiePolicy from "@/views/Policies/CookiePolicy.vue";
 import PrivacyPolicy from "@/views/Policies/PrivacyPolicy.vue";
+import News from "@/views/Finnhub/News.vue";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -102,6 +103,21 @@ const router = createRouter({
 				ogDescription: "Explore our comprehensive list of stocks.",
 				ogImage: "/logo.svg",
 				ogUrl: "http://localhost:5173/stocks",
+			},
+		},
+		{
+			path: "/news",
+			name: "News",
+			component: News,
+			meta: {
+				title: "News | NEI Market Analytics",
+				description: "Explore our comprehensive list of News.",
+				keywords: "news, news assets, NEI Market Analytics",
+				robots: "index, follow",
+				ogTitle: "News | NEI Market Analytics",
+				ogDescription: "Explore our comprehensive list of news.",
+				ogImage: "/logo.svg",
+				ogUrl: "http://localhost:5173/news",
 			},
 		},
 		{

@@ -9,7 +9,7 @@ useTranslation();
 </script>
 
 <template>
-    <main class="justify-around container">
+    <section class="justify-around container">
         <div class="flex flex-col gap-2 text-center">
             <h1>Impulsionando o Futuro Juntos</h1>
             <h2 class="font-light text-textForeground text-base md:text-xl">Colaborando para um amanhã mais tecnológico.
@@ -22,5 +22,5 @@ useTranslation();
         <div class="w-full h-fit translate-ignore">
             <Accordion :items="AccordionDto" />
         </div>
-    </main>
+    </section>
 </template>

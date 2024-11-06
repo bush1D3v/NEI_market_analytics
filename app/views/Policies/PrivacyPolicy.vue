@@ -6,7 +6,7 @@ useTranslation();
 </script>
 
 <template>
-    <main class="flex flex-col my-4 max-w-7xl m-auto gap-4">
+    <section class="flex flex-col my-4 max-w-7xl m-auto gap-4">
         <h1>Política de Privacidade</h1>
         <p>Última atualização: 21 de setembro de 2024</p>
         <p>Esta Política de Privacidade descreve as nossas políticas e procedimentos sobre a coleta, uso e divulgação
@@ -384,7 +384,7 @@ useTranslation();
                 <p>Pelo número de telefone: (21) 99572-7079</p>
             </li>
         </ul>
-    </main>
+    </section>
 </template>
 
 <style scoped>

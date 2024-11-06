@@ -9,7 +9,7 @@ useTranslation();
 </script>
 
 <template>
-    <main class="container justify-center">
+    <section class="container justify-center">
         <div class="flex flex-col items-center text-center gap-4 pb-2">
             <h1 class="max-w-3xl">
                 Você tentou acessar uma página que se perdeu pelo caminho
@@ -28,5 +28,5 @@ useTranslation();
                 Vá para Página Inicial
             </Button>
         </RouterLink>
-    </main>
+    </section>
 </template>

@@ -1,4 +1,6 @@
-export const CurrencyQuotesDtoValues = {
+import type {Rates} from "@/types/CurrencyQuotes/Rates";
+
+export const CurrencyQuotesDtoValues: Rates = {
 	AED: 3.673,
 	AFN: 66.838212,
 	ALL: 90.364381,
@@ -160,9 +162,6 @@ export const CurrencyQuotesDtoValues = {
 	USD: 1,
 	UYU: 41.663861,
 	UZS: 12779.56215,
-	VEF_BLKMKT: 10.4,
-	VEF_DICOM: 8.82,
-	VEF_DIPRO: 529.62,
 	VES: 42.803206,
 	VND: 25300,
 	VUV: 118.722,
