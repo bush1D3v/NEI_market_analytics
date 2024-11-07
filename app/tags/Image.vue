@@ -27,7 +27,7 @@ const roundedClass = computed(() => {
 </script>
 
 <template>
-    <div class="relative" :class="`w-[${props.width}px] h-[${props.height}px]`">
+    <div class="relative" :class="`w-[${props.width}px] h-[${props.height}px] flex items-center`">
         <Skeleton v-if="loading" :class="`w-full h-full absolute ${roundedClass}`">
             <ImageSkeletonSvg />
         </Skeleton>

@@ -13,6 +13,15 @@ export const theme = {
 			"2xl": "1400px",
 		},
 	},
+	screens: {
+		xs: "480px",
+		sm: "640px",
+		md: "768px",
+		lg: "1024px",
+		lgx: "1180px",
+		xl: "1280px",
+		"2xl": "1536px",
+	},
 	extend: {
 		colors: {
 			primaryForeground: "var(--primary-foreground)",

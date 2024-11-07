@@ -1,13 +1,13 @@
 import {ref} from "vue";
 import {defineStore} from "pinia";
-
 import type {CurrencyQuotes} from "@/types/CurrencyQuotes/CurrencyQuotes";
+import type {Rates} from "@/types/CurrencyQuotes/Rates";
 
 export const useCurrencyQuotesStore = defineStore("currencyQuotes", () => {
 	const currencyQuotes = ref<CurrencyQuotes>();
 	const currency = ref<number>(1);
-	const leftCode = ref<string>("USD");
-	const rightCode = ref<string>("BRL");
+	const leftCode = ref<keyof Rates>("USD");
+	const rightCode = ref<keyof Rates>("BRL");
 
 	function setCurrencyQuotes(quotes: CurrencyQuotes): void {
 		currencyQuotes.value = quotes;

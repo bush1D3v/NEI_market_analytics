@@ -383,7 +383,12 @@
 	"Convertendo...": "Converting...",
 	"De": "From",
 	"Para": "To",
+	"para": "to",
 	"Inverter": "Reverse",
 	"Abrir": "Open",
-	"Fechar": "Close"
+	"Fechar": "Close",
+	"Resultado da Conversão": "Conversion result",
+	"A conversão de": "The conversion from",
+	"resulta em": "results in",
+	"Concluir": "Conclude"
 }
