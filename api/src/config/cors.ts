@@ -6,7 +6,6 @@ const corsOptions = {
 	allowedHeaders: [
 		"Content-Type",
 		"Authorization",
-		"X-CMC_PRO_API_KEY",
 		"Accept-Encoding",
 		"Accept",
 		"referrer-policy",
