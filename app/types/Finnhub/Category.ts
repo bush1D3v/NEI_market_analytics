@@ -1,1 +1,1 @@
-export type Category = "general" | "forex" | "crypto" | "merger";
+export type Category = "general" | "forex" | "crypto" | "merger" | "company";
