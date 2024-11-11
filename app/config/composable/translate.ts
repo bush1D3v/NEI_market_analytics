@@ -1,4 +1,4 @@
-import {onMounted, onUpdated} from "vue";
+import {onMounted} from "vue";
 import vTranslate from "../directive/v-translate";
 
 export function useTranslation() {

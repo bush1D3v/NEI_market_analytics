@@ -1,7 +1,7 @@
-import { get } from "@/server/HttpClient";
-import type { Category } from "@/types/Finnhub/Category";
-import type { New } from "@/types/Finnhub/New";
-import { bus } from "@/events/finnhubEventEmitter";
+import {get} from "@/server/HttpClient";
+import type {Category} from "@/types/Finnhub/Category";
+import type {New} from "@/types/Finnhub/New";
+import {bus} from "@/events/finnhubEventEmitter";
 import formatDate from "@/utils/formatDate";
 
 /**
@@ -12,20 +12,20 @@ import formatDate from "@/utils/formatDate";
  * @throws {Error} If the request to the proxy fails
  */
 export async function listMarketNews(category: Category = "crypto"): Promise<New[] | undefined> {
-    const url = `/api/v1/news?category=${category}`;
-    try {
-        const response = await get(url);
+	const url = `/api/v1/news?category=${category}`;
+	try {
+		const response = await get(url);
 
-        if (!response.ok) throw new Error(await response.json());
+		if (!response.ok) throw new Error(await response.json());
 
-        const news: New[] = await response.json();
+		const news: New[] = await response.json();
 
-        bus.emit("getMarketNews", { category, news });
+		bus.emit("getMarketNews", {category, news});
 
-        return news;
-    } catch (error) {
-        console.error(error);
-    }
+		return news;
+	} catch (error) {
+		console.error(error);
+	}
 }
 
 /**
@@ -36,27 +36,27 @@ export async function listMarketNews(category: Category = "crypto"): Promise<New
  * @throws {Error} If the request to the proxy fails
  */
 export async function listCompanyNews(symbol = "AAPL"): Promise<New[] | undefined> {
-    const from = new Date();
-    const to = new Date();
+	const from = new Date();
+	const to = new Date();
 
-    from.setMonth(from.getMonth() - 1);
+	from.setMonth(from.getMonth() - 1);
 
-    const formattedFrom = formatDate(from);
-    const formattedTo = formatDate(to);
+	const formattedFrom = formatDate(from);
+	const formattedTo = formatDate(to);
 
-    const url = `/api/v1/company-news?symbol=${symbol}&from=${formattedFrom}&to=${formattedTo}`;
+	const url = `/api/v1/company-news?symbol=${symbol}&from=${formattedFrom}&to=${formattedTo}`;
 
-    try {
-        const response = await get(url);
+	try {
+		const response = await get(url);
 
-        if (!response.ok) throw new Error(await response.json());
+		if (!response.ok) throw new Error(await response.json());
 
-        const news: New[] = await response.json();
+		const news: New[] = await response.json();
 
-        bus.emit("getMarketNews", { category: "company", news });
+		bus.emit("getMarketNews", {category: "company", news});
 
-        return news;
-    } catch (error) {
-        console.error(error);
-    }
+		return news;
+	} catch (error) {
+		console.error(error);
+	}
 }

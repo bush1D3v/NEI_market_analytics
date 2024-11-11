@@ -1,51 +1,51 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
 import {
-    Dialog,
-    DialogContent,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-    DialogClose,
+	Dialog,
+	DialogContent,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+	DialogClose,
 } from "@/components/ui/dialog";
-import { useCurrencyQuotesStore } from "@/stores/useCurrencyQuotesStore";
-import { ref, watch } from "vue";
-import { Cross2Icon } from "@radix-icons/vue";
-import { CurrencyQuotesDto } from "@/components/Dto/CurrencyQuotesDto";
-import { t } from "i18next";
+import {useCurrencyQuotesStore} from "@/stores/useCurrencyQuotesStore";
+import {ref, watch} from "vue";
+import {Cross2Icon} from "@radix-icons/vue";
+import {CurrencyQuotesDto} from "@/components/Dto/CurrencyQuotesDto";
+import {t} from "i18next";
 import numberFormatter from "@/utils/numberFormatter";
 
 const currencyQuotesStore = useCurrencyQuotesStore();
 
-const props = defineProps<{ result: number | undefined; open: boolean }>();
-const emit = defineEmits([ "update:open" ]);
+const props = defineProps<{result: number | undefined; open: boolean}>();
+const emit = defineEmits(["update:open"]);
 
 const isOpen = ref(props.open);
 
 watch(
-    () => props.open,
-    (newVal) => {
-        isOpen.value = newVal;
-    },
+	() => props.open,
+	(newVal) => {
+		isOpen.value = newVal;
+	},
 );
 
 watch(isOpen, (newVal) => {
-    emit("update:open", newVal);
+	emit("update:open", newVal);
 });
 
 watch(
-    () => currencyQuotesStore.leftCode,
-    (value) => {
-        currencyQuotesStore.leftCode = value;
-    },
+	() => currencyQuotesStore.leftCode,
+	(value) => {
+		currencyQuotesStore.leftCode = value;
+	},
 );
 
 watch(
-    () => currencyQuotesStore.rightCode,
-    (value) => {
-        currencyQuotesStore.rightCode = value;
-    },
+	() => currencyQuotesStore.rightCode,
+	(value) => {
+		currencyQuotesStore.rightCode = value;
+	},
 );
 </script>
 

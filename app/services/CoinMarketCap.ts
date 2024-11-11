@@ -1,7 +1,7 @@
-import { bus } from "@/events/coinMarketCapEventEmitter";
-import { get } from "@/server/HttpClient";
-import type { Sort } from "@/types/CoinMarketCap/Sort";
-import type { CryptoCurrency } from "@/types/CoinMarketCap/CryptoCurrency";
+import {bus} from "@/events/coinMarketCapEventEmitter";
+import {get} from "@/server/HttpClient";
+import type {Sort} from "@/types/CoinMarketCap/Sort";
+import type {CryptoCurrency} from "@/types/CoinMarketCap/CryptoCurrency";
 
 /**
  * @description Handles the request to get the latest cryptocurrency listings.
@@ -12,34 +12,35 @@ import type { CryptoCurrency } from "@/types/CoinMarketCap/CryptoCurrency";
  * @returns Promise<CryptoCurrency[] | undefined>
  * @throws {Error} If the request to the proxy fails
  */
-export async function listBitcoin(limit = 12, start = 1, sort?: Sort): Promise<CryptoCurrency[] | undefined> {
-    let url: string;
+export async function listBitcoin(
+	limit = 12,
+	start = 1,
+	sort?: Sort,
+): Promise<CryptoCurrency[] | undefined> {
+	let url: string;
 
-    if (sort) {
-        url = `/v1/cryptocurrency/listings/latest?limit=${limit}&start=${start}&sort=${sort}`;
-    } else {
-        url = `/v1/cryptocurrency/listings/latest?limit=${limit}&start=${start}`;
-    }
-    try {
+	if (sort) {
+		url = `/v1/cryptocurrency/listings/latest?limit=${limit}&start=${start}&sort=${sort}`;
+	} else {
+		url = `/v1/cryptocurrency/listings/latest?limit=${limit}&start=${start}`;
+	}
+	try {
+		const response = await get(url);
 
-        const response = await get(
-            url
-        );
+		if (!response.ok) throw new Error(await response.json());
 
-        if (!response.ok) throw new Error(await response.json());
+		const crypto: CryptoCurrency[] = await response.json();
 
-        const crypto: CryptoCurrency[] = await response.json();
+		if (!sort) {
+			bus.emit("getCurrencyCryptos", {crypto});
+		} else {
+			bus.emit("getSortCurrencyCryptos", {crypto});
+		}
 
-        if (!sort) {
-            bus.emit("getCurrencyCryptos", { crypto });
-        } else {
-            bus.emit("getSortCurrencyCryptos", { crypto });
-        }
-
-        return crypto;
-    } catch (error) {
-        console.error(error);
-    }
+		return crypto;
+	} catch (error) {
+		console.error(error);
+	}
 }
 
 /**
@@ -50,15 +51,15 @@ export async function listBitcoin(limit = 12, start = 1, sort?: Sort): Promise<C
  * @throws {Error} If the request to the proxy fails
  */
 export async function detailBitcoin(slug: string): Promise<CryptoCurrency | undefined> {
-    try {
-        const response = await get(`/v2/cryptocurrency/info?slug=${slug}`);
+	try {
+		const response = await get(`/v2/cryptocurrency/info?slug=${slug}`);
 
-        if (!response.ok) throw new Error(await response.json());
+		if (!response.ok) throw new Error(await response.json());
 
-        const jsonData: CryptoCurrency = await response.json();
+		const jsonData: CryptoCurrency = await response.json();
 
-        return jsonData;
-    } catch (error) {
-        console.error(error);
-    }
+		return jsonData;
+	} catch (error) {
+		console.error(error);
+	}
 }

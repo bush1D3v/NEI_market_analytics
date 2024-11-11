@@ -1,5 +1,5 @@
 import express from "express";
-import { listCompanyNews, listMarketNews } from "../proxy/Finnhub.ts";
+import {listCompanyNews, listMarketNews} from "../proxy/Finnhub.ts";
 
 const finnhubRoutes = express();
 
