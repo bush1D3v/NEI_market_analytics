@@ -46,8 +46,8 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-    <section class="container justify-center">
-        <ul class="flex gap-4 flex-wrap">
+    <section class="container justify-center gap-8">
+        <ul class="flex gap-4 flex-wrap justify-center">
             <li v-if="!onCryptoLoading">
                 <HomeTable icon="🪙" table-title="Trending Coins" redirect-to="/cryptos"
                     :coins="cryptoCurrencyStore.homeCryptoCurrencies" />
