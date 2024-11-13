@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Link from "@/tags/Link.vue";
-import {useTranslation} from "@/config/composable/translate";
+import { useTranslation } from "@/config/composable/translate";
 
 useTranslation();
 </script>
 
 <template>
-    <section class="flex flex-col my-4 max-w-7xl m-auto gap-4">
+    <section class="flex flex-col my-4 max-w-7xl m-auto gap-4 px-4">
         <h1>Política de Privacidade</h1>
         <p>Última atualização: 21 de setembro de 2024</p>
         <p>Esta Política de Privacidade descreve as nossas políticas e procedimentos sobre a coleta, uso e divulgação
@@ -73,12 +73,10 @@ useTranslation();
                     infraestrutura do Serviço (por exemplo, a duração de uma visita a uma página).
                 </p>
             </li>
-            <li>
-                <div class="separator">
-                    <p>Website refere-se ao NEI Market Analytics, acessível a partir de</p>
-                    <Link href="https://nei-market-analytics.com/" rel="external nofollow noopener" target="_blank">
-                    https://nei-market-analytics.com/</Link>
-                </div>
+            <li class="separator">
+                <p>Website refere-se ao NEI Market Analytics, acessível a partir de</p>&nbsp;
+                <Link href="https://nei-market-analytics.com/" rel="external nofollow noopener" target="_blank">
+                https://nei-market-analytics.com/</Link>
             </li>
             <li>
                 <p>Você significa o indivíduo que acessa ou usa o Serviço, ou a empresa, ou outra
@@ -373,12 +371,10 @@ useTranslation();
             <li>
                 <p>Por email: victor.jose.lopes.navarro@gmail.com</p>
             </li>
-            <li>
-                <div class="separator">
-                    <p>Visitando esta página em nosso site:</p>
-                    <Link href="https://bush1d3v-portfolio.vercel.app/" rel="external nofollow noopener"
-                        target="_blank">https://bush1d3v-portfolio.vercel.app/</Link>
-                </div>
+            <li class="separator">
+                <p>Visitando esta página em nosso site:</p>&nbsp;
+                <Link href="https://bush1d3v-portfolio.vercel.app/" rel="external nofollow noopener" target="_blank">
+                https://bush1d3v-portfolio.vercel.app/</Link>
             </li>
             <li>
                 <p>Pelo número de telefone: (21) 99572-7079</p>
@@ -389,7 +385,7 @@ useTranslation();
 
 <style scoped>
 .separator {
-    @apply flex gap-2;
+    @apply flex flex-wrap items-center;
 }
 
 .spacer {

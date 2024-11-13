@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Link from "@/tags/Link.vue";
-import {useTranslation} from "@/config/composable/translate";
+import { useTranslation } from "@/config/composable/translate";
 
 useTranslation();
 </script>
 
 <template>
-    <section class="flex flex-col py-4 max-w-7xl m-auto gap-4">
+    <section class="flex flex-col py-4 max-w-7xl m-auto gap-4 px-4 overflow-x-hidden">
         <h1>Política de Cookies</h1>
         <p>Última atualização: 21 de setembro de 2024</p>
         <p>Esta Política de Cookies explica o que são Cookies e como os usamos. Você deve ler esta política para
@@ -45,12 +45,10 @@ useTranslation();
                     seus muitos usos.
                 </p>
             </li>
-            <li>
-                <div class="separator">
-                    <p>Website refere-se à NEI Market Analytics, acessível a partir de</p>
-                    <Link href="https://nei-market-analytics.com/" rel="external nofollow noopener" target="_blank">
-                    https://nei-market-analytics.com/</Link>
-                </div>
+            <li class="separator">
+                <p>Website refere-se à NEI Market Analytics, acessível a partir de</p>&nbsp;
+                <Link href="https://nei-market-analytics.com/" rel="external nofollow noopener" target="_blank">
+                https://nei-market-analytics.com/</Link>
             </li>
             <li>
                 <p>
@@ -108,57 +106,57 @@ useTranslation();
             páginas de
             ajuda do seu navegador da web.</p>
         <ul>
-            <li>
-                <div class="separator">
-                    <p>Para o navegador Chrome, visite esta página do Google:</p>
-                    <Link href="https://support.google.com/accounts/answer/32050" rel="external nofollow noopener"
-                        target="_blank">https://support.google.com/accounts/answer/32050</Link>
-                </div>
+            <li class="separator">
+
+                <p>Para o navegador Chrome, visite esta página do Google:</p>&nbsp;
+                <Link href="https://support.google.com/accounts/answer/32050" rel="external nofollow noopener"
+                    target="_blank">https://support.google.com/accounts/answer/32050</Link>
+
             </li>
-            <li>
-                <div class="separator">
-                    <p>Para o navegador Internet Explorer, visite esta página da Microsoft:</p>
-                    <Link href="http://support.microsoft.com/kb/278835" rel="external nofollow noopener"
-                        target="_blank">http://support.microsoft.com/kb/278835</Link>
-                </div>
+            <li class="separator">
+
+                <p>Para o navegador Internet Explorer, visite esta página da Microsoft:</p>&nbsp;
+                <Link href="http://support.microsoft.com/kb/278835" rel="external nofollow noopener" target="_blank">
+                http://support.microsoft.com/kb/278835</Link>
+
             </li>
-            <li>
-                <div class="separator">
-                    <p>Para o navegador Firefox, visite esta página da Mozilla:</p>
-                    <Link href="https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored"
-                        rel="external nofollow noopener" target="_blank">
-                    https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored</Link>
-                </div>
+            <li class="separator">
+
+                <p>Para o navegador Firefox, visite esta página da Mozilla:</p>&nbsp;
+                <Link href="https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored"
+                    rel="external nofollow noopener" target="_blank">
+                https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored</Link>
+
             </li>
-            <li>
-                <div class="separator">
-                    <p>Para o navegador Safari, visite esta página da Apple:</p>
-                    <Link href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
-                        rel="external nofollow noopener" target="_blank">
-                    https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac</Link>
-                </div>
+            <li class="separator">
+
+                <p>Para o navegador Safari, visite esta página da Apple:</p>&nbsp;
+                <Link href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
+                    rel="external nofollow noopener" target="_blank">
+                https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac</Link>
+
             </li>
         </ul>
         <p>Para qualquer outro navegador da web, visite as páginas oficiais de ajuda do seu navegador da web.</p>
         <h3>Mais Informações sobre Cookies</h3>
+
         <div class="separator">
-            <p>Você pode aprender mais sobre cookies aqui:</p>
+            <p>Você pode aprender mais sobre cookies aqui:</p>&nbsp;
             <Link href="https://www.termsfeed.com/blog/cookies/" target="_blank"><span>Tudo
                 Sobre Cookies por TermsFeed.</span></Link>
         </div>
+
         <h2>Contate-Nos</h2>
         <p>Se você tiver alguma dúvida sobre esta Política de Cookies, você pode nos contatar:</p>
         <ul>
             <li>
                 <p>Por email: victor.jose.lopes.navarro@gmail.com</p>
             </li>
-            <li>
-                <div class="separator">
-                    <p>Visitando esta página em nosso site:</p>
-                    <Link href="https://bush1d3v-portfolio.vercel.app/" rel="external nofollow noopener"
-                        target="_blank">https://bush1d3v-portfolio.vercel.app/</Link>
-                </div>
-            </li>
+
+            <p>Visitando esta página em nosso site:</p>&nbsp;
+            <Link href="https://bush1d3v-portfolio.vercel.app/" rel="external nofollow noopener" target="_blank">
+            https://bush1d3v-portfolio.vercel.app/</Link>
+
             <li>
                 <p>Pelo número de telefone: (21) 99572-7079</p>
             </li>
@@ -168,7 +166,7 @@ useTranslation();
 
 <style scoped>
 .separator {
-    @apply flex gap-2;
+    @apply flex flex-wrap items-center;
 }
 
 .spacer {

@@ -11,9 +11,10 @@ useTranslation();
 </script>
 
 <template>
-    <header class="layout flex justify-between px-8 py-3 items-center min-w-full border-b" data-testid="Header">
+    <header class="layout flex justify-between gap-2 xs:gap-0 px-3 xs:px-8 py-3 items-center min-w-full border-b"
+        data-testid="Header">
         <div class="gap-4 items-center">
-            <RouterLink to="/" class="hover:opacity-50">
+            <RouterLink to="/" class="hidden lg:flex hover:opacity-50">
                 <Image class="w-[150px] h-[53.69px]" src="/logo.svg" alt="NEI Logo" width="150" height="53.69" />
             </RouterLink>
             <Dropdown buttonTile="Mercados" label="Tópicos" :menu="DropdownDto" />
@@ -29,6 +30,6 @@ useTranslation();
 
 <style scoped>
 div {
-    @apply flex-1 flex;
+    @apply lg:flex-1 flex;
 }
 </style>

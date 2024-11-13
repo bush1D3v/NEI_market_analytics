@@ -2,18 +2,18 @@
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import numberFormatter from "@/utils/numberFormatter";
-import type { CryptoCurrency } from "@/types/CoinMarketCap/CryptoCurrency";
-import type { Stock } from "@/types/BrapiDev/Stock";
-import type { New } from "@/types/Finnhub/New";
+import type {CryptoCurrency} from "@/types/CoinMarketCap/CryptoCurrency";
+import type {Stock} from "@/types/BrapiDev/Stock";
+import type {New} from "@/types/Finnhub/New";
 import Link from "@/tags/Link.vue";
 
 interface Props {
-    icon: string;
-    tableTitle: string;
-    redirectTo: "/cryptos" | "/news" | "/stocks";
-    coins?: CryptoCurrency[];
-    stocks?: Stock[];
-    news?: New[];
+	icon: string;
+	tableTitle: string;
+	redirectTo: "/cryptos" | "/news" | "/stocks";
+	coins?: CryptoCurrency[];
+	stocks?: Stock[];
+	news?: New[];
 }
 
 const props = defineProps<Props>();
@@ -42,7 +42,7 @@ const props = defineProps<Props>();
                             <h5 class="line-clamp-1 text-left"> {{ data.name }} </h5>
                             </ RouterLink>
                     </div>
-                    <span class="text-dark"> {{ data.symbol }} </span>
+                    <span class="hidden mn:flex text-dark"> {{ data.symbol }} </span>
                 </div>
                 <div class="li-second-container">
                     <span> {{ numberFormatter(data.quote.USD.price) }} </span>
@@ -58,7 +58,7 @@ const props = defineProps<Props>();
                             <h5 class="line-clamp-1 text-left"> {{ data.name }} </h5>
                             </ RouterLink>
                     </div>
-                    <span class="text-dark"> {{ data.stock }} </span>
+                    <span class="hidden mn:flex text-dark"> {{ data.stock }} </span>
                 </div>
                 <div class="li-second-container">
                     <span> {{ numberFormatter(data.close) }} </span>
@@ -86,11 +86,11 @@ const props = defineProps<Props>();
 
 <style lang="css" scoped>
 article {
-    @apply flex flex-col justify-around md:justify-center bg-secondaryDarker rounded-lg gap-1 p-2 md:p-3 min-w-[355px] max-w-[355px] min-h-[250px] max-h-[250px] md:min-w-[425px] md:max-w-[425px] md:min-h-[250px] md:max-h-[250px];
+    @apply flex flex-col justify-around md:justify-center bg-secondaryDarker rounded-lg gap-1 p-2 md:p-3 min-w-[310px] max-w-[310px] mn:min-w-[355px] mn:max-w-[355px] min-h-[250px] max-h-[250px] md:min-w-[425px] md:max-w-[425px] md:min-h-[250px] md:max-h-[250px];
 }
 
 .li-first-container {
-    @apply flex gap-2 min-w-60 max-w-60 md:min-w-72 md:max-w-72 justify-between;
+    @apply flex gap-2 min-w-40 max-w-40 mn:min-w-60 mn:max-w-60 md:min-w-72 md:max-w-72 justify-between;
 }
 
 .li-second-container {
@@ -98,7 +98,7 @@ article {
 }
 
 li {
-    @apply flex gap-2 items-center justify-between text-center;
+    @apply flex gap-2 items-center justify-around mn:justify-between text-center;
 }
 
 span {

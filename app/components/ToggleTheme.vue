@@ -12,13 +12,13 @@ const themeStore = useThemeStore();
 
 <template>
     <label v-if="props.variant === 'switch'" htmlFor="button-theme-switch" aria-label="Change Theme"
-        aria-labelledby="sunMoon" id="switch" class="mr-8 min-[900px]:mr-0" data-testid="ToggleTheme">
+        aria-labelledby="sunMoon" id="switch" class="min-[900px]:mr-0" data-testid="ToggleTheme">
         <input type="checkbox" :checked="!themeStore.theme" @click="themeStore.toggleDark()" aria-label="Change Theme"
             id="button-theme-switch" />
         <span id="sunMoon" aria-label="Change Theme"></span>
     </label>
     <label v-else htmlFor="button-theme-airplane" aria-label="Change Theme" aria-labelledby="airplane"
-        id="airplaneLabel" class="mr-8 min-[900px]:mr-0" data-testid="ToggleTheme">
+        id="airplaneLabel" class="min-[900px]:mr-0" data-testid="ToggleTheme">
         <input type="checkbox" :checked="!themeStore.theme" @click="themeStore.toggleDark()" aria-label="Change Theme"
             id="button-theme-airplane" />
         <span id="airplane" aria-label="Change Theme"></span>

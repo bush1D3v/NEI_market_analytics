@@ -8,7 +8,7 @@ import github from "@/assets/images/github.png";
 
 <template>
     <footer class="layout container justify-center min-w-full border-t text-dark" data-testid="Footer">
-        <ul class="flex justify-around w-full py-12">
+        <ul class="flex flex-col gap-8 xs:gap-0 xs:flex-row justify-around items-center w-full py-6 xs:py-12">
             <li class="flex flex-col gap-4">
                 <Image src="/logo.svg" alt="NEI Logo" width="200" height="71.59" />
                 <span>© 2024 Todos os direitos reservados.</span>
