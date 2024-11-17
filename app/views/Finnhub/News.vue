@@ -3,11 +3,11 @@ import Button from "@/components/ui/button/Button.vue";
 import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
 import NewsCard from "@/components/NewsCard.vue";
 import NewsCardSkeleton from "@/components/Skeletons/components/NewsCard.vue";
-import {ref, onMounted} from "vue";
-import {listMarketNews} from "@/services/Finnhub";
-import {useTranslation} from "@/config/composable/translate";
-import {useNewsStore} from "@/stores/useNewsStore";
-import {t} from "i18next";
+import { ref, onMounted } from "vue";
+import { listMarketNews } from "@/services/Finnhub";
+import { useTranslation } from "@/config/composable/translate";
+import { useNewsStore } from "@/stores/useNewsStore";
+import { t } from "i18next";
 
 useTranslation();
 
@@ -18,24 +18,24 @@ const error = ref<boolean>(false);
 const limit = ref<number>(12);
 
 function loadMore() {
-	isLoadingMore.value = true;
-	limit.value += 12;
-	isLoadingMore.value = false;
+    isLoadingMore.value = true;
+    limit.value += 12;
+    isLoadingMore.value = false;
 }
 
 function paginatedNews() {
-	return newStore.news.crypto.slice(0, limit.value);
+    return newStore.news.crypto.slice(0, limit.value);
 }
 
 onMounted(async () => {
-	isLoading.value = true;
+    isLoading.value = true;
 
-	if (newStore.news.crypto.length === 0) {
-		const data = await listMarketNews();
-		if (!data) error.value = true;
-	}
+    if (newStore.news.crypto.length === 0) {
+        const data = await listMarketNews();
+        if (!data) error.value = true;
+    }
 
-	isLoading.value = false;
+    isLoading.value = false;
 });
 </script>
 

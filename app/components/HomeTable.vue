@@ -2,18 +2,19 @@
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import numberFormatter from "@/utils/numberFormatter";
-import type {CryptoCurrency} from "@/types/CoinMarketCap/CryptoCurrency";
-import type {Stock} from "@/types/BrapiDev/Stock";
-import type {New} from "@/types/Finnhub/New";
+import type { CryptoCurrency } from "@/types/CoinMarketCap/CryptoCurrency";
+import type { Stock } from "@/types/BrapiDev/Stock";
+import type { New } from "@/types/Finnhub/New";
 import Link from "@/tags/Link.vue";
+import { t } from "i18next";
 
 interface Props {
-	icon: string;
-	tableTitle: string;
-	redirectTo: "/cryptos" | "/news" | "/stocks";
-	coins?: CryptoCurrency[];
-	stocks?: Stock[];
-	news?: New[];
+    icon: string;
+    tableTitle: string;
+    redirectTo: "/cryptos" | "/news" | "/stocks";
+    coins?: CryptoCurrency[];
+    stocks?: Stock[];
+    news?: New[];
 }
 
 const props = defineProps<Props>();
@@ -24,7 +25,7 @@ const props = defineProps<Props>();
         <div class="flex justify-between">
             <div class="flex gap-1 items-center">
                 <span> {{ props.icon }} </span>
-                <h4> {{ props.tableTitle }} </h4>
+                <h4> {{ t(props.tableTitle) }} </h4>
             </div>
             <RouterLink :to="props.redirectTo" target="_self" class="text-link hover:underline mt-2 h-fit">
                 See more

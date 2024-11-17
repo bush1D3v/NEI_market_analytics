@@ -3,7 +3,7 @@ import NotFoundImage from "@/assets/images/404.png";
 import Button from "@/components/ui/button/Button.vue";
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
-import {useTranslation} from "@/config/composable/translate";
+import { useTranslation } from "@/config/composable/translate";
 
 useTranslation();
 </script>

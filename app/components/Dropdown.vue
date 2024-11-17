@@ -1,41 +1,44 @@
 <script lang="ts" setup>
-import {Button} from "@/components/ui/button";
 import RouterLink from "@/tags/RouterLink.vue";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuGroup,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuPortal,
-	DropdownMenuSeparator,
-	DropdownMenuSub,
-	DropdownMenuSubContent,
-	DropdownMenuSubTrigger,
-	DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "@/tags/Image.vue";
+import type { HTMLAttributes } from "vue";
 
 export interface SubContent {
-	/**
-	 * Imagem referente ao subItem
-	 */
-	logo: string;
-	title: string;
-	link: string;
+    /**
+     * Imagem referente ao subItem
+     */
+    logo: string;
+    title: string;
+    link: string;
 }
 
 export interface Menu {
-	emoji: string;
-	title: string;
-	link: string;
-	subContent: SubContent[] | null;
+    emoji: string;
+    title: string;
+    link: string;
+    subContent: SubContent[] | null;
 }
 
 export interface DropdownProps {
-	buttonTile: string;
-	label: string;
-	menu: Menu[];
+    class?: HTMLAttributes[ "class" ];
+    buttonTile: string;
+    label: string;
+    menu: Menu[];
 }
 
 const props = defineProps<DropdownProps>();
@@ -44,11 +47,11 @@ const props = defineProps<DropdownProps>();
 <template>
     <DropdownMenu>
         <DropdownMenuTrigger as-child>
-            <Button variant="outline" data-testid="Dropdown">
+            <Button variant="outline" data-testid="Dropdown" :class="cn(props.class)">
                 {{ props.buttonTile }}
             </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent class="w-56">
+        <DropdownMenuContent class="w-56" :class="cn(props.class)">
             <DropdownMenuLabel>
                 <span v-translate>
                     {{ props.label }}

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Button from "@/components/ui/button/Button.vue";
-import {RouterLink} from "vue-router";
-import {useTranslation} from "@/config/composable/translate";
+import { RouterLink } from "vue-router";
+import { useTranslation } from "@/config/composable/translate";
 
 useTranslation();
 </script>

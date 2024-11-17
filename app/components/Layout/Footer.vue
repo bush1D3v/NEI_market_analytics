@@ -3,24 +3,24 @@ import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import Link from "@/tags/Link.vue";
-import {t} from "i18next";
-import {FooterDto} from "@/components/Dto/Layout/FooterDto";
-import {useRoute} from "vue-router";
-import {GithubLogoIcon} from "@radix-icons/vue";
+import { t } from "i18next";
+import { FooterDto } from "@/components/Dto/Layout/FooterDto";
+import { useRoute } from "vue-router";
+import { GithubLogoIcon } from "@radix-icons/vue";
 
 const route = useRoute();
 </script>
 
 <template>
-    <footer class="layout fixed bottom-0 xs:relative xs:container justify-center min-w-full border-t text-dark"
+    <footer class="layout fixed bottom-0 lg:relative lg:container justify-center min-w-full border-t text-dark"
         data-testid="Footer">
-        <ul class="hidden xs:flex gap-0 flex-row justify-around items-center w-full py-12">
+        <ul class="hidden lg:flex gap-0 flex-row justify-around items-center w-full py-12">
             <li class="flex flex-col gap-4">
                 <Image src="/logo.svg" alt="NEI Logo" width="200" height="71.59" />
                 <span>© 2024 Todos os direitos reservados.</span>
             </li>
             <li class="flex flex-col gap-5">
-                <h3>Info</h3>
+                <h3>Informações</h3>
                 <ul class="flex flex-col gap-2">
                     <li>
                         <RouterLink to="/about-us" class="hover:opacity-50">
@@ -51,7 +51,7 @@ const route = useRoute();
                 </Link>
             </li>
         </ul>
-        <ul class="grid grid-cols-5 bg-secondaryDarker w-full h-full xs:hidden">
+        <ul class="grid grid-cols-5 bg-secondaryDarker w-full h-full lg:hidden">
             <li v-for="(data, i) in FooterDto" :key="i"
                 :class="{ 'text-primary': route.path === data.path, 'cursor-pointer hover:text-primary duration-150 ease-in-out p-3': true }">
                 <RouterLink :to="data.path" class="flex flex-col items-center">
