@@ -6,7 +6,7 @@ import HomeTableSkeleton from "@/components/Skeletons/components/HomeTable.vue";
 import type {New} from "@/types/Finnhub/New";
 import {onBeforeMount, ref} from "vue";
 import {useTranslation} from "@/config/composable/translate";
-import {listBitcoin} from "@/services/CoinMarketCap";
+import {listCryptos} from "@/services/CoinMarketCap";
 import {useCryptoCurrencyStore} from "@/stores/useCryptoCurrencyStore";
 import {listCompanyNews} from "@/services/Finnhub";
 import {listStocks} from "@/services/BrapiDev";
@@ -34,7 +34,7 @@ onBeforeMount(async () => {
 	onNewsLoading.value = false;
 
 	if (!cryptoCurrencyStore.homeCryptoCurrencies.length) {
-		await listBitcoin(5, 1, "percent_change_24h");
+		await listCryptos(5, 1, "percent_change_24h");
 	}
 	onCryptoLoading.value = false;
 

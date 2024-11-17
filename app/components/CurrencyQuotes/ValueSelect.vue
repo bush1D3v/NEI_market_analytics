@@ -1,40 +1,40 @@
 <script setup lang="ts">
 import {
-    NumberField,
-    NumberFieldContent,
-    NumberFieldDecrement,
-    NumberFieldIncrement,
-    NumberFieldInput,
+	NumberField,
+	NumberFieldContent,
+	NumberFieldDecrement,
+	NumberFieldIncrement,
+	NumberFieldInput,
 } from "@/components/ui/number-field";
-import { useCurrencyQuotesStore } from "@/stores/useCurrencyQuotesStore";
-import { ref, watch } from "vue";
+import {useCurrencyQuotesStore} from "@/stores/useCurrencyQuotesStore";
+import {ref, watch} from "vue";
 
 const currencyQuotesStore = useCurrencyQuotesStore();
 
 const props = defineProps<{
-    direction: "left" | "right";
+	direction: "left" | "right";
 }>();
 
 const currency = ref<string>(
-    props.direction === "left" ? currencyQuotesStore.leftCode : currencyQuotesStore.rightCode,
+	props.direction === "left" ? currencyQuotesStore.leftCode : currencyQuotesStore.rightCode,
 );
 
 watch(
-    () => currencyQuotesStore.leftCode,
-    (value) => {
-        if (props.direction === "left") {
-            currency.value = value;
-        }
-    },
+	() => currencyQuotesStore.leftCode,
+	(value) => {
+		if (props.direction === "left") {
+			currency.value = value;
+		}
+	},
 );
 
 watch(
-    () => currencyQuotesStore.rightCode,
-    (value) => {
-        if (props.direction === "right") {
-            currency.value = value;
-        }
-    },
+	() => currencyQuotesStore.rightCode,
+	(value) => {
+		if (props.direction === "right") {
+			currency.value = value;
+		}
+	},
 );
 </script>
 

@@ -10,13 +10,13 @@
 		--secondary-darker: #171b2d;
 		--border: #222a44;
 		--accent: #2d375b;
-        --button-bg: #2d375b;
+		--button-bg: #2d375b;
 		--dark: #8b94a3;
 		--card: #2d375b;
 		--muted: #eeeeee;
-        --destructive: #959595;
-        --material: #171b2d;
-        --link: #99C3FF;
+		--destructive: #959595;
+		--material: #171b2d;
+		--link: #99c3ff;
 	}
 
 	:root {
@@ -43,7 +43,7 @@
 		--vis-secondary-color: 160 81% 40%;
 		--vis-text-color: var(--secondary);
 
-        --link: #4693ff;
+		--link: #4693ff;
 		--yellow: #fff000;
 		--text: #000000;
 		--text-foreground: #111111;
@@ -51,7 +51,7 @@
 		--primary-foreground: #ffffff;
 		--secondary: #0088cc;
 		--surface: #17192e;
-        --material: #ffffff;
+		--material: #ffffff;
 		--texture: #161727;
 		--positive: #28c686;
 		--negative: #d34545;
@@ -88,7 +88,7 @@
 		--accent: #ededed;
 		--accent-foreground: #ffffff;
 
-        --button-bg: #d6d6d8;
+		--button-bg: #d6d6d8;
 
 		--destructive: #5a5a5a;
 		--destructive-foreground: rgb(22, 22, 22);
@@ -129,7 +129,7 @@
 	p {
 		@apply text-sm md:text-base text-destructive;
 	}
-    strong {
+	strong {
 		@apply text-sm md:text-base;
 	}
 }

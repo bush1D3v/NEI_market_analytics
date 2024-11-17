@@ -12,7 +12,7 @@ import type {CryptoCurrency} from "@/types/CoinMarketCap/CryptoCurrency";
  * @returns Promise<CryptoCurrency[] | undefined>
  * @throws {Error} If the request to the proxy fails
  */
-export async function listBitcoin(
+export async function listCryptos(
 	limit = 12,
 	start = 1,
 	sort?: Sort,

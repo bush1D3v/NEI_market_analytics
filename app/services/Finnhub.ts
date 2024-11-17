@@ -39,7 +39,7 @@ export async function listCompanyNews(symbol = "AAPL"): Promise<New[] | undefine
 	const from = new Date();
 	const to = new Date();
 
-	from.setMonth(from.getMonth() - 1);
+	from.setDate(from.getDate() - 1);
 
 	const formattedFrom = formatDate(from);
 	const formattedTo = formatDate(to);

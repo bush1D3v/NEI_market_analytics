@@ -4,7 +4,7 @@ import EntityCardSkeleton from "@/components/Skeletons/components/EntityCard.vue
 import EntityCard from "@/components/EntityCard.vue";
 import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
 import {ref, onMounted} from "vue";
-import {listBitcoin} from "@/services/CoinMarketCap";
+import {listCryptos} from "@/services/CoinMarketCap";
 import {useTranslation} from "@/config/composable/translate";
 import {useCryptoCurrencyStore} from "@/stores/useCryptoCurrencyStore";
 import {t} from "i18next";
@@ -18,7 +18,7 @@ const start = ref<number>(1);
 const error = ref<boolean>(false);
 
 async function loadCryptos() {
-	return await listBitcoin(12, start.value);
+	return await listCryptos(12, start.value);
 }
 
 async function loadMore() {
