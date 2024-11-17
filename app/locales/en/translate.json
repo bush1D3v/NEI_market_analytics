@@ -36,7 +36,7 @@
 	"Vá para cripto moedas": "Go to cryptocurrencies",
 	"Sair": "Logout",
 	"© 2024 Todos os direitos reservados.": "© 2024 All rights reserved.",
-	"Sobre nós": "About Us",
+	"Sobre Nós": "About Us",
 	"Política de Privacidade": "Privacy Policy",
 	"Política de Cookies": "Cookie Policy",
 	"Modo Escuro": "Dark Mode",
@@ -390,5 +390,11 @@
 	"Resultado da Conversão": "Conversion result",
 	"A conversão de": "The conversion from",
 	"resulta em": "results in",
-	"Concluir": "Conclude"
+	"Concluir": "Conclude",
+	"Mais": "More",
+	"Notícias": "News",
+	"Ações": "Stocks",
+	"Explorar": "Explore",
+	"Cripto": "Crypto",
+	"Ferramentas": "Tools"
 }

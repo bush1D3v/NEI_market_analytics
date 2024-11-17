@@ -3,12 +3,18 @@ import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import Link from "@/tags/Link.vue";
-import github from "@/assets/images/github.png";
+import { t } from "i18next";
+import { FooterDto } from "@/components/Dto/Layout/FooterDto";
+import { useRoute } from "vue-router";
+import { GithubLogoIcon } from "@radix-icons/vue";
+
+const route = useRoute();
 </script>
 
 <template>
-    <footer class="layout container justify-center min-w-full border-t text-dark" data-testid="Footer">
-        <ul class="flex flex-col gap-8 xs:gap-0 xs:flex-row justify-around items-center w-full py-6 xs:py-12">
+    <footer class="layout fixed bottom-0 xs:relative xs:container justify-center min-w-full border-t text-dark"
+        data-testid="Footer">
+        <ul class="hidden xs:flex gap-0 flex-row justify-around items-center w-full py-12">
             <li class="flex flex-col gap-4">
                 <Image src="/logo.svg" alt="NEI Logo" width="200" height="71.59" />
                 <span>© 2024 Todos os direitos reservados.</span>
@@ -18,7 +24,7 @@ import github from "@/assets/images/github.png";
                 <ul class="flex flex-col gap-2">
                     <li>
                         <RouterLink to="/about-us" class="hover:opacity-50">
-                            <span>Sobre nós</span>
+                            <span>Sobre Nós</span>
                         </RouterLink>
                     </li>
                     <li>
@@ -39,10 +45,19 @@ import github from "@/assets/images/github.png";
                 <h3>Redes Sociais</h3>
                 <Link href="https://github.com/bush1D3v/NEI_market_analytics/tree/dev" target="_blank">
                 <div class="flex gap-3">
-                    <Image :src="github" alt="GitHub Logo" width="24" height="24" />
+                    <GithubLogoIcon class="w-6 h-6" />
                     <span>Ver no GitHub</span>
                 </div>
                 </Link>
+            </li>
+        </ul>
+        <ul class="grid grid-cols-5 bg-secondaryDarker w-full h-full xs:hidden">
+            <li v-for="(data, i) in FooterDto" :key="i"
+                :class="{ 'text-primary': route.path === data.path, 'cursor-pointer hover:text-primary duration-150 ease-in-out p-3': true }">
+                <RouterLink :to="data.path" class="flex flex-col items-center">
+                    <component :is="data.icon" class="w-6 h-6" />
+                    <h5>{{ t(data.title) }}</h5>
+                </RouterLink>
             </li>
         </ul>
     </footer>
