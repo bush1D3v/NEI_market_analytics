@@ -3,39 +3,39 @@ import Button from "@/components/ui/button/Button.vue";
 import EntityCardSkeleton from "@/components/Skeletons/components/EntityCard.vue";
 import EntityCard from "@/components/EntityCard.vue";
 import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
-import { ref, onMounted } from "vue";
-import { listCryptos } from "@/services/CoinMarketCap";
-import { useCryptoCurrencyStore } from "@/stores/useCryptoCurrencyStore";
-import { t } from "i18next";
+import {ref, onMounted} from "vue";
+import {listCryptos} from "@/services/CoinMarketCap";
+import {useCryptoCurrencyStore} from "@/stores/useCryptoCurrencyStore";
+import {t} from "i18next";
 
-const { cryptoCurrencies } = useCryptoCurrencyStore();
+const {cryptoCurrencies} = useCryptoCurrencyStore();
 const isLoading = ref<boolean>(true);
 const isLoadingMore = ref<boolean>(false);
 const start = ref<number>(1);
 const error = ref<boolean>(false);
 
 async function loadCryptos() {
-    return await listCryptos(12, start.value);
+	return await listCryptos(12, start.value);
 }
 
 async function loadMore() {
-    isLoadingMore.value = true;
-    start.value += 12;
-    const newCryptos = await loadCryptos();
+	isLoadingMore.value = true;
+	start.value += 12;
+	const newCryptos = await loadCryptos();
 
-    if (!newCryptos) {
-        error.value = true;
-    }
+	if (!newCryptos) {
+		error.value = true;
+	}
 
-    isLoadingMore.value = false;
+	isLoadingMore.value = false;
 }
 
 onMounted(async () => {
-    if (!cryptoCurrencies.length) {
-        const data = await loadCryptos();
-        if (!data) error.value = true;
-    }
-    isLoading.value = false;
+	if (!cryptoCurrencies.length) {
+		const data = await loadCryptos();
+		if (!data) error.value = true;
+	}
+	isLoading.value = false;
 });
 </script>
 

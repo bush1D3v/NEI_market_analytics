@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Link from "@/tags/Link.vue";
-import { useTranslation } from "@/config/composable/translate";
+import {useTranslation} from "@/config/composable/translate";
 
 useTranslation();
 </script>

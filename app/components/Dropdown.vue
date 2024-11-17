@@ -1,44 +1,44 @@
 <script lang="ts" setup>
 import RouterLink from "@/tags/RouterLink.vue";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import {cn} from "@/lib/utils";
+import {Button} from "@/components/ui/button";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuPortal,
-    DropdownMenuSeparator,
-    DropdownMenuSub,
-    DropdownMenuSubContent,
-    DropdownMenuSubTrigger,
-    DropdownMenuTrigger,
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuGroup,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuPortal,
+	DropdownMenuSeparator,
+	DropdownMenuSub,
+	DropdownMenuSubContent,
+	DropdownMenuSubTrigger,
+	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "@/tags/Image.vue";
-import type { HTMLAttributes } from "vue";
+import type {HTMLAttributes} from "vue";
 
 export interface SubContent {
-    /**
-     * Imagem referente ao subItem
-     */
-    logo: string;
-    title: string;
-    link: string;
+	/**
+	 * Imagem referente ao subItem
+	 */
+	logo: string;
+	title: string;
+	link: string;
 }
 
 export interface Menu {
-    emoji: string;
-    title: string;
-    link: string;
-    subContent: SubContent[] | null;
+	emoji: string;
+	title: string;
+	link: string;
+	subContent: SubContent[] | null;
 }
 
 export interface DropdownProps {
-    class?: HTMLAttributes[ "class" ];
-    buttonTile: string;
-    label: string;
-    menu: Menu[];
+	class?: HTMLAttributes["class"];
+	buttonTile: string;
+	label: string;
+	menu: Menu[];
 }
 
 const props = defineProps<DropdownProps>();
