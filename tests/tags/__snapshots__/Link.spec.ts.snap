@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link Component Tests > Should be able to snapshot the component correctly 1`] = `"<a href="https://www.google.com" target="_blank" rel="no-referrer" class="font-bold underline" data-testid="Link">Texto do Link</a>"`;
+exports[`Link Component Tests > Should be able to snapshot the component correctly 1`] = `"<a href="https://www.google.com" target="_blank" rel="no-referrer" class="hover:opacity-50 duration-150 ease-in-out font-bold underline" data-testid="Link">Texto do Link</a>"`;

@@ -4,7 +4,7 @@ import animate from "tailwindcss-animate";
 export const darkMode = ["class"];
 export const safelist = ["dark"];
 export const prefix = "";
-export const content = ["./src/**/*.{ts,tsx,vue}"];
+export const content = ["./app/**/*.{ts,tsx,vue}"];
 export const theme = {
 	container: {
 		center: true,
@@ -13,9 +13,20 @@ export const theme = {
 			"2xl": "1400px",
 		},
 	},
+	screens: {
+		mn: "340px",
+		xs: "480px",
+		sm: "640px",
+		md: "768px",
+		lg: "1024px",
+		lgx: "1180px",
+		xl: "1280px",
+		"2xl": "1536px",
+	},
 	extend: {
 		colors: {
 			primaryForeground: "var(--primary-foreground)",
+			buttonBg: "var(--button-bg)",
 			textForeground: "var(--text-foreground)",
 			material: "var(--material)",
 			dark: "var(--dark)",
@@ -47,11 +58,11 @@ export const theme = {
 			linkedin: "var(--linkedin)",
 			instagram: "var(--instagram)",
 			youtube: "var(--youtube)",
-			"primary-lighter": "var(--primary-lighter)",
-			"primary-darker": "var(--primary-darker)",
+			primaryLighter: "var(--primary-lighter)",
+			link: "var(--link)",
+			primaryDarker: "var(--primary-darker)",
 			background: "var(--background)",
 			surface: "var(--surface)",
-			blue: "var(--blue)",
 			text: "var(--text)",
 			border: "var(--border)",
 			input: "var(--input)",

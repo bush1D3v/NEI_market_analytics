@@ -1,10 +1,10 @@
 import {test, expect, describe} from "vitest";
 import Accordion from "@/components/Accordion.vue";
 import {mount} from "@vue/test-utils";
-import {AccordionDto} from "@/components/Dto/AccordionDto";
+import {AccordionMock} from "../../mocks/components/Accordion";
 
 describe("Accordion Component Tests", () => {
-	const wrapper = mount(Accordion);
+	const wrapper = mount(Accordion, {props: {items: AccordionMock}});
 	const accordionComponent = wrapper.findComponent(Accordion);
 
 	test("Should be able to render the component correctly", async () => {
@@ -16,7 +16,7 @@ describe("Accordion Component Tests", () => {
 	});
 
 	test("Should be able to render the component with the correct text", async () => {
-		for (const item of AccordionDto) {
+		for (const item of AccordionMock) {
 			expect(accordionComponent.text()).toContain(item.title);
 		}
 	});

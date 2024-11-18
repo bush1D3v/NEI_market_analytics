@@ -1,7 +1,8 @@
 import {themes} from "@storybook/theming";
 import {withActions} from "@storybook/addon-actions/decorator";
 import type {Preview} from "@storybook/vue3";
-import "../src/assets/css/main.css";
+import {vueRouter} from "storybook-vue3-router";
+import "../app/assets/css/main.css";
 
 const preview: Preview = {
 	parameters: {
@@ -32,6 +33,7 @@ const preview: Preview = {
 	tags: ["autodocs", "autodocs"],
 	decorators: [
 		withActions,
+		vueRouter(),
 		(story) => ({
 			components: {story},
 			template: `

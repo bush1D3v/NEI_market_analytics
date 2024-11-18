@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dropdown Component Tests > Should be able to snapshot the component correctly 1`] = `
+"<button data-v-9a6861a5="" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border bg-background shadow-sm hover:bg-accent hover:text-textForeground duration-300 h-9 px-4 py-2 outline-none" data-testid="Dropdown" id="radix-vue-dropdown-menu-trigger-1" type="button" aria-haspopup="menu" aria-expanded="false" data-state="closed">Tópicos </button>
+<!--teleport start-->
+<!--teleport end-->"
+`;

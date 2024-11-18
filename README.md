@@ -31,6 +31,11 @@ O **NEI Market Analytics** é um projeto de código aberto projetado para fornec
    <img align='center' height='50' width='60' title='Playwright' alt='playwright' src='https://github.com/user-attachments/assets/1ce5b208-a75b-48e0-bd5c-e663f4e02302' /> &nbsp;
    <img align='center' height='50' width='60' title='Biomejs' alt='biomejs' src='https://github.com/user-attachments/assets/b3d8a249-e17f-4e64-9608-4a4783b7bbc0' /> &nbsp;
    <img align='center' height='50' width='50' title='Chromatic' alt='chromatic' src='https://github.com/user-attachments/assets/6edd5832-5db7-4e2a-a8e4-4bbe7b8e7208' /> &nbsp;
+   <img align='center' height='50' width='50' title='i18next' alt='i18next' src='https://github.com/user-attachments/assets/166d58bf-9e8e-46d7-94ce-cb1910bc6932' /> &nbsp;
+   <img align='center' height='49' width='49' title='Express' alt='express' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/ba645c20-1f19-4914-8ad0-de6c7f83ba2e' /> &nbsp;&nbsp;
+   <img align='center' height='53' width='49' title='Nodemon' alt='nodemon' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/fd586348-7781-4e02-a4f0-fe7410ef43fb' /> &nbsp;&nbsp;
+   <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp;&nbsp;
+   <img align='center' height='50' width='50' title='Cors' alt='cors' src='https://github.com/bush1D3v/101acessorios_api/assets/133554156/3b4cccec-065e-428a-a663-1c5939404c1a' /> &nbsp;&nbsp;
 </div>
 
 ## 🏗 Estrutura e Arquitetura
@@ -58,8 +63,13 @@ O TypeScript não pode manipular informações de tipo para importações `.vue`
 ```sh
 bun install
 ```
+### Compilar e recarregar rapidamente para Back-end
 
-### Compilar e recarregar rapidamente para desenvolvimento
+```sh
+bun up
+```
+
+### Compilar e recarregar rapidamente para Front-end
 
 ```sh
 bun dev
@@ -120,6 +130,11 @@ The **NEI Market Analytics** is an open-source project designed to provide compr
    <img align='center' height='50' width='60' title='Playwright' alt='playwright' src='https://github.com/user-attachments/assets/1ce5b208-a75b-48e0-bd5c-e663f4e02302' /> &nbsp;
    <img align='center' height='50' width='60' title='Biomejs' alt='biomejs' src='https://github.com/user-attachments/assets/b3d8a249-e17f-4e64-9608-4a4783b7bbc0' /> &nbsp;
    <img align='center' height='50' width='50' title='Chromatic' alt='chromatic' src='https://github.com/user-attachments/assets/6edd5832-5db7-4e2a-a8e4-4bbe7b8e7208' /> &nbsp;
+   <img align='center' height='50' width='50' title='i18next' alt='i18next' src='https://github.com/user-attachments/assets/166d58bf-9e8e-46d7-94ce-cb1910bc6932' /> &nbsp;
+   <img align='center' height='49' width='49' title='Express' alt='express' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/ba645c20-1f19-4914-8ad0-de6c7f83ba2e' /> &nbsp;&nbsp;
+   <img align='center' height='53' width='49' title='Nodemon' alt='nodemon' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/fd586348-7781-4e02-a4f0-fe7410ef43fb' /> &nbsp;&nbsp;
+   <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp;&nbsp;
+   <img align='center' height='50' width='50' title='Cors' alt='cors' src='https://github.com/bush1D3v/101acessorios_api/assets/133554156/3b4cccec-065e-428a-a663-1c5939404c1a' /> &nbsp;&nbsp;
 </div>
 
 ## 🏗 Structure and Architecture
@@ -148,7 +163,13 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 bun install
 ```
 
-### Compile and Hot-Reload for Development
+### Compile and Hot-Reload for Back-end
+
+```sh
+bun up
+```
+
+### Compile and Hot-Reload for Front-end
 
 ```sh
 bun dev

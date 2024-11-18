@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	.dark {
+		--text: #ffffff;
+		--text-foreground: #eeeeee;
+		--background: #0f101d;
+		--secondary-darker: #171b2d;
+		--border: #222a44;
+		--accent: #2d375b;
+		--button-bg: #2d375b;
+		--dark: #8b94a3;
+		--card: #2d375b;
+		--muted: #eeeeee;
+		--destructive: #959595;
+		--material: #171b2d;
+		--link: #99c3ff;
+	}
+
+	:root {
+		--foreground: #ffffff;
+
+		--muted: #111111;
+		--muted-foreground: rgb(141, 67, 14);
+
+		--popover-foreground: #ffffff;
+
+		--card: #c9c9c9;
+		--card-foreground: #ffffff;
+
+		--input: rgb(25, 19, 15);
+		--dark: #607585;
+
+		--vis-tooltip-background-color: none !important;
+		--vis-tooltip-border-color: none !important;
+		--vis-tooltip-text-color: none !important;
+		--vis-tooltip-shadow-color: none !important;
+		--vis-tooltip-backdrop-filter: none !important;
+		--vis-tooltip-padding: none !important;
+		--vis-primary-color: var(--primary);
+		--vis-secondary-color: 160 81% 40%;
+		--vis-text-color: var(--secondary);
+
+		--link: #4693ff;
+		--yellow: #fff000;
+		--text: #000000;
+		--text-foreground: #111111;
+		--primary: #157efb;
+		--primary-foreground: #ffffff;
+		--secondary: #0088cc;
+		--surface: #17192e;
+		--material: #ffffff;
+		--texture: #161727;
+		--positive: #28c686;
+		--negative: #d34545;
+		--positive-lighter: #41d99b;
+		--positive-darker: #21a26e;
+		--negative-lighter: #db6868;
+		--negative-darker: #bf2d2d;
+		--background: #f2f7fc;
+		--secondary-darker: #ffffff;
+		--fg: #ffffff;
+		--fg-dim: #bac8d2;
+		--fg-muted: #8b94a3;
+		--border: #191e31;
+		--secondary-lighter: #3c4366;
+		--surface-lighter: #20223f;
+		--surface-darker: #0e101d;
+		--material-lighter: #0a0c13;
+		--material-darker: #1d2339;
+		--texture-lighter: #1f2137;
+		--texture-darker: #0d0d17;
+		--twitter: #000000;
+		--telegram: #0088cc;
+		--reddit: #ff4500;
+		--facebook: #1877f2;
+		--medium: #00ab6c;
+		--github: #333;
+		--discord: #5865f2;
+		--linkedin: #0a66c2;
+		--instagram: #c13584;
+		--youtube: #ff0000;
+		--primary-lighter: #4095fc;
+		--primary-darker: #edf2f4;
+
+		--accent: #ededed;
+		--accent-foreground: #ffffff;
+
+		--button-bg: #d6d6d8;
+
+		--destructive: #5a5a5a;
+		--destructive-foreground: rgb(22, 22, 22);
+
+		--ring: #ffffff;
+
+		--radius: 0.5rem;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border p-0 m-0 box-border;
+		font-family: "Roboto", ui-sans-serif, system-ui, -apple-system, sans-serif;
+	}
+	body {
+		@apply min-h-screen bg-background text-text;
+		transition: background-color 0.3s ease-in-out, color 0.2s ease-in-out;
+	}
+	h1 {
+		@apply text-3xl md:text-4xl lg:text-5xl font-bold;
+	}
+	h2 {
+		@apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+	}
+	h3 {
+		@apply text-xl md:text-2xl lg:text-3xl font-semibold;
+	}
+	h4 {
+		@apply text-lg md:text-xl lg:text-2xl font-semibold;
+	}
+	h5 {
+		@apply text-base md:text-lg lg:text-xl font-semibold;
+	}
+	h6 {
+		@apply text-sm md:text-base lg:text-lg font-semibold;
+	}
+	p {
+		@apply text-sm md:text-base text-destructive;
+	}
+	strong {
+		@apply text-sm md:text-base;
+	}
+}
+
+.container {
+	@apply flex flex-col items-center min-h-[80dvh] py-[3dvh] md:py-0 md:min-h-[84dvh] px-4 md:px-8;
+}
+
+.layout {
+	@apply bg-transparent min-h-[8dvh];
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--accent);
+}
+
+::selection {
+	background: var(--primary);
+	color: var(--text);
+}
