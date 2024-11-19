@@ -6,7 +6,6 @@ import type {CryptoCurrency} from "@/types/CoinMarketCap/CryptoCurrency";
 import type {Stock} from "@/types/BrapiDev/Stock";
 import type {New} from "@/types/Finnhub/New";
 import Link from "@/tags/Link.vue";
-import {t} from "i18next";
 
 interface Props {
 	icon: string;
@@ -25,9 +24,9 @@ const props = defineProps<Props>();
         <div class="flex justify-between">
             <div class="flex gap-1 items-center">
                 <span> {{ props.icon }} </span>
-                <h4> {{ t(props.tableTitle) }} </h4>
+                <h4 v-translate> {{ props.tableTitle }} </h4>
             </div>
-            <RouterLink :to="props.redirectTo" target="_self" class="text-link hover:underline mt-2 h-fit">
+            <RouterLink v-translate :to="props.redirectTo" target="_self" class="text-link hover:underline mt-2 h-fit">
                 See more
             </RouterLink>
         </div>

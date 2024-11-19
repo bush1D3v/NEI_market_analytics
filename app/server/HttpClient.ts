@@ -3,6 +3,9 @@ const DEFAULT_HEADERS = {
 	Accept: "application/json",
 };
 
+const SERVER_HOST = import.meta.env.VITE_SERVER_HOST;
+const SERVER_PORT = import.meta.env.VITE_SERVER_PORT;
+
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 interface HttpRequestOptions {
@@ -14,7 +17,7 @@ interface HttpRequestOptions {
 async function httpRequest(url: string, options: HttpRequestOptions): Promise<Response> {
 	const headers = {...DEFAULT_HEADERS, ...options.headers};
 
-	return await fetch(`http://localhost:3000${url}`, {
+	return await fetch(`${SERVER_HOST}:${SERVER_PORT}${url}`, {
 		method: options.method,
 		headers: headers,
 		body: options.body ? JSON.stringify(options.body) : null,

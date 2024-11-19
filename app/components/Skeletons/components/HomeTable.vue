@@ -7,7 +7,7 @@ const props = defineProps<Props>();
 
 <template>
     <article
-        class="flex flex-col justify-around md:justify-center bg-secondaryDarker rounded-lg gap-1 p-2 md:p-3 min-w-[310px] max-w-[310px] mn:min-w-[355px] mn:max-w-[355px] min-h-[250px] max-h-[250px] md:min-w-[425px] md:max-w-[425px] md:min-h-[250px] md:max-h-[250px]">
+        class="flex flex-col justify-around md:justify-center bg-secondaryDarker rounded-lg gap-1 p-2 md:p-3 min-w-[310px] max-w-[310px] mn:min-w-[355px] mn:max-w-[355px] min-h-[250px] max-h-[250px] md:min-w-[425px] md:max-w-[425px] md:min-h-[250px] md:max-h-[250px] animate-pulse">
         <div class="flex justify-between">
             <div class="flex gap-2 items-center">
                 <span class="bg-gray-300 h-5 w-5" :class="{ 'rounded-full': props.type === 'cryptos' }" />
