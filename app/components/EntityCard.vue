@@ -4,14 +4,15 @@ import Button from "@/components/ui/button/Button.vue";
 import numberFormatter from "@/utils/numberFormatter";
 
 export interface EntityCardProps {
-	id: string | number;
-	name: string;
-	symbol: string;
-	image: string;
-	routerLinkTo: string;
-	price: number;
-	market_cap: number;
-	circulating_supply: number;
+    id: string | number;
+    name: string;
+    symbol: string;
+    image: string;
+    routerLinkTo: string;
+    price: number;
+    market_cap: number;
+    circulating_supply: number;
+    //type: "crypto" | "nft";
 }
 
 const props = defineProps<EntityCardProps>();
@@ -37,15 +38,15 @@ const props = defineProps<EntityCardProps>();
         <div class="md:font-semibold gap-2 md:gap-0 flex justify-between">
             <div>
                 <strong>${{ numberFormatter(props.price) }}</strong>
-                <p>Preço</p>
+                <p v-translate>Preço</p>
             </div>
             <div>
                 <strong>{{ numberFormatter(props.market_cap) }}</strong>
-                <p>Capitalização de mercado</p>
+                <p v-translate>Capitalização de mercado</p>
             </div>
             <div>
                 <strong>{{ numberFormatter(props.circulating_supply) }}</strong>
-                <p>Volume</p>
+                <p v-translate>Volume</p>
             </div>
         </div>
         <RouterLink :to="props.routerLinkTo">

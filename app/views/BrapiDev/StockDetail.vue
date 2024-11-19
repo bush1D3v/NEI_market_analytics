@@ -1,19 +1,39 @@
 <script setup lang="ts">
-import {useRoute} from "vue-router";
+import { stockDetail } from "@/services/BrapiDev";
+import { useStocksCurrencyStore } from "@/stores/useStocksCurrencyStore";
+import { onBeforeMount, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
 
 const route = useRoute();
-const stock = String(route.params.stock);
+const ticker = String(route.params.ticker);
+const stocksCurrencyStore = useStocksCurrencyStore();
+const error = ref<boolean>(false);
+const loading = ref<boolean>(true);
 
 const capitalizeFirstLetter = (string: string) => {
-	return string.charAt(0).toUpperCase() + string.slice(1);
+    return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-document.title = `${capitalizeFirstLetter(stock)} | NEI Market Analytics`;
+onBeforeMount(() => {
+    document.title = `${capitalizeFirstLetter(ticker)} | NEI Market Analytics`;
+});
+
+onMounted(async () => {
+    if (!stocksCurrencyStore.getDetailedStock(ticker)) {
+        try {
+            await stockDetail(ticker);
+        } catch (err) {
+            error.value = true;
+        }
+    }
+
+    loading.value = false;
+});
 </script>
 
 
 <template>
     <section class="container justify-center">
-        <h1 class="hover:underline hover:opacity-50 ease-in-out duration-150">{{ stock }}</h1>
+        <h1 class="hover:underline hover:opacity-50 ease-in-out duration-150">oi</h1>
     </section>
 </template>

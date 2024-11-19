@@ -1,8 +1,9 @@
 import express from "express";
-import {listStocks} from "../proxy/BrapiDev.ts";
+import { listStocks, detailStock } from "../proxy/BrapiDev.ts";
 
 const brapiDevRoutes = express();
 
-brapiDevRoutes.get("/api/quote/list", listStocks);
+brapiDevRoutes.get("/quote/list", listStocks);
+brapiDevRoutes.get("/quote/:ticker", detailStock);
 
 export default brapiDevRoutes;
