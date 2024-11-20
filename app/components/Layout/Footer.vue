@@ -3,10 +3,10 @@ import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import Link from "@/tags/Link.vue";
-import {t} from "i18next";
-import {FooterDto} from "@/components/Dto/Layout/FooterDto";
-import {useRoute} from "vue-router";
-import {GithubLogoIcon} from "@radix-icons/vue";
+import { t } from "i18next";
+import { FooterDto } from "@/components/Dto/Layout/FooterDto";
+import { useRoute } from "vue-router";
+import { GithubLogoIcon } from "@radix-icons/vue";
 
 const route = useRoute();
 </script>
@@ -53,8 +53,8 @@ const route = useRoute();
         </ul>
         <ul class="grid grid-cols-5 bg-secondaryDarker w-full h-full lg:hidden">
             <li v-for="(data, i) in FooterDto" :key="i"
-                :class="{ 'text-primary': route.path === data.path, 'cursor-pointer hover:text-primary duration-150 ease-in-out p-3': true }">
-                <RouterLink :to="data.path" class="flex flex-col items-center">
+                :class="{ 'text-primary': route.path === data.path, 'cursor-pointer hover:text-primary duration-150 ease-in-out': true }">
+                <RouterLink :to="data.path" class="flex flex-col items-center p-3">
                     <component :is="data.icon" class="w-6 h-6" />
                     <h5>{{ t(data.title) }}</h5>
                 </RouterLink>
