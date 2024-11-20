@@ -1,68 +1,49 @@
 <script setup lang="ts">
-import AreaChart from "@/components/Chart/AreaChart.vue";
+import AreaChart, { type AreaChartData } from "@/components/Chart/AreaChart.vue";
 import AreaChartSkeleton from "@/components/Skeletons/components/Chart/AreaChart.vue";
-import BarChart from "@/components/Chart/BarChart.vue";
+import BarChart, { type BarChartData } from "@/components/Chart/BarChart.vue";
 import BarChartSkeleton from "@/components/Skeletons/components/Chart/BarChart.vue";
-import LineChart from "@/components/Chart/LineChart.vue";
+import LineChart, { type LineChartData } from "@/components/Chart/LineChart.vue";
 import LineChartSkeleton from "@/components/Skeletons/components/Chart/LineChart.vue";
 import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
 import numberFormatter from "@/utils/numberFormatter";
 import capitalizeFirstLetter from "@/utils/capitalizeFirstLetter";
+import transformDate from "@/utils/transformDate";
 import type { DetailedStock } from "@/types/BrapiDev/DetailedStock";
 import { stockDetail } from "@/services/BrapiDev";
 import { useStocksCurrencyStore } from "@/stores/useStocksCurrencyStore";
 import { onBeforeMount, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
-interface TreatedBarData {
-    High: number | string;
-    Low: number | string;
-    name: string;
-}
-
-interface TreatedAreaData {
-    Open: number | string;
-    Close: number | string;
-    name: string;
-}
-
-interface TreatedLineData {
-    Volume: number | string;
-    name: string;
-}
-
 const route = useRoute();
 const ticker = String(route.params.ticker);
 const stocksCurrencyStore = useStocksCurrencyStore();
 const error = ref<boolean>(false);
 const loading = ref<boolean>(true);
-const treatedBarData = ref<TreatedBarData[]>([]);
-const treatedAreaData = ref<TreatedAreaData[]>([]);
-const treatedLineData = ref<TreatedLineData[]>([]);
+const treatedBarData = ref<BarChartData[]>([]);
+const treatedAreaData = ref<AreaChartData[]>([]);
+const treatedLineData = ref<LineChartData[]>([]);
 
-function mapToTreatedBarData(detailedStock: DetailedStock): TreatedBarData[] {
-    const locale = navigator.language;
+function mapToTreatedBarData(detailedStock: DetailedStock): BarChartData[] {
     return detailedStock.historicalDataPrice.map(data => ({
         High: numberFormatter(data.high),
         Low: numberFormatter(data.low),
-        name: capitalizeFirstLetter(new Date(data.date * 1000).toLocaleDateString(locale, { day: 'numeric', month: 'short' }))
+        name: capitalizeFirstLetter(transformDate(data.date))
     }));
 }
 
-function mapToTreatedAreaData(detailedStock: DetailedStock): TreatedAreaData[] {
-    const locale = navigator.language;
+function mapToTreatedAreaData(detailedStock: DetailedStock): AreaChartData[] {
     return detailedStock.historicalDataPrice.map(data => ({
         Open: numberFormatter(data.open),
         Close: numberFormatter(data.close),
-        name: capitalizeFirstLetter(new Date(data.date * 1000).toLocaleDateString(locale, { day: 'numeric', month: 'short' }))
+        name: capitalizeFirstLetter(transformDate(data.date))
     }));
 }
 
-function mapToTreatedLineData(detailedStock: DetailedStock): TreatedLineData[] {
-    const locale = navigator.language;
+function mapToTreatedLineData(detailedStock: DetailedStock): LineChartData[] {
     return detailedStock.historicalDataPrice.map(data => ({
         Volume: data.volume,
-        name: capitalizeFirstLetter(new Date(data.date * 1000).toLocaleDateString(locale, { day: 'numeric', month: 'short' }))
+        name: capitalizeFirstLetter(transformDate(data.date))
     }));
 }
 
@@ -109,5 +90,3 @@ onMounted(async () => {
         <InternalServerError v-if="error" />
     </section>
 </template>
-
-<style lang="css" scoped></style>

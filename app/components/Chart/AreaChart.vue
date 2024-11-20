@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { AreaChart } from '@/components/ui/chart-area'
 
-interface ChartData {
+export interface AreaChartData {
     Open: number | string;
     Close: number | string;
     name: string;
 }
 
-const props = defineProps<{ data: ChartData[], title: string }>();
+const props = defineProps<{ data: AreaChartData[], title: string }>();
 </script>
 
 <template>

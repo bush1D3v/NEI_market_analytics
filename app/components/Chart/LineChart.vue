@@ -2,12 +2,12 @@
 import { LineChart } from '@/components/ui/chart-line'
 import numberFormatter from '@/utils/numberFormatter';
 
-interface ChartData {
+export interface LineChartData {
     Volume: number | string;
     name: string;
 }
 
-const props = defineProps<{ data: ChartData[], title: string }>();
+const props = defineProps<{ data: LineChartData[], title: string }>();
 </script>
 
 <template>
