@@ -64,11 +64,19 @@ export async function stockDetail(
 ): Promise<DetailedStock | undefined> {
     const url = `/quote/${ticker}?range=${range}&interval=${interval}`;
     try {
-        const response = await get(url);
+        let response = await get(url);
 
         if (!response.ok) throw new Error(await response.json());
 
-        const detailedStock: DetailedStock = await response.json();
+        let detailedStock: DetailedStock = await response.json();
+
+        let i = 0;
+        while (detailedStock.historicalDataPrice.length === 0 && i < 3) {
+            await new Promise((resolve) => setTimeout(resolve, 10000));
+            response = await get(url);
+            detailedStock = await response.json();
+            i++;
+        }
 
         bus.emit("getDetailedStock", { detailedStock });
 
