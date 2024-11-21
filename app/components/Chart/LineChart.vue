@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { LineChart } from '@/components/ui/chart-line'
-import numberFormatter from '@/utils/numberFormatter';
+import {LineChart} from "@/components/ui/chart-line";
+import numberFormatter from "@/utils/numberFormatter";
 
 export interface LineChartData {
-    Volume: number | string;
-    name: string;
+	Volume: number | string;
+	name: string;
 }
 
-const props = defineProps<{ data: LineChartData[], title: string }>();
+const props = defineProps<{data: LineChartData[]; title: string}>();
 </script>
 
 <template>

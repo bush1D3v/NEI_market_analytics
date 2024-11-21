@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { BarChart } from '@/components/ui/chart-bar'
+import {BarChart} from "@/components/ui/chart-bar";
 
 export interface BarChartData {
-    High: number | string;
-    Low: number | string;
-    name: string;
+	High: number | string;
+	Low: number | string;
+	name: string;
 }
 
-const props = defineProps<{ data: BarChartData[], title: string }>();
+const props = defineProps<{data: BarChartData[]; title: string}>();
 </script>
 
 <template>

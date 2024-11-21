@@ -33,13 +33,13 @@
 		--input: rgb(25, 19, 15);
 		--dark: #607585;
 
-        --vis-tooltip-background-color: none !important;
-        --vis-tooltip-border-color: none !important;
-        --vis-tooltip-text-color: none !important;
-        --vis-tooltip-shadow-color: none !important;
-        --vis-tooltip-backdrop-filter: none !important;
-        --vis-tooltip-padding: none !important;
-        --vis-primary-color: var(--primary);
+		--vis-tooltip-background-color: none !important;
+		--vis-tooltip-border-color: none !important;
+		--vis-tooltip-text-color: none !important;
+		--vis-tooltip-shadow-color: none !important;
+		--vis-tooltip-backdrop-filter: none !important;
+		--vis-tooltip-padding: none !important;
+		--vis-primary-color: var(--primary);
 		--vis-secondary-color: var(--secondary);
 		--vis-text-color: var(--text);
 

@@ -1,5 +1,5 @@
 import express from "express";
-import { detailCrypto, listCryptoCurrencies } from "../proxy/CoinGecko.ts";
+import {detailCrypto, listCryptoCurrencies} from "../proxy/CoinGecko.ts";
 
 const coinGeckoRoutes = express();
 

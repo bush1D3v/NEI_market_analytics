@@ -6,7 +6,7 @@ import coinGeckoRoutes from "./routes/CoinGecko.ts";
 import finnhubRoutes from "./routes/Finnhub.ts";
 import helmet from "./config/helmet.ts";
 import rateLimiter from "./config/rateLimiter.ts";
-import { csrfProtection, setCsrfToken, cookieParser } from "./config/csrf.ts";
+import {csrfProtection, setCsrfToken, cookieParser} from "./config/csrf.ts";
 
 const app = express();
 

@@ -3,15 +3,15 @@ import RouterLink from "@/tags/RouterLink.vue";
 import Button from "@/components/ui/button/Button.vue";
 import HomeTable from "@/components/HomeTable.vue";
 import HomeTableSkeleton from "@/components/Skeletons/components/HomeTable.vue";
-import type { New } from "@/types/Finnhub/New";
-import { onBeforeMount, ref } from "vue";
-import { useTranslation } from "@/config/composable/translate";
-import { listCryptoCurrencies } from "@/services/CoinGecko";
-import { useCryptoCurrencyStore } from "@/stores/useCryptoCurrencyStore";
-import { listCompanyNews } from "@/services/Finnhub";
-import { listStocks } from "@/services/BrapiDev";
-import { useStocksCurrencyStore } from "@/stores/useStocksCurrencyStore";
-import { useNewsStore } from "@/stores/useNewsStore";
+import type {New} from "@/types/Finnhub/New";
+import {onBeforeMount, ref} from "vue";
+import {useTranslation} from "@/config/composable/translate";
+import {listCryptoCurrencies} from "@/services/CoinGecko";
+import {useCryptoCurrencyStore} from "@/stores/useCryptoCurrencyStore";
+import {listCompanyNews} from "@/services/Finnhub";
+import {listStocks} from "@/services/BrapiDev";
+import {useStocksCurrencyStore} from "@/stores/useStocksCurrencyStore";
+import {useNewsStore} from "@/stores/useNewsStore";
 
 const cryptoCurrencyStore = useCryptoCurrencyStore();
 const newsStore = useNewsStore();
@@ -24,24 +24,24 @@ const onStocksLoading = ref<boolean>(false);
 useTranslation();
 
 onBeforeMount(async () => {
-    onNewsLoading.value = true;
-    onCryptoLoading.value = true;
-    onStocksLoading.value = true;
+	onNewsLoading.value = true;
+	onCryptoLoading.value = true;
+	onStocksLoading.value = true;
 
-    if (!newsStore.news.company.length) {
-        (await listCompanyNews()) as New[];
-    }
-    onNewsLoading.value = false;
+	if (!newsStore.news.company.length) {
+		(await listCompanyNews()) as New[];
+	}
+	onNewsLoading.value = false;
 
-    if (!cryptoCurrencyStore.homeCryptoCurrencies.length) {
-        await listCryptoCurrencies(5, 1, "market_cap_desc", "24h");
-    }
-    onCryptoLoading.value = false;
+	if (!cryptoCurrencyStore.homeCryptoCurrencies.length) {
+		await listCryptoCurrencies(5, 1, "market_cap_desc", "24h");
+	}
+	onCryptoLoading.value = false;
 
-    if (!stocksCurrencyStore.homeStockCurrencies.length) {
-        await listStocks(5, 1, "change", "desc");
-    }
-    onStocksLoading.value = false;
+	if (!stocksCurrencyStore.homeStockCurrencies.length) {
+		await listStocks(5, 1, "change", "desc");
+	}
+	onStocksLoading.value = false;
 });
 </script>
 

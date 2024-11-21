@@ -2,18 +2,18 @@
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import numberFormatter from "@/utils/numberFormatter";
-import type { CryptoCurrency } from "@/types/CoinGecko/CryptoCurrency";
-import type { Stock } from "@/types/BrapiDev/Stock";
-import type { New } from "@/types/Finnhub/New";
+import type {CryptoCurrency} from "@/types/CoinGecko/CryptoCurrency";
+import type {Stock} from "@/types/BrapiDev/Stock";
+import type {New} from "@/types/Finnhub/New";
 import Link from "@/tags/Link.vue";
 
 interface Props {
-    icon: string;
-    tableTitle: string;
-    redirectTo: "/cryptos" | "/news" | "/stocks";
-    coins?: CryptoCurrency[];
-    stocks?: Stock[];
-    news?: New[];
+	icon: string;
+	tableTitle: string;
+	redirectTo: "/cryptos" | "/news" | "/stocks";
+	coins?: CryptoCurrency[];
+	stocks?: Stock[];
+	news?: New[];
 }
 
 const props = defineProps<Props>();

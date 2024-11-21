@@ -1,6 +1,6 @@
 const DEFAULT_HEADERS = {
-    "Content-Type": "application/json; charset=utf-8",
-    Accept: "application/json",
+	"Content-Type": "application/json; charset=utf-8",
+	Accept: "application/json",
 };
 
 const SERVER_HOST = import.meta.env.VITE_SERVER_HOST;
@@ -9,37 +9,37 @@ const SERVER_PORT = import.meta.env.VITE_SERVER_PORT;
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
 interface HttpRequestOptions {
-    method: HttpMethod;
-    headers?: HeadersInit;
-    body?: undefined;
+	method: HttpMethod;
+	headers?: HeadersInit;
+	body?: undefined;
 }
 
 async function httpRequest(url: string, options: HttpRequestOptions): Promise<Response> {
-    const headers = { ...DEFAULT_HEADERS, ...options.headers };
+	const headers = {...DEFAULT_HEADERS, ...options.headers};
 
-    return await fetch(`${SERVER_HOST}:${SERVER_PORT}${url}`, {
-        method: options.method,
-        headers: headers,
-        body: options.body ? JSON.stringify(options.body) : null,
-    });
+	return await fetch(`${SERVER_HOST}:${SERVER_PORT}${url}`, {
+		method: options.method,
+		headers: headers,
+		body: options.body ? JSON.stringify(options.body) : null,
+	});
 }
 
 export async function get(endpoint: string, headers?: HeadersInit) {
-    return httpRequest(endpoint, { method: "GET", headers });
+	return httpRequest(endpoint, {method: "GET", headers});
 }
 
 export async function post<T>(endpoint: string, body: undefined, headers?: HeadersInit) {
-    return httpRequest(endpoint, { method: "POST", headers, body });
+	return httpRequest(endpoint, {method: "POST", headers, body});
 }
 
 export async function put(endpoint: string, body: undefined, headers?: HeadersInit) {
-    return httpRequest(endpoint, { method: "PUT", headers, body });
+	return httpRequest(endpoint, {method: "PUT", headers, body});
 }
 
 export async function patch(endpoint: string, body: undefined, headers?: HeadersInit) {
-    return httpRequest(endpoint, { method: "PATCH", headers, body });
+	return httpRequest(endpoint, {method: "PATCH", headers, body});
 }
 
 export async function del(endpoint: string, headers?: HeadersInit) {
-    return httpRequest(endpoint, { method: "DELETE", headers });
+	return httpRequest(endpoint, {method: "DELETE", headers});
 }

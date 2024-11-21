@@ -1,11 +1,11 @@
-import { bus } from "@/events/brapiDevEventEmitter";
-import { get } from "@/server/HttpClient";
-import type { DetailedStock } from "@/types/BrapiDev/DetailedStock";
-import type { SortBy } from "@/types/BrapiDev/SortBy";
-import type { SortOrder } from "@/types/BrapiDev/SortOrder";
-import type { Stock } from "@/types/BrapiDev/Stock";
-import type { ValidIntervals } from "@/types/BrapiDev/ValidIntervals";
-import type { ValidRanges } from "@/types/BrapiDev/ValidRanges";
+import {bus} from "@/events/brapiDevEventEmitter";
+import {get} from "@/server/HttpClient";
+import type {DetailedStock} from "@/types/BrapiDev/DetailedStock";
+import type {SortBy} from "@/types/BrapiDev/SortBy";
+import type {SortOrder} from "@/types/BrapiDev/SortOrder";
+import type {Stock} from "@/types/BrapiDev/Stock";
+import type {ValidIntervals} from "@/types/BrapiDev/ValidIntervals";
+import type {ValidRanges} from "@/types/BrapiDev/ValidRanges";
 
 /**
  * @description Handles the request to get the list of currency quotes.
@@ -16,36 +16,36 @@ import type { ValidRanges } from "@/types/BrapiDev/ValidRanges";
  * @throws {Error} If the request to the proxy fails
  */
 export async function listStocks(
-    limit = 12,
-    page = 1,
-    sortBy?: SortBy,
-    sortOrder?: SortOrder,
+	limit = 12,
+	page = 1,
+	sortBy?: SortBy,
+	sortOrder?: SortOrder,
 ): Promise<Stock[] | undefined> {
-    let url: string;
+	let url: string;
 
-    if (sortBy && sortOrder) {
-        url = `/quote/list?limit=${limit}&page=${page}&sortBy=${sortBy}&sortOrder=${sortOrder}`;
-    } else {
-        url = `/quote/list?limit=${limit}&page=${page}`;
-    }
+	if (sortBy && sortOrder) {
+		url = `/quote/list?limit=${limit}&page=${page}&sortBy=${sortBy}&sortOrder=${sortOrder}`;
+	} else {
+		url = `/quote/list?limit=${limit}&page=${page}`;
+	}
 
-    try {
-        const response = await get(url);
+	try {
+		const response = await get(url);
 
-        if (!response.ok) throw new Error(await response.json());
+		if (!response.ok) throw new Error(await response.json());
 
-        const stocks: Stock[] = await response.json();
+		const stocks: Stock[] = await response.json();
 
-        if (!sortBy && !sortOrder) {
-            bus.emit("getCurrencyStocks", { stocks });
-        } else {
-            bus.emit("getHomeCurrencyStocks", { stocks });
-        }
+		if (!sortBy && !sortOrder) {
+			bus.emit("getCurrencyStocks", {stocks});
+		} else {
+			bus.emit("getHomeCurrencyStocks", {stocks});
+		}
 
-        return stocks;
-    } catch (error) {
-        console.error(error);
-    }
+		return stocks;
+	} catch (error) {
+		console.error(error);
+	}
 }
 
 /**
@@ -58,30 +58,32 @@ export async function listStocks(
  * @throws {Error} If the request to the proxy fails
  */
 export async function stockDetail(
-    ticker: string,
-    range: ValidRanges = "1mo",
-    interval: ValidIntervals = "1d",
+	ticker: string,
+	range: ValidRanges = "1mo",
+	interval: ValidIntervals = "1d",
 ): Promise<DetailedStock | undefined> {
-    const url = `/quote/${ticker}?range=${range}&interval=${interval}`;
-    try {
-        let response = await get(url);
+	const url = `/quote/${ticker}?range=${range}&interval=${interval}`;
+	try {
+		let response = await get(url);
 
-        if (!response.ok) throw new Error(await response.json());
+		if (!response.ok) throw new Error(await response.json());
 
-        let detailedStock: DetailedStock = await response.json();
+		let detailedStock: DetailedStock = await response.json();
 
-        let i = 0;
-        while (detailedStock.historicalDataPrice.length === 0 && i < 3) {
-            await new Promise((resolve) => setTimeout(resolve, 10000));
-            response = await get(url);
-            detailedStock = await response.json();
-            i++;
-        }
+		let i = 0;
+		while (detailedStock.historicalDataPrice.length === 0 && i < 3) {
+			await new Promise((resolve) => setTimeout(resolve, 10000));
+			response = await get(url);
+			detailedStock = await response.json();
+			i++;
+		}
 
-        bus.emit("getDetailedStock", { detailedStock });
+		if (detailedStock.historicalDataPrice.length > 0) {
+			bus.emit("getDetailedStock", {detailedStock});
+		}
 
-        return detailedStock;
-    } catch (error) {
-        console.error(error);
-    }
+		return detailedStock;
+	} catch (error) {
+		console.error(error);
+	}
 }
