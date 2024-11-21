@@ -1,6 +1,5 @@
 import corsConfig from "./config/cors.ts";
 import express from "express";
-import coinMarketCapRoutes from "./routes/CoinMarketCap.ts";
 import brapiDevRoutes from "./routes/BrapiDev.ts";
 import currencyQuotesRoutes from "./routes/CurrencyQuotes.ts";
 import coinGeckoRoutes from "./routes/CoinGecko.ts";
@@ -19,7 +18,6 @@ app.use(cookieParser());
 app.use(csrfProtection);
 app.use(setCsrfToken);
 
-app.use(coinMarketCapRoutes);
 app.use(coinGeckoRoutes);
 app.use(brapiDevRoutes);
 app.use(currencyQuotesRoutes);

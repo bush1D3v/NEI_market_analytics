@@ -81,7 +81,7 @@ interface ResponseDetailStock {
  */
 export async function detailStock(req: Request, res: Response): Promise<void> {
     const { range, interval }: DetailQueryParams = req.query;
-    const ticker = req.params.ticker;
+    const ticker = encodeURIComponent(req.params.ticker);
 
     const url = `${BASE_API_URL}/quote/${ticker}?range=${range}&interval=${interval}`;
 

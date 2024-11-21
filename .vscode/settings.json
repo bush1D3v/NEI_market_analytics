@@ -1,4 +1,9 @@
 {
+	"material-icon-theme.folders.associations": {
+		"tags": "mjml",
+		"dto": "interface",
+		"proxy": "stack"
+	},
 	"cSpell.words": [
 		"aboutus",
 		"Ariary",
@@ -13,7 +18,6 @@
 		"bushi",
 		"clsx",
 		"COINGECKO",
-		"COINMARKETCAP",
 		"Colón",
 		"Cotación",
 		"csgo",
@@ -79,11 +83,6 @@
 		"vueuse",
 		"youtube"
 	],
-	"material-icon-theme.folders.associations": {
-		"tags": "mjml",
-		"dto": "interface",
-		"proxy": "stack"
-	},
 	"editor.defaultFormatter": "biomejs.biome",
 	"css.customData": [".vscode/css_custom_data.json"]
 }

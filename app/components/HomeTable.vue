@@ -2,18 +2,18 @@
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import numberFormatter from "@/utils/numberFormatter";
-import type {CryptoCurrency} from "@/types/CoinMarketCap/CryptoCurrency";
-import type {Stock} from "@/types/BrapiDev/Stock";
-import type {New} from "@/types/Finnhub/New";
+import type { CryptoCurrency } from "@/types/CoinGecko/CryptoCurrency";
+import type { Stock } from "@/types/BrapiDev/Stock";
+import type { New } from "@/types/Finnhub/New";
 import Link from "@/tags/Link.vue";
 
 interface Props {
-	icon: string;
-	tableTitle: string;
-	redirectTo: "/cryptos" | "/news" | "/stocks";
-	coins?: CryptoCurrency[];
-	stocks?: Stock[];
-	news?: New[];
+    icon: string;
+    tableTitle: string;
+    redirectTo: "/cryptos" | "/news" | "/stocks";
+    coins?: CryptoCurrency[];
+    stocks?: Stock[];
+    news?: New[];
 }
 
 const props = defineProps<Props>();
@@ -35,18 +35,17 @@ const props = defineProps<Props>();
             <li v-if="props.coins" v-for="(data, i) in props.coins" :key="i">
                 <div class="li-first-container">
                     <div class="flex gap-2">
-                        <Image class="rounded-full"
-                            :src="`https://s2.coinmarketcap.com/static/img/coins/64x64/${data.id}.png`"
-                            :alt="data.name + ' logo'" width="24" height="24" />
-                        <RouterLink :to="`/cryptos/${data.name}`" target="_self" class="hover:underline">
+                        <Image class="rounded-full" :src="data.image" :alt="data.name + ' logo'" width="24"
+                            height="24" />
+                        <RouterLink :to="`/cryptos/${data.id}`" target="_self" class="hover:underline">
                             <h5 class="line-clamp-1 text-left"> {{ data.name }} </h5>
                             </ RouterLink>
                     </div>
-                    <span class="hidden mn:flex text-dark"> {{ data.symbol }} </span>
+                    <span class="hidden mn:flex text-dark"> {{ data.symbol.toUpperCase() }} </span>
                 </div>
                 <div class="li-second-container">
-                    <span> {{ numberFormatter(data.quote.USD.price) }} </span>
-                    <span class="min-w-12 text-left"> {{ numberFormatter(data.quote.USD.volume_change_24h) }} </span>
+                    <span> {{ numberFormatter(data.current_price) }} </span>
+                    <span class="min-w-12 text-left"> {{ numberFormatter(data.price_change_percentage_24h) }} </span>
                 </div>
             </li>
             <li v-if="props.stocks" v-for="(data, i) in props.stocks" :key="i">
@@ -54,7 +53,7 @@ const props = defineProps<Props>();
                     <div class="flex gap-2">
                         <Image class="rounded-full" :src="data.logo" :alt="data.name + ' logo'" width="24"
                             height="24" />
-                        <RouterLink :to="`/stocks/${data.name}`" target="_self" class="hover:underline">
+                        <RouterLink :to="`/stocks/${data.stock}`" target="_self" class="hover:underline">
                             <h5 class="line-clamp-1 text-left"> {{ data.name }} </h5>
                             </ RouterLink>
                     </div>

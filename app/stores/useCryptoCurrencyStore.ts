@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import { defineStore } from "pinia";
-import type { CryptoCurrency } from "@/types/CoinMarketCap/CryptoCurrency";
+import type { CryptoCurrency } from "@/types/CoinGecko/CryptoCurrency";
 import type { CryptoDetail } from "@/types/CoinGecko/CryptoDetail";
 
 export const useCryptoCurrencyStore = defineStore("cryptoCurrency", () => {
@@ -24,24 +24,16 @@ export const useCryptoCurrencyStore = defineStore("cryptoCurrency", () => {
         homeCryptoCurrencies.value = cryptoCurrencyArray;
     }
 
+    function getHomeCryptoCurrency(id: string): CryptoCurrency | null {
+        return homeCryptoCurrencies.value.find((crypto) => crypto.id === id) || null;
+    }
+
     function addCryptoCurrencies(cryptoCurrencyArray: CryptoCurrency[]): void {
         cryptoCurrencies.value.push(...cryptoCurrencyArray);
     }
 
-    function removeCryptoCurrency(id: string): void {
-        cryptoCurrencies.value = cryptoCurrencies.value.filter(
-            (cryptoCurrency) => cryptoCurrency.id.toString() !== id,
-        );
-    }
-
-    function detailCryptoCurrencyByName(name: string): CryptoCurrency | null {
-        const cryptoCurrency = cryptoCurrencies.value.find(
-            (cryptoCurrency) => cryptoCurrency.name === name,
-        );
-        if (!cryptoCurrency) {
-            return null;
-        }
-        return cryptoCurrency;
+    function getCryptoCurrency(id: string): CryptoCurrency | null {
+        return cryptoCurrencies.value.find((crypto) => crypto.id === id) || null;
     }
 
     return {
@@ -53,7 +45,7 @@ export const useCryptoCurrencyStore = defineStore("cryptoCurrency", () => {
         getCryptoDetail,
         setHomeCryptoCurrencies,
         addCryptoCurrencies,
-        removeCryptoCurrency,
-        detailCryptoCurrencyByName,
+        getCryptoCurrency,
+        getHomeCryptoCurrency
     };
 });

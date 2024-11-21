@@ -12,14 +12,14 @@ export interface EntityCardProps {
     price: number;
     market_cap: number;
     circulating_supply: number;
-    //type: "crypto" | "nft";
+    //TODO: type: "crypto" | "nft";
 }
 
 const props = defineProps<EntityCardProps>();
 </script>
 
 <template>
-    <article class="flex flex-col bg-secondaryDarker gap-4 p-4 md:p-5 rounded-lg md:min-w-96">
+    <article class="w-80 flex flex-col bg-secondaryDarker gap-4 p-4 md:p-5 rounded-lg md:w-96">
         <div class="flex gap-4 items-center">
             <Image :src="props.image" :alt="props.name + ' logo'" width="50" height="50"
                 class="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full" />
@@ -27,9 +27,9 @@ const props = defineProps<EntityCardProps>();
                 <h3 class="line-clamp-1 max-w-56">{{ props.name }}</h3>
                 <div class="flex gap-1 md:gap-[6px]">
                     <p>Currency</p>
-                    <strong>{{ props.symbol }}</strong>
+                    <strong>{{ props.symbol.toUpperCase() }}</strong>
                     <p>&nbsp;·&nbsp; Chain ID</p>
-                    <strong>{{ props.id }}</strong>
+                    <strong class="max-w-8 md:max-w-12 line-clamp-1">{{ props.id }}</strong>
                 </div>
             </div>
         </div>
