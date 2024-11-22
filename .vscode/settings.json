@@ -43,6 +43,7 @@
 		"Finnhub",
 		"forex",
 		"frameguard",
+		"gemini",
 		"gifs",
 		"github",
 		"Grivna",
@@ -81,6 +82,7 @@
 		"vaul",
 		"Vertcoin",
 		"vueuse",
+		"xsrf",
 		"youtube"
 	],
 	"editor.defaultFormatter": "biomejs.biome",
