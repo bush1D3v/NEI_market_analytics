@@ -7,13 +7,15 @@ import { post } from "@/server/HttpClient";
  * @returns Promise<void>
  * @throws {Error} If the request to the proxy fails
  */
-export default async function generateContent(prompt: string): Promise<void> {
+export default async function generateContent(prompt: string, sessionId: string): Promise<void> {
+    const adaptedPrompt = `${prompt.trim()} /n Respond according to the user's language, directly and as briefly as possible. Text only.`;
     const body = {
         parts: [
             {
-                text: prompt,
+                text: adaptedPrompt,
             },
         ],
+        sessionId,
     };
 
     try {

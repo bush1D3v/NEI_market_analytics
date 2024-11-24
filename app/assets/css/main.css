@@ -9,7 +9,7 @@
 		--background: #0f101d;
 		--secondary-darker: #171b2d;
 		--border: #222a44;
-		--accent: #2d375b;
+		--accent: #48506d;
 		--button-bg: #2d375b;
 		--dark: #8b94a3;
 		--card: #2d375b;
@@ -49,7 +49,7 @@
 		--text-foreground: #111111;
 		--primary: #157efb;
 		--primary-foreground: #ffffff;
-		--secondary: #0088cc;
+		--secondary: #0495cd;
 		--surface: #17192e;
 		--material: #ffffff;
 		--texture: #161727;
@@ -85,7 +85,7 @@
 		--primary-lighter: #4095fc;
 		--primary-darker: #edf2f4;
 
-		--accent: #ededed;
+		--accent: #dddddd;
 		--accent-foreground: #ffffff;
 
 		--button-bg: #d6d6d8;
@@ -153,9 +153,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
 	background-color: var(--accent);
-}
-
-::selection {
-	background: var(--primary);
-	color: var(--text);
 }

@@ -7,7 +7,7 @@ import finnhubRoutes from "./routes/Finnhub.ts";
 import generativeAIRoutes from "./routes/Gemini.ts";
 import helmet from "./config/helmet.ts";
 import rateLimiter from "./config/rateLimiter.ts";
-import { cookieParser, csrfProtection, setCsrfToken } from "./config/csrf.ts";
+import {cookieParser, csrfProtection, setCsrfToken} from "./config/csrf.ts";
 
 const app = express();
 

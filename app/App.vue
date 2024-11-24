@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import {RouterView} from "vue-router";
+import { RouterView } from "vue-router";
 import Footer from "@/components/Layout/Footer.vue";
 import Header from "@/components/Layout/Header.vue";
 import Sonner from "@/components/ui/sonner/Sonner.vue";
 import Toaster from "@/components/ui/toast/Toaster.vue";
 import Breadcrumb from "@/components/Breadcrumb.vue";
-import Tab from "@/components/CurrencyQuotes/Tab.vue";
+// import Tab from "@/components/CurrencyQuotes/Tab.vue";
+import GenerativeAI from "@/components/GenerativeAI.vue";
 </script>
 
 <template>
@@ -15,7 +16,8 @@ import Tab from "@/components/CurrencyQuotes/Tab.vue";
         <RouterView />
         <Toaster />
         <Sonner />
-        <Tab class="hidden lg:block" />
+        <!-- <Tab class="hidden lg:block" /> -->
+        <GenerativeAI />
     </main>
     <Footer />
 </template>

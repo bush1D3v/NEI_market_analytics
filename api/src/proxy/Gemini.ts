@@ -14,6 +14,11 @@ export const setSocket = (socketConnection: Socket) => {
     socket = socketConnection;
 };
 
+interface GeminiRequest {
+    parts: Part[];
+    sessionId: string;
+}
+
 /**
  * @description Handles the request to send a prompt to gemini via socket.io
  *
@@ -23,7 +28,7 @@ export const setSocket = (socketConnection: Socket) => {
  * @throws {Error} If the request to the external API fails
  */
 export default async function generateContent(req: Request, res: Response) {
-    const { parts }: { parts: Part[] } = req.body;
+    const { parts, sessionId }: GeminiRequest = req.body;
 
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
@@ -40,17 +45,20 @@ export default async function generateContent(req: Request, res: Response) {
                     socket.emit("content", {
                         text,
                         refs,
+                        sessionId,
                     });
                 } catch (error) {
+                    socket.emit("error", { error, sessionId });
                     console.error(error);
                 }
             }
         }
         if (socket) {
-            socket.disconnect();
+            socket.emit("content_end", sessionId);
         }
         res.status(200).json({ message: "success" });
     } catch (error) {
+        socket.emit("error", { error, sessionId });
         console.error(error);
         res.status(500).json({ error: error });
     }
