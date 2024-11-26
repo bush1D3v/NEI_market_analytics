@@ -30,9 +30,25 @@ interface GeminiRequest {
 export default async function generateContent(req: Request, res: Response) {
     const { parts, sessionId }: GeminiRequest = req.body;
 
+    const userText = parts[ 0 ].text as string;
+    const botText = parts[ 1 ].text as string;
+    const prompt = parts[ 2 ].text as string;
+
     try {
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
-        const result = await model.generateContentStream(parts);
+        const chat = model.startChat({
+            history: [
+                {
+                    role: "user",
+                    parts: [ { text: userText } ],
+                },
+                {
+                    role: "model",
+                    parts: [ { text: botText } ],
+                },
+            ],
+        });
+        const result = await chat.sendMessageStream(prompt);
 
         for await (const chunk of result.stream) {
             const text = chunk.text();
