@@ -1,5 +1,5 @@
 import type { RequestResponse } from "@/types/Gemini/RequestResponse";
-import type { RequestError } from "../Gemini/RequestError";
+import type { RequestError } from "@/types/Gemini/RequestError";
 
 export interface SocketEvents {
     connect: () => void;
