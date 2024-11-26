@@ -15,7 +15,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 
 interface Message {
     text: string;
-    sender: string;
+    sender: "ai" | "user";
     refs: string[];
     first?: boolean;
     isLiked?: boolean;
@@ -67,23 +67,40 @@ function refresh() {
     useToastNotification("Chat refreshed");
 }
 
-async function sendMessage(textReinvited?: string) {
+async function sendMessage(resendMessage?: boolean) {
     loading.value = true;
-    if (prompt.value.trim() === "") return;
 
-    messages.value.push({ text: prompt.value, sender: "user", refs: [] });
-    const userMessage = prompt.value;
+    const lastUserMessage = [ ...messages.value ].reverse().find(message => message.sender === 'user');
+
+    const userMessage = resendMessage ? lastUserMessage?.text as string : prompt.value;
+    if (userMessage.trim() === "" && !resendMessage) return;
+
+    const lastBotMessage = [ ...messages.value ].reverse().find(message => message.sender === 'ai');
+
+    if (resendMessage) {
+        messages.value.pop();
+    } else {
+        messages.value.push({ text: userMessage, sender: "user", refs: [] });
+        nextTick(() => {
+            const messagesContainer = document.querySelector(".chat-messages");
+            if (messagesContainer) {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        });
+    }
     prompt.value = "";
 
     try {
-        await generateContent(userMessage, sessionId.value);
+        await generateContent(userMessage, sessionId.value, lastUserMessage?.text, lastBotMessage?.text);
     } catch (error) {
         console.error(error);
     }
 }
 
-async function resendMessage(text: string) {
-    // TODO
+function adjustTextareaHeight(event: Event) {
+    const textarea = event.target as HTMLTextAreaElement;
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
 }
 
 socket.on("content", (data) => {
@@ -96,12 +113,6 @@ socket.on("content", (data) => {
             messages.value.push({ text: aiMessage, sender: "ai", refs: data.refs });
         }
         loading.value = false;
-        nextTick(() => {
-            const messagesContainer = document.querySelector(".chat-messages");
-            if (messagesContainer) {
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            }
-        });
     }
 });
 
@@ -169,7 +180,7 @@ socket.on("error", (data) => {
                                 <Image :src="DislikeImage" alt="Dislike" width="16" height="16" class="dark:invert"
                                     v-else />
                             </button>
-                            <button title="Recarregar" @click="resendMessage(message.text)">
+                            <button v-if="index === messages.length - 1" title="Recarregar" @click="sendMessage(true)">
                                 <RefreshCw :size="16" />
                             </button>
                         </div>
@@ -178,11 +189,12 @@ socket.on("error", (data) => {
                     <p v-if="error" class="text-negative">Erro ao gerar conteúdo, tente novamente mais tarde!</p>
                 </ul>
                 <div class="chat-input">
-                    <textarea class="flex w-full" maxlength="1000" v-model="prompt" @keyup.enter="sendMessage()"
-                        placeholder="Digite sua mensagem..." />
+                    <textarea class="flex w-full" maxlength="1000" v-model="prompt" @input="adjustTextareaHeight"
+                        @keyup.enter="sendMessage()" placeholder="Digite sua mensagem..." />
                     <Button title="NEI Market AI Chat"
-                        class="p-2 absolute right-4 dark:hover:bg-black/25 hover:bg-slate-100" variant="ghost"
-                        @click="() => { error = false, sendMessage() }" :disabled="loading || prompt.trim() === ''">
+                        class="p-2 absolute right-4 bottom-[10px] dark:hover:bg-black/25 hover:bg-slate-100"
+                        variant="ghost" @click="() => { error = false, sendMessage() }"
+                        :disabled="loading || prompt.trim() === ''">
                         <Send :size="20" color="var(--text)" :stroke-width="2.5" />
                     </Button>
                 </div>
@@ -296,11 +308,10 @@ header {
 .chat-input textarea {
     color: var(--text);
     background: var(--secondary-darker);
-    overflow: hidden;
     max-height: 200px;
     padding: 4px;
-    padding-right: 42px;
-    resize: initial;
+    padding-right: 60px;
+    resize: none;
     box-shadow: 0 0.5px 0px var(--text), 0 -0.5px 0px var(--text);
 }
 
