@@ -38,6 +38,7 @@ O **NEI Market Analytics** é um projeto de código aberto projetado para fornec
    <img align='center' height='50' width='50' title='Socket.io' alt='socket.io' src='https://github.com/user-attachments/assets/0d4bbd4e-64dc-4981-aabd-c89ceae0201e' /> &nbsp;
    <img align='center' height='55' width='55' title='Generative-ai' alt='generative-ai' src='https://github.com/user-attachments/assets/ec5efb9a-2cd7-48cc-bb1c-2c4ffe92af4d' /> &nbsp;
    <img align='center' height='50' width='50' title='Cookie-parser' alt='cookie-parser' src='https://github.com/user-attachments/assets/9e0bcdc8-d74a-42a1-add5-876ac1896fe4' /> &nbsp;&nbsp;
+   <img align='center' height='50' width='50' title='Rate-limiter' alt='rate-limiter' src='https://github.com/user-attachments/assets/f5ff3529-3dd4-426e-89a1-7f871693a3dd' /> &nbsp;&nbsp;
 </div>
 
 ## 🏗 Estrutura e Arquitetura
@@ -139,6 +140,7 @@ The **NEI Market Analytics** is an open-source project designed to provide compr
    <img align='center' height='50' width='50' title='Socket.io' alt='socket.io' src='https://github.com/user-attachments/assets/0d4bbd4e-64dc-4981-aabd-c89ceae0201e' /> &nbsp;
    <img align='center' height='55' width='55' title='Generative-ai' alt='generative-ai' src='https://github.com/user-attachments/assets/ec5efb9a-2cd7-48cc-bb1c-2c4ffe92af4d' /> &nbsp;
    <img align='center' height='50' width='50' title='Cookie-parser' alt='cookie-parser' src='https://github.com/user-attachments/assets/9e0bcdc8-d74a-42a1-add5-876ac1896fe4' /> &nbsp;&nbsp;
+   <img align='center' height='50' width='50' title='Rate-limiter' alt='rate-limiter' src='https://github.com/user-attachments/assets/f5ff3529-3dd4-426e-89a1-7f871693a3dd' /> &nbsp;&nbsp;
 </div>
 
 ## 🏗 Structure and Architecture
