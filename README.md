@@ -21,7 +21,7 @@ O **NEI Market Analytics** é um projeto de código aberto projetado para fornec
    <img align='center' height='64' width='78' title='Node.js' alt='nodejs' src='https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg' />
    <img align='center' height='50' width='68' title='Tailwindcss' alt='tailwindcss' src='https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg' />
    <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />
-   <img align='center' height='68' width='72' title='Potcss' alt='postcss' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/85b7c73b-e181-4c95-b9de-a8e0ba0523d3' />&nbsp;
+   <img align='center' height='50' width='50' title='Potcss' alt='postcss' src='https://github.com/user-attachments/assets/d3d1fb66-b4f1-4fdf-8b87-07d2b382a1a2' />&nbsp;&nbsp;
    <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/navarro_blog_api/assets/133554156/de030e87-8f12-4b6b-8c75-071bab8526a5' /> &nbsp;&nbsp;
    <img align='center' height='48' width='48' title='GitHub Actions' alt='github actions' src='https://github.com/bush1D3v/navarro_blog_api/assets/133554156/0ce89dba-2909-4673-8b71-94a135f61bfb' /> &nbsp;&nbsp;
    <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' /> &nbsp;
@@ -34,8 +34,10 @@ O **NEI Market Analytics** é um projeto de código aberto projetado para fornec
    <img align='center' height='50' width='50' title='i18next' alt='i18next' src='https://github.com/user-attachments/assets/166d58bf-9e8e-46d7-94ce-cb1910bc6932' /> &nbsp;
    <img align='center' height='49' width='49' title='Express' alt='express' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/ba645c20-1f19-4914-8ad0-de6c7f83ba2e' /> &nbsp;&nbsp;
    <img align='center' height='53' width='49' title='Nodemon' alt='nodemon' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/fd586348-7781-4e02-a4f0-fe7410ef43fb' /> &nbsp;&nbsp;
-   <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp;&nbsp;
    <img align='center' height='50' width='50' title='Cors' alt='cors' src='https://github.com/bush1D3v/101acessorios_api/assets/133554156/3b4cccec-065e-428a-a663-1c5939404c1a' /> &nbsp;&nbsp;
+   <img align='center' height='50' width='50' title='Socket.io' alt='socket.io' src='https://github.com/user-attachments/assets/0d4bbd4e-64dc-4981-aabd-c89ceae0201e' /> &nbsp;
+   <img align='center' height='55' width='55' title='Generative-ai' alt='generative-ai' src='https://github.com/user-attachments/assets/ec5efb9a-2cd7-48cc-bb1c-2c4ffe92af4d' /> &nbsp;
+   <img align='center' height='50' width='50' title='Cookie-parser' alt='cookie-parser' src='https://github.com/user-attachments/assets/9e0bcdc8-d74a-42a1-add5-876ac1896fe4' /> &nbsp;&nbsp;
 </div>
 
 ## 🏗 Estrutura e Arquitetura
@@ -112,19 +114,19 @@ The **NEI Market Analytics** is an open-source project designed to provide compr
 ## 🛠️ Technologies and Tools Used
 
 <div align='center'>
-   <img align='center' height='50' width='70' title='Vue.js' alt='vuejs' src='https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg' />&nbsp;&nbsp;
-   <img align='center' height='50' width='50' title='Shadcn-vue' alt='shadcnvue' src='https://github.com/user-attachments/assets/1d2298ae-03ea-4392-b0d2-e3fc12908bc7' />&nbsp;&nbsp;&nbsp;&nbsp;
-   <img align='center' height='50' width='50' title='Pinia' alt='pinia' src='https://github.com/user-attachments/assets/abb5c37c-372d-4f29-b4ba-27fbe1d7c970' />&nbsp;&nbsp;
+   <img align='center' height='50' width='70' title='Vue.js' alt='vuejs' src='https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg' />&nbsp;
+   <img align='center' height='50' width='50' title='Shadcn-vue' alt='shadcnvue' src='https://github.com/user-attachments/assets/1d2298ae-03ea-4392-b0d2-e3fc12908bc7' />&nbsp;&nbsp;&nbsp;
+   <img align='center' height='50' width='50' title='Pinia' alt='pinia' src='https://github.com/user-attachments/assets/abb5c37c-372d-4f29-b4ba-27fbe1d7c970' />&nbsp;
    <img align='center' height='55' width='55' title='Mitt' alt='mitt' src='https://github.com/user-attachments/assets/f37880f9-d7f9-42ff-ad39-8c3d8fbbecf1' />&nbsp;
    <img align='center' height='54' width='68' title='Bun.js' alt='bunjs' src='https://github.com/devicons/devicon/blob/master/icons/bun/bun-original.svg' />
-   <img align='center' height='64' width='78' title='Node.js' alt='nodejs' src='https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg' />&nbsp;
-   <img align='center' height='50' width='68' title='Tailwindcss' alt='tailwindcss' src='https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg' />&nbsp;
-   <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />&nbsp;&nbsp;
-   <img align='center' height='68' width='72' title='Potcss' alt='postcss' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/85b7c73b-e181-4c95-b9de-a8e0ba0523d3' />&nbsp;
-   <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/navarro_blog_api/assets/133554156/de030e87-8f12-4b6b-8c75-071bab8526a5' /> &nbsp;
-   <img align='center' height='48' width='48' title='GitHub Actions' alt='github actions' src='https://github.com/bush1D3v/navarro_blog_api/assets/133554156/0ce89dba-2909-4673-8b71-94a135f61bfb' /> &nbsp;
+   <img align='center' height='64' width='78' title='Node.js' alt='nodejs' src='https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg' />
+   <img align='center' height='50' width='68' title='Tailwindcss' alt='tailwindcss' src='https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg' />
+   <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />
+   <img align='center' height='50' width='50' title='Potcss' alt='postcss' src='https://github.com/user-attachments/assets/d3d1fb66-b4f1-4fdf-8b87-07d2b382a1a2' />&nbsp;&nbsp;
+   <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/navarro_blog_api/assets/133554156/de030e87-8f12-4b6b-8c75-071bab8526a5' /> &nbsp;&nbsp;
+   <img align='center' height='48' width='48' title='GitHub Actions' alt='github actions' src='https://github.com/bush1D3v/navarro_blog_api/assets/133554156/0ce89dba-2909-4673-8b71-94a135f61bfb' /> &nbsp;&nbsp;
    <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' /> &nbsp;
-   <img align='center' height='54' width='44' title='Vitest' alt='vitest' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/74803ee6-3f6e-4335-9f56-cb887a4285ff' />  &nbsp;&nbsp;
+   <img align='center' height='60' width='50' title='Vitest' alt='vitest' src='https://github.com/bush1D3v/tsbank_api/assets/133554156/74803ee6-3f6e-4335-9f56-cb887a4285ff' />  &nbsp;&nbsp;
    <img align='center' height='54' width='44' title='Storybook-js' alt='storybook-js' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/213c8aa4-ce24-4b30-8e07-dceb476e8589' /> &nbsp;&nbsp;&nbsp;
    <img align='center' height='50' width='50' title='VueUse' alt='vueuse' src='https://github.com/user-attachments/assets/c4eb21ad-858d-4f28-a2c7-1dd0c23342c1' /> &nbsp;&nbsp;
    <img align='center' height='50' width='60' title='Playwright' alt='playwright' src='https://github.com/user-attachments/assets/1ce5b208-a75b-48e0-bd5c-e663f4e02302' /> &nbsp;
@@ -133,8 +135,10 @@ The **NEI Market Analytics** is an open-source project designed to provide compr
    <img align='center' height='50' width='50' title='i18next' alt='i18next' src='https://github.com/user-attachments/assets/166d58bf-9e8e-46d7-94ce-cb1910bc6932' /> &nbsp;
    <img align='center' height='49' width='49' title='Express' alt='express' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/ba645c20-1f19-4914-8ad0-de6c7f83ba2e' /> &nbsp;&nbsp;
    <img align='center' height='53' width='49' title='Nodemon' alt='nodemon' src='https://github.com/bush1D3v/solid_rest_api/assets/133554156/fd586348-7781-4e02-a4f0-fe7410ef43fb' /> &nbsp;&nbsp;
-   <img align='center' height='49' width='49' title='Dotenv' alt='dotenv' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/432ec521-c94a-4f24-964e-f62658d04581' /> &nbsp;&nbsp;
    <img align='center' height='50' width='50' title='Cors' alt='cors' src='https://github.com/bush1D3v/101acessorios_api/assets/133554156/3b4cccec-065e-428a-a663-1c5939404c1a' /> &nbsp;&nbsp;
+   <img align='center' height='50' width='50' title='Socket.io' alt='socket.io' src='https://github.com/user-attachments/assets/0d4bbd4e-64dc-4981-aabd-c89ceae0201e' /> &nbsp;
+   <img align='center' height='55' width='55' title='Generative-ai' alt='generative-ai' src='https://github.com/user-attachments/assets/ec5efb9a-2cd7-48cc-bb1c-2c4ffe92af4d' /> &nbsp;
+   <img align='center' height='50' width='50' title='Cookie-parser' alt='cookie-parser' src='https://github.com/user-attachments/assets/9e0bcdc8-d74a-42a1-add5-876ac1896fe4' /> &nbsp;&nbsp;
 </div>
 
 ## 🏗 Structure and Architecture
