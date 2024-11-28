@@ -1,4 +1,5 @@
 import type { Request, Response } from "express";
+import type { CsrfSyncedToken } from "csrf-sync";
 import { generateToken } from "../middlewares/csrf.ts";
 
 /**
@@ -11,7 +12,7 @@ import { generateToken } from "../middlewares/csrf.ts";
  */
 export function getCsrfToken(req: Request, res: Response): void {
     try {
-        const csrfToken = generateToken(req, true);
+        const csrfToken: CsrfSyncedToken = generateToken(req, true);
         res.json({ csrfToken });
     } catch (error) {
         console.error(error);

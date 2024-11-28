@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import RouterLink from "@/tags/RouterLink.vue";
 import Link from "@/tags/Link.vue";
-import {ExploreDto, ToolsDto, InfoDto} from "@/components/Dto/views/MoreDto";
-import {ChevronRight} from "lucide-vue-next";
-import {useTranslation} from "@/config/composable/translate";
-//TODO Criar página de more
+import { ExploreDto, ToolsDto, InfoDto } from "@/components/Dto/views/MoreDto";
+import { ChevronRight } from "lucide-vue-next";
+import { useTranslation } from "@/config/composable/translate";
+
 useTranslation();
 </script>
 
@@ -25,7 +25,7 @@ useTranslation();
             </ul>
         </article>
         <article>
-            <h2>Ferramentas</h2>
+            <h2 id="tools">Ferramentas</h2>
             <ul>
                 <li v-for="(data, i) in ToolsDto" :key="i">
                     <RouterLink :to="data.href">

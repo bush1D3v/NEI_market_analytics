@@ -3,10 +3,10 @@ import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import Link from "@/tags/Link.vue";
-import {t} from "i18next";
-import {FooterDto} from "@/components/Dto/Layout/FooterDto";
-import {useRoute} from "vue-router";
-import {GithubLogoIcon} from "@radix-icons/vue";
+import { t } from "i18next";
+import { FooterDto } from "@/components/Dto/Layout/FooterDto";
+import { useRoute } from "vue-router";
+import { GithubLogoIcon } from "@radix-icons/vue";
 
 const route = useRoute();
 </script>
@@ -35,6 +35,11 @@ const route = useRoute();
                     <li>
                         <RouterLink to="/cookie-policy" class="hover:opacity-50">
                             <span>Política de Cookies</span>
+                        </RouterLink>
+                    </li>
+                    <li>
+                        <RouterLink to="/more#tools" class="hover:opacity-50">
+                            <span>Ferramentas</span>
                         </RouterLink>
                     </li>
                 </ul>

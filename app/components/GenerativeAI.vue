@@ -140,14 +140,14 @@ socket.on("error", (data) => {
 </script>
 
 <template>
-    <Collapsible v-model:open="isOpen" class="fixed right-14 bottom-14 z-50">
-        <CollapsibleTrigger as-child class="absolute -right-10 -bottom-10">
+    <Collapsible v-model:open="isOpen" class="fixed right-0 lg:right-14 bottom-32 lg:bottom-14 z-50">
+        <CollapsibleTrigger as-child class="absolute right-4 lg:-right-10 -bottom-10">
             <Button variant="default" class="w-12 h-12 p-2 rounded-full">
                 <BotMessageSquare :size="50" />
             </Button>
         </CollapsibleTrigger>
         <CollapsibleContent>
-            <div class="chat-container">
+            <div class="chat-container  lg:w-[400px]">
                 <header>
                     <div class="flex items-center gap-2">
                         <Image src="/logo-just-icon.png" alt="NEI Market AI Logo" class="brightness-[100]" width="40"
@@ -212,7 +212,6 @@ socket.on("error", (data) => {
 <style scoped lang="css">
 .chat-container {
     height: 80dvh;
-    width: 400px;
     margin: 0 auto;
     border: 1px solid var(--border);
     border-radius: 8px;
