@@ -7,6 +7,12 @@ import Toaster from "@/components/ui/toast/Toaster.vue";
 import Breadcrumb from "@/components/Breadcrumb.vue";
 // import Tab from "@/components/CurrencyQuotes/Tab.vue";
 import GenerativeAI from "@/components/GenerativeAI.vue";
+import { onBeforeMount } from "vue";
+import { getCsrfToken } from "./services/Tokens";
+
+onBeforeMount(async () => {
+    await getCsrfToken();
+})
 </script>
 
 <template>

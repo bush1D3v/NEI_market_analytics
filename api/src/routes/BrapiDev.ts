@@ -1,5 +1,5 @@
 import express from "express";
-import {listStocks, detailStock} from "../proxy/BrapiDev.ts";
+import { listStocks, detailStock } from "../proxy/BrapiDev.ts";
 
 const brapiDevRoutes = express();
 

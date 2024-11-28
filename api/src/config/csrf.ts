@@ -1,20 +1,16 @@
-import csrf from "csurf";
-import cookieParser from "cookie-parser";
-import type {Request, Response, NextFunction} from "express";
+import type { CsrfSyncOptions } from "csrf-sync";
 
-const csrfProtection = csrf({
-	cookie: {
-		httpOnly: true,
-		secure: process.env.NODE_ENV === "production",
-		sameSite: "strict",
-		maxAge: 3600, // 1h
-	},
-});
-
-const setCsrfToken = (req: Request, res: Response, next: NextFunction) => {
-	const token = req.csrfToken();
-	res.cookie("XSRF-TOKEN", token);
-	next();
+export const doubleCsrfOptions: CsrfSyncOptions = {
+    ignoredMethods: [ "GET", "HEAD", "OPTIONS" ],
+    getTokenFromState: (req) => {
+        return req.session.csrfToken;
+    },
+    getTokenFromRequest: (req) => {
+        const token = req?.headers[ "x-csrf-token" ];
+        return Array.isArray(token) ? token[ 0 ] : token;
+    },
+    storeTokenInState: (req, token) => {
+        req.session.csrfToken = token;
+    },
+    size: 128,
 };
-
-export {csrfProtection, setCsrfToken, cookieParser};
