@@ -1,30 +1,35 @@
 import { post } from "@/server/HttpClient";
 
+export interface GenerateContentProps {
+    prompt: string;
+    sessionId: string;
+    lastUserMessage?: string;
+    lastBotMessage?: string;
+    likeOrDislikePreviousMessage?: boolean;
+}
+
 /**
  * @description Handles the request to send a prompt to gemini via socket.io
- *
- * @param {string} prompt - The prompt to generate the content
- * @param {string} sessionId - The session id of the user
- * @param {string} lastUserMessage - The last user message
- * @param {string} lastBotMessage - The last bot message
+ * @param {GenerateContentProps} data
  * @returns Promise<void>
  * @throws {Error} If the request to the proxy fails
  */
-export default async function generateContent(prompt: string, sessionId: string, lastUserMessage?: string, lastBotMessage?: string): Promise<void> {
-    const adaptedPrompt = `${prompt.trim()} /n Respond according to the user's language, directly and as briefly as possible. Text only.`;
+export default async function generateContent(data: GenerateContentProps): Promise<void> {
+    const likeOrDislike = data.likeOrDislikePreviousMessage === undefined ? "" : data.likeOrDislikePreviousMessage ? "User liked the previous message." : "User disliked the previous message.";
+    const adaptedPrompt = `${data.prompt.trim()} /n Respond according to the user's language, directly and as briefly as possible. Text only. ${likeOrDislike}`;
     const body = {
         parts: [
             {
-                text: lastUserMessage || "",
+                text: data.lastUserMessage || "",
             },
             {
-                text: lastBotMessage || "",
+                text: data.lastBotMessage || "",
             },
             {
                 text: adaptedPrompt,
             },
         ],
-        sessionId,
+        sessionId: data.sessionId,
     };
 
     try {

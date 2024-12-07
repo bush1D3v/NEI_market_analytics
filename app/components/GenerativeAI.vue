@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import generateContent from "@/services/Gemini";
+import generateContent, { type GenerateContentProps } from "@/services/Gemini";
 import socket from "@/server/Socket";
 import Button from "@/components/ui/button/Button.vue";
 import Image from "@/tags/Image.vue";
@@ -91,7 +91,14 @@ async function sendMessage(resendMessage?: boolean) {
     prompt.value = "";
 
     try {
-        await generateContent(userMessage, sessionId.value, lastUserMessage?.text, lastBotMessage?.text);
+        const data: GenerateContentProps = {
+            prompt: userMessage,
+            sessionId: sessionId.value,
+            lastUserMessage: lastUserMessage?.text,
+            lastBotMessage: lastBotMessage?.text,
+            likeOrDislikePreviousMessage: lastBotMessage?.isLiked ? true : lastBotMessage?.isDisliked ? false : undefined,
+        };
+        await generateContent(data);
     } catch (error) {
         console.error(error);
     }
