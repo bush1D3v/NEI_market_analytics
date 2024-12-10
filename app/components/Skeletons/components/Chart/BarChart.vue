@@ -2,8 +2,6 @@
 
 <template>
     <div class="w-full h-[560px] flex flex-col items-center animate-pulse">
-        <div class="w-32 h-12 bg-gray-300 rounded mb-4"></div>
-
         <div class="w-full h-full flex flex-col items-end ">
             <div class="w-full flex justify-end mb-12 mr-2">
                 <div class="flex space-x-2">
