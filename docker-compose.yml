@@ -10,6 +10,17 @@ services:
         ports:
             - "5173:5173"
 
+    express:
+        image: node:20
+        volumes:
+            - .:/api
+        working_dir: /api
+        command: npm run dev
+        ports:
+            - "3000:3000"
+        depends_on:
+            - vue
+
     storybook:
         image: node:20
         volumes:
