@@ -1,20 +1,28 @@
-version: '3.2'
+version: '3.8'
 
 services:
     vue:
-        image: node:20
+        build:
+            context: .
+            dockerfile: Dockerfile
         volumes:
-            - .:/app
-        working_dir: /app
+            - .:/workspace
+            - node_modules:/workspace/node_modules
+        working_dir: /workspace
         command: npm run dev
         ports:
             - "5173:5173"
+        environment:
+            - HOST=0.0.0.0
 
     express:
-        image: node:20
+        build:
+            context: .
+            dockerfile: Dockerfile
         volumes:
-            - .:/api
-        working_dir: /api
+            - .:/workspace
+            - node_modules_api:/workspace/node_modules
+        working_dir: /workspace
         command: npm run dev
         ports:
             - "3000:3000"
@@ -22,26 +30,36 @@ services:
             - vue
 
     storybook:
-        image: node:20
+        build:
+            context: .
+            dockerfile: Dockerfile
         volumes:
-            - .:/app
-        working_dir: /app
+            - .:/workspace
+            - node_modules:/workspace/node_modules
+        working_dir: /workspace
         environment:
             - GIT_USER_EMAIL=${GIT_USER_EMAIL}
             - GIT_USER_NAME=${GIT_USER_NAME}
-        command: sh -c "apt-get update && apt-get install -y xdg-utils && git config --global user.email \"$GIT_USER_EMAIL\" && git config --global user.name \"$GIT_USER_NAME\" && git config --global --add safe.directory /app && npm run storybook"
+        command: npm run storybook
         ports:
             - "6006:6006"
         depends_on:
             - vue
 
     playwright:
-        image: node:20
+        build:
+            context: .
+            dockerfile: Dockerfile
         volumes:
-            - .:/app
-        working_dir: /app
-        command: sh -c "npx playwright install-deps && npx playwright install chromium && npx playwright install firefox && apt-get install -y xvfb xauth && xvfb-run -- npx playwright test --ui"
+            - .:/workspace
+            - node_modules:/workspace/node_modules
+        working_dir: /workspace
+        command: sh -c "xvfb-run -- npx playwright test --ui"
         ports:
             - "9323:9323"
         depends_on:
             - vue
+
+volumes:
+    node_modules:
+    node_modules_api:

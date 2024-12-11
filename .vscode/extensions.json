@@ -10,6 +10,7 @@
 		"Selemondev.shadcn-vue",
 		"EditorConfig.EditorConfig",
 		"ms-playwright.playwright",
-		"vitest.explorer"
+		"vitest.explorer",
+		"ms-vscode-remote.remote-containers"
 	]
 }
