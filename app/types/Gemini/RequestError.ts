@@ -1,4 +1,4 @@
 export interface RequestError {
-    error: Error;
-    sessionId: string
+	error: Error;
+	sessionId: string;
 }

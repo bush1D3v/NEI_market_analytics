@@ -85,7 +85,7 @@ const props = defineProps<Props>();
 
 <style lang="css" scoped>
 article {
-    @apply flex flex-col justify-around md:justify-center bg-secondaryDarker rounded-lg gap-1 p-2 md:p-3 min-w-[310px] max-w-[310px] mn:min-w-[355px] mn:max-w-[355px] min-h-[250px] max-h-[250px] md:min-w-[425px] md:max-w-[425px] md:min-h-[250px] md:max-h-[250px];
+    @apply flex flex-col justify-around md:justify-center bg-secondaryDarker rounded-lg gap-1 p-2 md:p-3 w-[320px] mn:w-[350px] h-[250px] md:w-[425px] md:h-[250px];
 }
 
 .li-first-container {

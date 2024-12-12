@@ -1,6 +1,6 @@
-import { bus } from "@/events/tokensEventEmitter";
-import { get } from "@/server/HttpClient";
-import type { CsrfToken } from "@/types/Tokens/CsrfToken";
+import {bus} from "@/events/tokensEventEmitter";
+import {get} from "@/server/HttpClient";
+import type {CsrfToken} from "@/types/Tokens/CsrfToken";
 
 /**
  * @description Handles the request to get the CSRF token.
@@ -9,17 +9,17 @@ import type { CsrfToken } from "@/types/Tokens/CsrfToken";
  * @throws {Error} If the request to the proxy fails
  */
 export async function getCsrfToken(): Promise<string | undefined> {
-    try {
-        const response = await get("/csrf-token");
+	try {
+		const response = await get("/csrf-token");
 
-        if (!response.ok) throw new Error(await response.json());
+		if (!response.ok) throw new Error(await response.json());
 
-        const csrfToken: CsrfToken = await response.json();
+		const csrfToken: CsrfToken = await response.json();
 
-        bus.emit("getCsrfToken", { csrfToken });
+		bus.emit("getCsrfToken", {csrfToken});
 
-        return csrfToken.csrfToken;
-    } catch (error) {
-        console.error(error);
-    }
+		return csrfToken.csrfToken;
+	} catch (error) {
+		console.error(error);
+	}
 }

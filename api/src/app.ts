@@ -10,7 +10,7 @@ import finnhubRoutes from "./routes/Finnhub.ts";
 import generativeAIRoutes from "./routes/Gemini.ts";
 import tokensRoutes from "./routes/Tokens.ts";
 import session from "express-session";
-import { verifyCsrfToken } from "./middlewares/csrf.ts";
+import {verifyCsrfToken} from "./middlewares/csrf.ts";
 
 const COOKIE_SECRET = process.env.COOKIE_SECRET || "cookie-secret";
 
@@ -22,16 +22,16 @@ app.use(helmet);
 app.use(rateLimiter);
 app.use(cookieParser(COOKIE_SECRET));
 app.use(
-    session({
-        secret: COOKIE_SECRET,
-        resave: false,
-        saveUninitialized: true,
-        cookie: {
-            secure: false,
-            httpOnly: true,
-            maxAge: 60000,
-        },
-    }),
+	session({
+		secret: COOKIE_SECRET,
+		resave: false,
+		saveUninitialized: true,
+		cookie: {
+			secure: false,
+			httpOnly: true,
+			maxAge: 60000,
+		},
+	}),
 );
 app.use(tokensRoutes);
 app.use(verifyCsrfToken);

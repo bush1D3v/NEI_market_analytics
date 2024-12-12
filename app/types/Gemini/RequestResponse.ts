@@ -1,5 +1,5 @@
 export interface RequestResponse {
-    text: string;
-    refs: string[];
-    sessionId: string;
+	text: string;
+	refs: string[];
+	sessionId: string;
 }

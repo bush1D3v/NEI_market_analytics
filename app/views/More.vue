@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import RouterLink from "@/tags/RouterLink.vue";
 import Link from "@/tags/Link.vue";
-import { ExploreDto, ToolsDto, InfoDto } from "@/components/Dto/views/MoreDto";
-import { ChevronRight } from "lucide-vue-next";
-import { useTranslation } from "@/config/composable/translate";
+import {ExploreDto, ToolsDto, InfoDto} from "@/components/Dto/views/MoreDto";
+import {ChevronRight} from "lucide-vue-next";
+import {useTranslation} from "@/config/composable/translate";
 
 useTranslation();
 </script>

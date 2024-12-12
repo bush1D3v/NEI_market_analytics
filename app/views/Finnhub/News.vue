@@ -42,7 +42,7 @@ onMounted(async () => {
 <template>
     <section class="container md:px-4 justify-center my-10">
         <ul v-if="!error" class="flex gap-10 flex-wrap justify-center">
-            <li class="w-full xl:max-w-max" v-if="!isLoading" v-for="news in paginatedNews()" :key="news.id">
+            <li class="w-full 2xl:max-w-max" v-if="!isLoading" v-for="news in paginatedNews()" :key="news.id">
                 <NewsCard :id="news.id" :datetime="news.datetime" :headline="news.headline" :url="news.url"
                     :source="news.source" :summary="news.summary" :image="news.image" />
             </li>

@@ -1,5 +1,5 @@
 import express from "express";
-import { getCsrfToken } from "../controllers/tokens.ts";
+import {getCsrfToken} from "../controllers/tokens.ts";
 
 const tokensRoutes = express();
 

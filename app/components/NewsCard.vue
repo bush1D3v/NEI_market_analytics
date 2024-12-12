@@ -17,14 +17,14 @@ const props = defineProps<NewsCardProps>();
 
 <template>
     <article
-        class="flex flex-col xs:flex-row bg-secondaryDarker gap-4 items-center justify-between p-4 md:p-5 rounded-lg min-h-52 lgx:w-full xl:max-w-[585px] 2xl:max-w-[648px]">
-        <div class="flex flex-col">
+        class="flex flex-col sm:flex-row bg-secondaryDarker gap-4 items-center justify-between p-4 md:p-5 rounded-lg min-h-52 lgx:w-full 2xl:max-w-[648px]">
+        <div class="flex flex-col w-full">
             <span class="-mb-1">{{ props.source }}</span>
-            <div class="flex flex-col">
+            <div class="flex flex-col 2xl:max-w-96">
                 <Link class="text-link hover:underline" target="_blank" :href="props.url">
                 <h2 class="line-clamp-2 text-base md:text-xl lg:text-lg">{{ props.headline }}</h2>
                 </Link>
-                <p class="line-clamp-2 max-w-96 lg:max-w-full">{{ props.summary }}</p>
+                <p class="line-clamp-2 max-w-80 xs:max-w-96 2xl:max-w-full">{{ props.summary }}</p>
             </div>
             <span class="mt-2">{{ new Date(props.datetime * 1000).toLocaleDateString('en-US', {
                 year: 'numeric',

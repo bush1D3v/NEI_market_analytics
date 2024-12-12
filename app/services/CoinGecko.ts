@@ -24,7 +24,7 @@ export async function listCryptoCurrencies(
 	let url: string;
 
 	if (price_change_percentage && order) {
-		url = `/coins/markets?vs_currency=usd&per_page=${per_page}&page=${page}&price_change_percentage=${price_change_percentage}&order=${order}&category=adventure-games&precision=2`;
+		url = `/coins/markets?vs_currency=usd&per_page=${per_page}&page=${page}&price_change_percentage=${price_change_percentage}&order=${order}&category=business-platform&precision=2`;
 	} else {
 		url = `/coins/markets?vs_currency=usd&per_page=${per_page}&page=${page}&precision=2`;
 	}

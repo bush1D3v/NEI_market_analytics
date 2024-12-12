@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
+import {RouterView} from "vue-router";
 import Footer from "@/components/Layout/Footer.vue";
 import Header from "@/components/Layout/Header.vue";
 import Sonner from "@/components/ui/sonner/Sonner.vue";
 import Toaster from "@/components/ui/toast/Toaster.vue";
 import Breadcrumb from "@/components/Breadcrumb.vue";
 import GenerativeAI from "@/components/GenerativeAI.vue";
-import { onBeforeMount } from "vue";
-import { getCsrfToken } from "./services/Tokens";
+import {onBeforeMount} from "vue";
+import {getCsrfToken} from "./services/Tokens";
 
 onBeforeMount(async () => {
-    await getCsrfToken();
-})
+	await getCsrfToken();
+});
 </script>
 
 <template>
