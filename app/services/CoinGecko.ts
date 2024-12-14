@@ -1,4 +1,8 @@
-import type {CryptoDetail} from "@/types/CoinGecko/CryptoDetail";
+import type {
+	CryptoCompleted,
+	CryptoDataDescription,
+	CryptoGraphDetail,
+} from "@/types/CoinGecko/CryptoDetail";
 import type {CryptoCurrency} from "@/types/CoinGecko/CryptoCurrency";
 import type {Order} from "@/types/CoinGecko/Order";
 import type {PriceChangePercentage} from "@/types/CoinGecko/PriceChangePercentage";
@@ -54,20 +58,35 @@ export async function listCryptoCurrencies(
  * @returns Promise<CryptoCurrency | undefined>
  * @throws {Error} If the request to the proxy fails
  */
-export async function detailCrypto(slug: string): Promise<CryptoDetail | undefined> {
+export async function detailCrypto(slug: string): Promise<CryptoCompleted | undefined> {
 	const from = new Date();
 	const to = new Date();
 
 	from.setDate(from.getDate() - 31);
 
-	const url = `/coins/${slug}/market_chart/range?vs_currency=usd&from=${from.getTime() / 1000}&to=${to.getTime() / 1000}&precision=2`;
+	let url = `/coins/${slug}/market_chart/range?vs_currency=usd&from=${from.getTime() / 1000}&to=${to.getTime() / 1000}&precision=2`;
 
 	try {
-		const response = await get(url);
+		const responseGraphDetail = await get(url);
 
-		if (!response.ok) throw new Error(await response.json());
+		if (!responseGraphDetail.ok) throw new Error(await responseGraphDetail.json());
 
-		const crypto: CryptoDetail = await response.json();
+		const cryptoGraphData: CryptoGraphDetail = await responseGraphDetail.json();
+
+		url = `/coins/${slug}`;
+
+		const cryptoDetailData = await get(url);
+
+		if (!cryptoDetailData.ok) throw new Error(await cryptoDetailData.json());
+
+		const cryptoDescriptionData: CryptoDataDescription = await cryptoDetailData.json();
+
+		const crypto: CryptoCompleted = {
+			description: cryptoDescriptionData,
+			prices: cryptoGraphData.prices,
+			market_caps: cryptoGraphData.market_caps,
+			total_volumes: cryptoGraphData.total_volumes,
+		};
 
 		bus.emit("getDetailedCrypto", {crypto, slug});
 

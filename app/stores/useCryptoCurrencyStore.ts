@@ -1,22 +1,22 @@
 import {ref} from "vue";
 import {defineStore} from "pinia";
 import type {CryptoCurrency} from "@/types/CoinGecko/CryptoCurrency";
-import type {CryptoDetail} from "@/types/CoinGecko/CryptoDetail";
+import type {CryptoCompleted} from "@/types/CoinGecko/CryptoDetail";
 
 export const useCryptoCurrencyStore = defineStore("cryptoCurrency", () => {
 	const cryptoCurrencies = ref<CryptoCurrency[]>([]);
 	const homeCryptoCurrencies = ref<CryptoCurrency[]>([]);
-	const cryptosDetails = ref<Record<string, CryptoDetail>>({});
+	const cryptosDetails = ref<Record<string, CryptoCompleted>>({});
 
-	function addCryptoDetails(cryptoDetail: CryptoDetail, slug: string): void {
+	function addCryptoDetails(cryptoDetail: CryptoCompleted, slug: string): void {
 		cryptosDetails.value[slug] = cryptoDetail;
 	}
 
-	function getCryptoDetail(slug: string): CryptoDetail | null {
+	function getCryptoDetail(slug: string): CryptoCompleted | null {
 		return cryptosDetails.value[slug] || null;
 	}
 
-	function setCryptoDetail(slug: string, cryptoDetail: CryptoDetail): void {
+	function setCryptoDetail(slug: string, cryptoDetail: CryptoCompleted): void {
 		cryptosDetails.value[slug] = cryptoDetail;
 	}
 

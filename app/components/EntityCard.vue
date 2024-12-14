@@ -12,7 +12,6 @@ export interface EntityCardProps {
 	price: number;
 	market_cap: number;
 	circulating_supply: number;
-	//TODO: type: "crypto" | "nft";
 }
 
 const props = defineProps<EntityCardProps>();
@@ -42,7 +41,7 @@ const props = defineProps<EntityCardProps>();
             </div>
             <div>
                 <strong>{{ numberFormatter(props.market_cap) }}</strong>
-                <p v-translate>Capitalização de mercado</p>
+                <p v-translate>Capitalização de Mercado</p>
             </div>
             <div>
                 <strong>{{ numberFormatter(props.circulating_supply) }}</strong>

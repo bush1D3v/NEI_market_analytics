@@ -16,6 +16,16 @@ const props = defineProps<Props>();
             <span class="bg-gray-300 h-4 w-16 rounded mt-2" />
         </div>
         <hr class="h-[1px] w-full bg-gray-300" />
+        <div class="flex gap-8" v-if="props.type !== 'news'">
+            <div class="flex gap-2 min-w-40 max-w-40 md:min-w-60 md:max-w-60 justify-between items-end">
+                <span class="bg-gray-300 h-4 w-8 rounded"></span>
+                <span class="bg-gray-300 h-4 w-10 rounded"></span>
+            </div>
+            <div class="flex gap-2 items-center justify-between mt-1 w-full">
+                <span class="bg-gray-300 h-4 w-7 rounded"></span>
+                <span class="bg-gray-300 h-4 w-12 rounded"></span>
+            </div>
+        </div>
         <ul class="flex flex-col" :class="{ 'gap-2': props.type !== 'news', 'gap-3': props.type === 'news' }">
             <li v-if="props.type === 'news'" v-for="i in 3" class="flex gap-3 items-center justify-between">
                 <div class="w-[82px] h-[47px] bg-gray-300 rounded-lg" />

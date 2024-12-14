@@ -1,5 +1,8 @@
 import type {HistoricalDataPrice} from "./HistoricalDataPrice";
 
+// TODO: Add summaryProfile interface
+// export type SummaryProfile = {};
+
 export interface DetailedStock {
 	currency: string;
 	shortName: string;
@@ -26,4 +29,5 @@ export interface DetailedStock {
 	priceEarnings: number | null;
 	earningsPerShare: number;
 	logourl: string;
+	//summaryProfile: SummaryProfile;
 }

@@ -15,6 +15,9 @@ import {useStocksCurrencyStore} from "@/stores/useStocksCurrencyStore";
 import {onBeforeMount, onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
 import type {ChartData} from "@/components/Chart/types/ChartData";
+import {useTranslation} from "@/config/composable/translate";
+
+useTranslation();
 
 const route = useRoute();
 const ticker = String(route.params.ticker);
@@ -77,17 +80,17 @@ onMounted(async () => {
     <section class="container justify-center mb-9">
         <ul class="flex flex-col gap-20 w-full text-center">
             <li>
-                <h2> {{ ticker }} </h2>
+                <h2>Valores Máximo e Mínimo do Dia</h2>
                 <BarChart v-if="!loading && !error" :title="ticker" :data="treatedBarData" />
                 <BarChartSkeleton v-if="loading && !error" />
             </li>
             <li>
-                <h2> {{ ticker }} </h2>
+                <h2>Preço de Abertura e Fechamento</h2>
                 <AreaChart v-if="!loading" :title="ticker" :data="treatedAreaData" />
                 <AreaChartSkeleton v-if="loading && !error" />
             </li>
             <li>
-                <h2> {{ ticker }} </h2>
+                <h2>Volume</h2>
                 <LineChart v-if="!loading" :title="ticker" :data="treatedLineData" />
                 <LineChartSkeleton v-if="loading && !error" />
             </li>

@@ -62,7 +62,7 @@ export async function stockDetail(
 	range: ValidRanges = "1mo",
 	interval: ValidIntervals = "1d",
 ): Promise<DetailedStock | undefined> {
-	const url = `/quote/${ticker}?range=${range}&interval=${interval}`;
+	const url = `/quote/${ticker}?range=${range}&interval=${interval}&modules=summaryProfile`;
 	try {
 		let response = await get(url);
 

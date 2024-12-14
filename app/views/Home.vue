@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import RouterLink from "@/tags/RouterLink.vue";
-import Button from "@/components/ui/button/Button.vue";
-import HomeTable from "@/components/HomeTable.vue";
-import HomeTableSkeleton from "@/components/Skeletons/components/HomeTable.vue";
+import HomeTable from "@/components/views/Home/HomeTable.vue";
+import HomeTableSkeleton from "@/components/Skeletons/components/views/Home/HomeTable.vue";
 import type {New} from "@/types/Finnhub/New";
 import {onBeforeMount, ref} from "vue";
 import {useTranslation} from "@/config/composable/translate";
@@ -64,10 +62,5 @@ onBeforeMount(async () => {
             </li>
             <HomeTableSkeleton v-else type="news" />
         </ul>
-        <RouterLink to="/news">
-            <Button>
-                Notícias
-            </Button>
-        </RouterLink>
     </section>
 </template>

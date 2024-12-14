@@ -17,7 +17,7 @@ const props = defineProps<NewsCardProps>();
 
 <template>
     <article
-        class="flex flex-col sm:flex-row bg-secondaryDarker gap-4 items-center justify-between p-4 md:p-5 rounded-lg min-h-52 lgx:w-full 2xl:max-w-[648px]">
+        class="flex flex-col sm:flex-row bg-secondaryDarker gap-4 items-center justify-between p-4 md:p-5 rounded-lg min-h-52 lgx:w-full 2xl:w-[648px]">
         <div class="flex flex-col w-full">
             <span class="-mb-1">{{ props.source }}</span>
             <div class="flex flex-col 2xl:max-w-96">

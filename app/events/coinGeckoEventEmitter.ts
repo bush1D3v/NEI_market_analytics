@@ -1,11 +1,11 @@
 import mitt, {type Emitter} from "mitt";
 import {useCryptoCurrencyStore} from "@/stores/useCryptoCurrencyStore";
-import type {CryptoDetail} from "@/types/CoinGecko/CryptoDetail";
+import type {CryptoCompleted} from "@/types/CoinGecko/CryptoDetail";
 import type {CryptoCurrency} from "@/types/CoinGecko/CryptoCurrency";
 
 type CoinGeckoEventEmitter = {
 	cryptos?: CryptoCurrency[];
-	crypto?: CryptoDetail;
+	crypto?: CryptoCompleted;
 	slug?: string;
 };
 
@@ -20,7 +20,7 @@ const events = {
 	},
 	getDetailedCrypto: (payload: CoinGeckoEventEmitter) => {
 		const cryptoStore = useCryptoCurrencyStore();
-		cryptoStore.addCryptoDetails(payload.crypto as CryptoDetail, payload.slug as string);
+		cryptoStore.addCryptoDetails(payload.crypto as CryptoCompleted, payload.slug as string);
 	},
 };
 

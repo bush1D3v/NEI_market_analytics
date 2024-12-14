@@ -178,7 +178,8 @@
 	"Você significa o indivíduo que acessa ou usa o Serviço, ou a empresa, ou outra entidade legal em nome da qual tal indivíduo está acessando ou usando o Serviço, conforme aplicável.": "You means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.",
 	"Estatísticas": "Statistics",
 	"Preço": "Price",
-	"Capitalização de mercado": "Market Cap",
+	"Capitalização de Mercado": "Market Cap",
+	"Ranking de Capitalização de Mercado": "Market Cap Rank",
 	"Volume": "Volume",
 	"Explore": "Explore",
 	"Carregar Mais": "Load More",
@@ -400,5 +401,11 @@
 	"Explorar": "Explore",
 	"Cripto": "Crypto",
 	"Ferramentas": "Tools",
-	"Ver mais": "See more"
+	"Ver mais": "See more",
+	"Nome": "Name",
+	"Símbolo": "Symbol",
+	"Variação 24h %": "24h variation %",
+	"Valores Máximo e Mínimo do Dia": "Maximum and Minimum Values of the Day",
+	"Preço de Abertura e Fechamento": "Opening and Closing Price",
+	"Categorias": "Categories"
 }

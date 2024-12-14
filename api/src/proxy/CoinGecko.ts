@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import type {Request, Response} from "express";
-import type {CryptoDetail} from "../types/CoinGecko/CryptoDetail.ts";
+import type {CryptoDataDescription, CryptoGraphDetail} from "../types/CoinGecko/CryptoDetail.ts";
 import type {CryptoCurrency} from "../types/CoinGecko/CryptoCurrency.ts";
 import {get} from "../helpers/HttpClient.ts";
 dotenv.config();
@@ -80,7 +80,7 @@ interface DetailQueryParams {
  * @returns {void}
  * @throws {Error} If the request to the external API fails
  */
-export async function detailCrypto(req: Request, res: Response): Promise<void> {
+export async function detailCryptoMarketChart(req: Request, res: Response): Promise<void> {
 	const {vs_currency, from, to, precision}: DetailQueryParams = req.query;
 	const slug = encodeURIComponent(req.params.slug);
 
@@ -91,7 +91,34 @@ export async function detailCrypto(req: Request, res: Response): Promise<void> {
 
 		if (!response.ok) throw new Error(await response.json());
 
-		const jsonData: CryptoDetail = await response.json();
+		const jsonData: CryptoGraphDetail = await response.json();
+
+		res.json(jsonData);
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({error: error});
+	}
+}
+
+/**
+ * @description Handles the request to get the cryptocurrency.
+ *
+ * @param {Request} req - The request object
+ * @param {Response} res - The response object
+ * @returns {void}
+ * @throws {Error} If the request to the external API fails
+ */
+export async function detailCryptoDescriptionData(req: Request, res: Response): Promise<void> {
+	const slug = encodeURIComponent(req.params.slug);
+
+	const url = `${BASE_API_URL}/coins/${slug}`;
+
+	try {
+		const response = await get(url, defaultHeaders);
+
+		if (!response.ok) throw new Error(await response.json());
+
+		const jsonData: CryptoDataDescription = await response.json();
 
 		res.json(jsonData);
 	} catch (error) {

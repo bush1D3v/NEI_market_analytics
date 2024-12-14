@@ -4,6 +4,7 @@ import SearchBar from "@/components/SearchBar.vue";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import Image from "@/tags/Image.vue";
 import RouterLink from "@/tags/RouterLink.vue";
+import Button from "@/components/ui/button/Button.vue";
 import {DropdownDto} from "@/components/Dto/DropdownDto";
 </script>
 
@@ -22,7 +23,12 @@ import {DropdownDto} from "@/components/Dto/DropdownDto";
         <div class="justify-center w-full max-w-80">
             <SearchBar />
         </div>
-        <div class="justify-end">
+        <div class="justify-end flex gap-8 items-center">
+            <RouterLink to="/news" class="hidden lg:flex">
+                <Button variant="outline">
+                    Notícias
+                </Button>
+            </RouterLink>
             <ToggleTheme variant="switch" />
         </div>
     </header>

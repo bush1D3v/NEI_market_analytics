@@ -176,7 +176,7 @@
 	"Você significa o indivíduo que acessa ou usa o Serviço, ou a empresa, ou outra entidade legal em nome da qual tal indivíduo está acessando ou usando o Serviço, conforme aplicável.": "Você significa o indivíduo que acede ou usa o Serviço, ou a empresa, ou outra entidade legal em nome da qual tal indivíduo está acedendo ou usando o Serviço, conforme aplicável.",
 	"Estatísticas": "Estatísticas",
 	"Preço": "Preço",
-	"Capitalização de mercado": "Capitalização de mercado",
+	"Capitalização de Mercado": "Capitalização de Mercado",
 	"Volume": "Volume",
 	"Explore": "Explore",
 	"Carregar Mais": "Carregar Mais",
@@ -397,5 +397,11 @@
 	"Explorar": "Explorar",
 	"Cripto": "Cripto",
 	"Ferramentas": "Ferramentas",
-	"Ver mais": "Ver mais"
+	"Ver mais": "Ver mais",
+	"Nome": "Nome",
+	"Símbolo": "Símbolo",
+	"Variação 24h %": "Variação 24h %",
+	"Valores Máximo e Mínimo do Dia": "Valores Máximo e Mínimo do Dia",
+	"Preço de Abertura e Fechamento": "Preço de Abertura e Fechamento",
+	"Categorias": "Categorias"
 }

@@ -17,6 +17,8 @@
 		--destructive: #959595;
 		--material: #171b2d;
 		--link: #99c3ff;
+		--positive: #25faa4;
+		--negative: #eb3434;
 	}
 
 	:root {
@@ -53,8 +55,8 @@
 		--surface: #17192e;
 		--material: #ffffff;
 		--texture: #161727;
-		--positive: #25faa4;
-		--negative: #eb3434;
+		--positive: #027a0c;
+		--negative: #f71818;
 		--positive-lighter: #41d99b;
 		--positive-darker: #21a26e;
 		--negative-lighter: #db6868;

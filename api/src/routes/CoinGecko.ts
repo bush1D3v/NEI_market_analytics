@@ -1,9 +1,14 @@
 import express from "express";
-import {detailCrypto, listCryptoCurrencies} from "../proxy/CoinGecko.ts";
+import {
+	detailCryptoMarketChart,
+	detailCryptoDescriptionData,
+	listCryptoCurrencies,
+} from "../proxy/CoinGecko.ts";
 
 const coinGeckoRoutes = express();
 
 coinGeckoRoutes.get("/coins/markets", listCryptoCurrencies);
-coinGeckoRoutes.get("/coins/:slug/market_chart/range", detailCrypto);
+coinGeckoRoutes.get("/coins/:slug/market_chart/range", detailCryptoMarketChart);
+coinGeckoRoutes.get("/coins/:slug", detailCryptoDescriptionData);
 
 export default coinGeckoRoutes;

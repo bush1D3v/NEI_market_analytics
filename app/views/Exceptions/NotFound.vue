@@ -22,7 +22,7 @@ useTranslation();
                 <span>😀</span>
             </div>
         </div>
-        <Image :src="NotFoundImage" alt="Not Found Image" width="500" height="500" class="-my-20" />
+        <Image :src="NotFoundImage" alt="Not Found Image" width="500" height="500" class="-my-10 md:-my-20" />
         <RouterLink to="/" class="z-10">
             <Button class="text-lg">
                 Vá para Página Inicial

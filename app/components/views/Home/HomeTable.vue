@@ -6,6 +6,8 @@ import type {CryptoCurrency} from "@/types/CoinGecko/CryptoCurrency";
 import type {Stock} from "@/types/BrapiDev/Stock";
 import type {New} from "@/types/Finnhub/New";
 import Link from "@/tags/Link.vue";
+import {ChevronUpIcon, ChevronDownIcon} from "@radix-icons/vue";
+import {t} from "i18next";
 
 interface Props {
 	icon: string;
@@ -27,11 +29,21 @@ const props = defineProps<Props>();
                 <h4 v-translate> {{ props.tableTitle }} </h4>
             </div>
             <RouterLink v-translate :to="props.redirectTo" target="_self" class="text-link hover:underline mt-2 h-fit">
-                See more
+                Ver mais
             </RouterLink>
         </div>
         <hr class="h-[1px] w-full bg-gray-300" />
         <ul class="flex flex-col gap-2">
+            <ul class="flex gap-8 -mb-2" v-if="!props.news">
+                <li class="flex gap-2 min-w-40 max-w-40 md:min-w-60 md:max-w-60 justify-between items-end">
+                    <p class="text-xs">{{ t('Nome') }}</p>
+                    <p class="text-xs">{{ t('Símbolo') }}</p>
+                </li>
+                <li class="flex gap-2 items-center justify-start mt-1 w-full">
+                    <p class="text-xs">{{ t('Preço') }}</p>
+                    <p class="text-xs">{{ t('Variação 24h %') }}</p>
+                </li>
+            </ul>
             <li v-if="props.coins" v-for="(data, i) in props.coins" :key="i">
                 <div class="li-first-container">
                     <div class="flex gap-2">
@@ -44,8 +56,14 @@ const props = defineProps<Props>();
                     <span class="hidden mn:flex text-dark"> {{ data.symbol.toUpperCase() }} </span>
                 </div>
                 <div class="li-second-container">
-                    <span> {{ numberFormatter(data.current_price) }} </span>
-                    <span class="min-w-12 text-left"> {{ numberFormatter(data.price_change_percentage_24h) }} </span>
+                    <span> ${{ numberFormatter(data.current_price) }} </span>
+                    <span class="change"
+                        :class="{ 'text-positive': data.price_change_percentage_24h > 0, 'text-negative': data.price_change_percentage_24h < 0 }">
+                        <span v-if="data.price_change_percentage_24h > 0"> + </span>
+                        {{ numberFormatter(data.price_change_percentage_24h) }}%&nbsp;
+                        <ChevronUpIcon v-if="data.price_change_percentage_24h > 0" />
+                        <ChevronDownIcon v-else />
+                    </span>
                 </div>
             </li>
             <li v-if="props.stocks" v-for="(data, i) in props.stocks" :key="i">
@@ -60,8 +78,14 @@ const props = defineProps<Props>();
                     <span class="hidden mn:flex text-dark"> {{ data.stock }} </span>
                 </div>
                 <div class="li-second-container">
-                    <span> {{ numberFormatter(data.close) }} </span>
-                    <span class="min-w-12 text-left"> {{ numberFormatter(data.change) }} </span>
+                    <span> ${{ numberFormatter(data.close) }} </span>
+                    <span class="change"
+                        :class="{ 'text-positive': data.change > 0, 'text-negative': data.change < 0 }">
+                        <span v-if="data.change > 0"> + </span>
+                        {{ numberFormatter(data.change) }}%&nbsp;
+                        <ChevronUpIcon v-if="data.change > 0" />
+                        <ChevronDownIcon v-else />
+                    </span>
                 </div>
             </li>
             <li v-if="props.news" v-for="(data, i) in props.news" :key="i" class="flex gap-3">
@@ -89,15 +113,23 @@ article {
 }
 
 .li-first-container {
-    @apply flex gap-2 min-w-40 max-w-40 mn:min-w-60 mn:max-w-60 md:min-w-72 md:max-w-72 justify-between;
+    @apply flex gap-2 min-w-40 max-w-40 md:min-w-60 md:max-w-60 justify-between items-end;
 }
 
 .li-second-container {
-    @apply flex gap-2;
+    @apply flex gap-2 items-center justify-start mt-1;
+
+    & span {
+        @apply text-sm;
+    }
+
+    & span.change {
+        @apply min-w-12 flex text-right;
+    }
 }
 
 li {
-    @apply flex gap-2 items-center justify-around mn:justify-between text-center;
+    @apply flex gap-2 justify-around mn:justify-between text-center;
 }
 
 span {
