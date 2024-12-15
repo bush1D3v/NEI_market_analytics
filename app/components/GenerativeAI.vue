@@ -9,7 +9,7 @@ import LikeImage from "@/assets/images/like.png";
 import DislikeImage from "@/assets/images/dislike.png";
 import useToastNotification from "@/notification/toast";
 import {v4 as uuidv4} from "uuid";
-import {ref, nextTick} from "vue";
+import {ref, nextTick, onMounted} from "vue";
 import {
 	Bot,
 	User,
@@ -21,6 +21,7 @@ import {
 	ThumbsUp,
 } from "lucide-vue-next";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible";
+import translate from "@/utils/externalDataTranslator";
 
 interface Message {
 	text: string;
@@ -32,7 +33,7 @@ interface Message {
 }
 
 const defaultMessage: Message = {
-	text: "👋 Hi! I am NEI Market AI, ask me anything about NEI Market Analytics!",
+	text: "👋 Oi! Eu sou NEI Market AI, pergunte-me qualquer coisa sobre NEI Market Analytics!",
 	sender: "ai",
 	refs: [],
 	first: true,
@@ -165,6 +166,10 @@ socket.on("error", (data) => {
 		console.error(data.error);
 	}
 });
+
+onMounted(async () => {
+	messages.value[0].text = await translate(messages.value[0].text, "pt");
+});
 </script>
 
 <template>
@@ -227,9 +232,8 @@ socket.on("error", (data) => {
                     </Button>
                 </div>
                 <footer>
-                    <p class="text-text text-sm">By chatting, you agree to our</p>
-                    <RouterLink class="underline text-sm hover:opacity-50" to="/privacy-policy">privacy policy
-                    </RouterLink>
+                    <p v-translate class="text-text text-sm">Ao conversar, você concorda com nossa</p>
+                    <RouterLink v-translate class="underline text-sm hover:opacity-50" to="/privacy-policy">política de privacidade</RouterLink>
                     .
                 </footer>
             </div>

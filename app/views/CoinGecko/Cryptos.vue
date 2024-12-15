@@ -32,8 +32,11 @@ async function loadMore() {
 
 onMounted(async () => {
 	if (!cryptoCurrencies.length) {
-		const data = await loadCryptos();
-		if (!data) error.value = true;
+		try {
+			await loadCryptos();
+		} catch (err) {
+			error.value = true;
+		}
 	}
 	isLoading.value = false;
 });
@@ -43,7 +46,7 @@ onMounted(async () => {
     <section class="container justify-center my-4">
         <ul v-if="!error" class="flex gap-4 flex-wrap justify-center">
             <li v-if="!isLoading" v-for="data in cryptoCurrencies" :key="data.id">
-                <EntityCard :image="data.image" :name="data.name" :symbol="data.symbol" :id="data.id"
+                <EntityCard type="crypto" :image="data.image" :name="data.name" :symbol="data.symbol" :id="data.id"
                     :circulating_supply="data.circulating_supply" :price="data.current_price"
                     :market_cap="data.market_cap" :router-link-to="`/cryptos/${data.id}`" />
             </li>

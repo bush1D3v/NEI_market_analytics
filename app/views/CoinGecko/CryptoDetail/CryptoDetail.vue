@@ -48,10 +48,11 @@ function filterByDay(data: GeneralData[]): GeneralData[] {
 	});
 }
 
-function filterCryptoDetail(cryptoDetail: CryptoCompleted): CryptoCompleted {
+async function filterCryptoDetail(cryptoDetail: CryptoCompleted): Promise<CryptoCompleted> {
 	const filteredPrices = filterByDay(cryptoDetail.prices);
 	const filteredMarketCaps = filterByDay(cryptoDetail.market_caps);
 	const filteredTotalVolumes = filterByDay(cryptoDetail.total_volumes);
+
 	cryptoDetailData.value = cryptoDetail.description;
 
 	// Gamb pra contornar o filtro que retorna 2 itens da mesma data no inicio do array
@@ -106,12 +107,14 @@ onMounted(async () => {
 			await detailCrypto(crypto);
 		} catch (err) {
 			error.value = true;
+			loading.value = false;
+			return;
 		}
 	}
 
 	const currency = cryptoCurrencyStore.getCryptoDetail(crypto);
 
-	const filteredCrypto = filterCryptoDetail(currency as CryptoCompleted);
+	const filteredCrypto = await filterCryptoDetail(currency as CryptoCompleted);
 
 	cryptoCurrencyStore.setCryptoDetail(crypto, filteredCrypto);
 
@@ -135,7 +138,7 @@ onMounted(async () => {
             <div class="flex flex-col items-center md:flex-row justify-between gap-4">
                 <div class="flex flex-col justify-between gap-2">
                     <div class="flex items-end gap-2">
-                        <Image :src="cryptoDetailData?.image.small || ''" :alt="cryptoDetailData?.name || ''" width="50" height="50" />
+                        <Image :src="cryptoDetailData?.image.small || ''" :alt="cryptoDetailData?.name + ' Logo' || ''" width="50" height="50" />
                         <h1>{{ cryptoDetailData?.name || '' }}</h1>
                         <h2>- {{ cryptoDetailData?.symbol || '' }}</h2>
                     </div>
@@ -153,7 +156,7 @@ onMounted(async () => {
             </ul>
         </article>
         <ArticleSkeleton v-if="loading && !error" />
-        <ul class="flex flex-col gap-20 w-full text-center mt-4">
+        <ul v-if="!error" class="flex flex-col gap-20 w-full text-center mt-4">
             <li>
                 <h2>Preço</h2>
                 <BarChart v-if="!loading && !error" :title="crypto" :data="treatedBarData" />

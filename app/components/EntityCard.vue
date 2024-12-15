@@ -2,6 +2,9 @@
 import Image from "@/tags/Image.vue";
 import Button from "@/components/ui/button/Button.vue";
 import numberFormatter from "@/utils/numberFormatter";
+import translate from "@/utils/externalDataTranslator";
+import {onBeforeMount, ref} from "vue";
+import capitalizeFirstLetter from "@/utils/capitalizeFirstLetter";
 
 export interface EntityCardProps {
 	id: string | number;
@@ -12,9 +15,19 @@ export interface EntityCardProps {
 	price: number;
 	market_cap: number;
 	circulating_supply: number;
+	type: "crypto" | "stock";
 }
 
 const props = defineProps<EntityCardProps>();
+const translatedId = ref<string | number>();
+
+onBeforeMount(async () => {
+	if (props.type !== "crypto") {
+		translatedId.value = await translate(capitalizeFirstLetter(props.id as string));
+	} else {
+		translatedId.value = props.id;
+	}
+});
 </script>
 
 <template>
@@ -25,10 +38,10 @@ const props = defineProps<EntityCardProps>();
             <div class="flex flex-col">
                 <h3 class="line-clamp-1 max-w-56">{{ props.name }}</h3>
                 <div class="flex gap-1 md:gap-[6px]">
-                    <p>Currency</p>
+                    <p v-translate>{{ props.type === "crypto" ? "Moeda" : "Símbolo" }}</p>
                     <strong>{{ props.symbol.toUpperCase() }}</strong>
-                    <p>&nbsp;·&nbsp; Chain ID</p>
-                    <strong class="max-w-8 md:max-w-12 line-clamp-1">{{ props.id }}</strong>
+                    &nbsp;·&nbsp;<p v-translate>{{ props.type === "crypto" ? "ID" : "Tipo" }}</p>
+                    <strong class="max-w-8 md:max-w-12 line-clamp-1">{{ translatedId }}</strong>
                 </div>
             </div>
         </div>
@@ -36,7 +49,7 @@ const props = defineProps<EntityCardProps>();
         <h6 v-translate>Estatísticas</h6>
         <div class="md:font-semibold gap-2 md:gap-0 flex justify-between">
             <div>
-                <strong>${{ numberFormatter(props.price) }}</strong>
+                <strong>{{ props.type === "crypto" ? "$" : "R$" }}{{ numberFormatter(props.price) }}</strong>
                 <p v-translate>Preço</p>
             </div>
             <div>

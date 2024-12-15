@@ -11,13 +11,13 @@ export default function numberFormatter(num: number): string {
 	if (num >= 1e3) {
 		return `${(num / 1e3).toFixed(2)}K`;
 	}
-	let fixed = 2;
-	let numStr = num.toFixed(fixed);
-
-	while (numStr.endsWith("0") && fixed < 2) {
-		fixed++;
-		numStr = num.toFixed(fixed);
+	let numStr = num.toString();
+	const index = numStr.indexOf(".");
+	if (index > 0) {
+		const nonZeroIndex = numStr.substring(index).search(/[1-9]/) + index;
+		if (nonZeroIndex > index) {
+			numStr = numStr.substring(0, nonZeroIndex + 2);
+		}
 	}
-
 	return numStr;
 }

@@ -1,7 +1,31 @@
 import type {HistoricalDataPrice} from "./HistoricalDataPrice";
 
+export interface SummaryProfile {
+	address1: string;
+	address2?: string;
+	city: string;
+	state: string;
+	zip: string;
+	country: string;
+	phone: string;
+	fax?: string;
+	website: string;
+	industry: string;
+	industryKey: string;
+	industryDisp: string;
+	sector?: string;
+	sectorKey?: string;
+	sectorDisp?: string;
+	longBusinessSummary?: string;
+	fullTimeEmployees?: number;
+	priceEarnings?: number;
+	earningsPerShare?: number;
+	logourl?: string;
+}
+
 export interface DetailedStock {
 	currency: string;
+	marketCap?: number;
 	shortName: string;
 	longName: string;
 	regularMarketChange: number;
@@ -26,4 +50,5 @@ export interface DetailedStock {
 	priceEarnings: number | null;
 	earningsPerShare: number;
 	logourl: string;
+	summaryProfile: SummaryProfile;
 }

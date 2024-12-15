@@ -10,6 +10,7 @@ import {listCompanyNews} from "@/services/Finnhub";
 import {listStocks} from "@/services/BrapiDev";
 import {useStocksCurrencyStore} from "@/stores/useStocksCurrencyStore";
 import {useNewsStore} from "@/stores/useNewsStore";
+import translate from "@/utils/externalDataTranslator";
 
 const cryptoCurrencyStore = useCryptoCurrencyStore();
 const newsStore = useNewsStore();

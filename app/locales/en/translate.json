@@ -407,5 +407,14 @@
 	"Variação 24h %": "24h variation %",
 	"Valores Máximo e Mínimo do Dia": "Maximum and Minimum Values of the Day",
 	"Preço de Abertura e Fechamento": "Opening and Closing Price",
-	"Categorias": "Categories"
+	"Categorias": "Categories",
+	"Categoria": "Category",
+	"Setor": "Sector",
+	"Indústria": "Industry",
+	"Moeda": "Currency",
+	"Tipo": "Type",
+	"ID": "ID",
+	"Ao conversar, você concorda com nossa": "By chatting, you agree to our",
+	"política de privacidade": "privacy policy",
+	"👋 Olá! Eu sou a NEI Market AI, pergunte-me qualquer coisa sobre o NEI Market Analytics!": "👋 Hi! I am NEI Market AI, ask me anything about NEI Market Analytics!"
 }

@@ -24,9 +24,10 @@ async function loadStocks() {
 async function loadMore() {
 	isLoadingMore.value = true;
 	start.value += 12;
-	const newStocks = await loadStocks();
 
-	if (!newStocks) {
+	try {
+		await loadStocks();
+	} catch (err) {
 		error.value = true;
 	}
 
@@ -35,8 +36,11 @@ async function loadMore() {
 
 onMounted(async () => {
 	if (!stocksCurrencies.length) {
-		const data = await loadStocks();
-		if (!data) error.value = true;
+		try {
+			await loadStocks();
+		} catch (err) {
+			error.value = true;
+		}
 	}
 	isLoading.value = false;
 });
@@ -46,8 +50,8 @@ onMounted(async () => {
     <section class="container justify-center my-4">
         <ul v-if="!error" class="flex gap-4 flex-wrap justify-center">
             <li v-if="!isLoading" v-for="(stockCurrency, index) in stocksCurrencies" :key="index">
-                <EntityCard :image="stockCurrency.logo" :name="stockCurrency.name" :symbol="stockCurrency.stock"
-                    :id="index" :circulating_supply="stockCurrency.volume" :price="stockCurrency.close"
+                <EntityCard type="stock" :image="stockCurrency.logo" :name="stockCurrency.name" :symbol="stockCurrency.stock"
+                    :id="stockCurrency.type" :circulating_supply="stockCurrency.volume" :price="stockCurrency.close"
                     :market_cap="stockCurrency.market_cap || 0" :router-link-to="`/stocks/${stockCurrency.stock}`" />
             </li>
             <EntityCardSkeleton v-else v-for="i in 12" :key="i" />

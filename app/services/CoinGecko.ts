@@ -8,6 +8,7 @@ import type {Order} from "@/types/CoinGecko/Order";
 import type {PriceChangePercentage} from "@/types/CoinGecko/PriceChangePercentage";
 import {bus} from "@/events/coinGeckoEventEmitter";
 import {get} from "@/server/HttpClient";
+import translate from "@/utils/externalDataTranslator";
 
 /**
  * @description Handles the request to get the cryptocurrency listing.
@@ -48,6 +49,7 @@ export async function listCryptoCurrencies(
 		return cryptos;
 	} catch (error) {
 		console.error(error);
+		throw error;
 	}
 }
 
@@ -81,6 +83,17 @@ export async function detailCrypto(slug: string): Promise<CryptoCompleted | unde
 
 		const cryptoDescriptionData: CryptoDataDescription = await cryptoDetailData.json();
 
+		cryptoDescriptionData.description.en = await translate(
+			cryptoDescriptionData.description.en,
+		);
+		if (cryptoDescriptionData?.categories) {
+			for (let i = 0; i < cryptoDescriptionData.categories.length; i++) {
+				cryptoDescriptionData.categories[i] = await translate(
+					cryptoDescriptionData.categories[i],
+				);
+			}
+		}
+
 		const crypto: CryptoCompleted = {
 			description: cryptoDescriptionData,
 			prices: cryptoGraphData.prices,
@@ -93,5 +106,6 @@ export async function detailCrypto(slug: string): Promise<CryptoCompleted | unde
 		return crypto;
 	} catch (error) {
 		console.error(error);
+		throw error;
 	}
 }

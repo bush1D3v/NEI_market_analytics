@@ -6,7 +6,7 @@ import NotFound from "@/views/Exceptions/NotFound.vue";
 import Cryptos from "@/views/CoinGecko/Cryptos.vue";
 import CryptoDetail from "@/views/CoinGecko/CryptoDetail/CryptoDetail.vue";
 import Stocks from "@/views/BrapiDev/Stocks.vue";
-import StockDetail from "@/views/BrapiDev/StockDetail.vue";
+import StockDetail from "@/views/BrapiDev/StockDetail/StockDetail.vue";
 import CookiePolicy from "@/views/Policies/CookiePolicy.vue";
 import PrivacyPolicy from "@/views/Policies/PrivacyPolicy.vue";
 import News from "@/views/Finnhub/News.vue";

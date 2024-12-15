@@ -65,6 +65,7 @@ export async function listStocks(req: Request, res: Response): Promise<void> {
 interface DetailQueryParams {
 	range?: ValidRanges;
 	interval?: ValidIntervals;
+	modules?: string;
 }
 
 interface ResponseDetailStock {
@@ -80,10 +81,10 @@ interface ResponseDetailStock {
  * @throws {Error} If the request to the external API fails
  */
 export async function detailStock(req: Request, res: Response): Promise<void> {
-	const {range, interval}: DetailQueryParams = req.query;
+	const {range, interval, modules}: DetailQueryParams = req.query;
 	const ticker = encodeURIComponent(req.params.ticker);
 
-	const url = `${BASE_API_URL}/quote/${ticker}?range=${range}&interval=${interval}`;
+	const url = `${BASE_API_URL}/quote/${ticker}?range=${range}&interval=${interval}&modules=${modules}`;
 
 	try {
 		const response = await get(url, defaultHeaders);

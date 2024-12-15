@@ -21,5 +21,6 @@ export async function listCurrencyQuotes(): Promise<CurrencyQuotes | undefined> 
 		return quotes;
 	} catch (error) {
 		console.error(error);
+		throw error;
 	}
 }

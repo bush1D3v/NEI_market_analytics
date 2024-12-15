@@ -3,7 +3,8 @@ import Button from "@/components/ui/button/Button.vue";
 import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
 import NewsCard from "@/components/NewsCard.vue";
 import NewsCardSkeleton from "@/components/Skeletons/components/NewsCard.vue";
-import {ref, onMounted} from "vue";
+import translate from "@/utils/externalDataTranslator";
+import {ref, onMounted, watch} from "vue";
 import {listMarketNews} from "@/services/Finnhub";
 import {useTranslation} from "@/config/composable/translate";
 import {useNewsStore} from "@/stores/useNewsStore";
@@ -18,9 +19,7 @@ const error = ref<boolean>(false);
 const limit = ref<number>(12);
 
 function loadMore() {
-	isLoadingMore.value = true;
 	limit.value += 12;
-	isLoadingMore.value = false;
 }
 
 function paginatedNews() {
@@ -31,11 +30,28 @@ onMounted(async () => {
 	isLoading.value = true;
 
 	if (newStore.news.crypto.length === 0) {
-		const data = await listMarketNews();
-		if (!data) error.value = true;
+		try {
+			await listMarketNews();
+		} catch (err) {
+			error.value = true;
+		}
 	}
 
 	isLoading.value = false;
+
+	for (let i = limit.value - 12; i < limit.value; i++) {
+		newStore.news.crypto[i].summary = await translate(newStore.news.crypto[i].summary);
+		newStore.news.crypto[i].headline = await translate(newStore.news.crypto[i].headline);
+	}
+});
+
+watch(limit, async () => {
+	isLoadingMore.value = true;
+	for (let i = limit.value - 12; i < limit.value; i++) {
+		newStore.news.crypto[i].summary = await translate(newStore.news.crypto[i].summary);
+		newStore.news.crypto[i].headline = await translate(newStore.news.crypto[i].headline);
+	}
+	isLoadingMore.value = false;
 });
 </script>
 
@@ -46,7 +62,7 @@ onMounted(async () => {
                 <NewsCard :id="news.id" :datetime="news.datetime" :headline="news.headline" :url="news.url"
                     :source="news.source" :summary="news.summary" :image="news.image" />
             </li>
-            <NewsCardSkeleton v-else v-for="i in 12" :key="i" />
+            <NewsCardSkeleton v-else v-if="!isLoadingMore" v-for="i in 12" :key="i" />
         </ul>
         <div v-if="!error && !isLoading && limit < newStore.news.crypto.length" class="flex justify-center mt-10">
             <Button @click="loadMore" :disabled="isLoadingMore">

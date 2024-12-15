@@ -6,6 +6,7 @@ import type {SortOrder} from "@/types/BrapiDev/SortOrder";
 import type {Stock} from "@/types/BrapiDev/Stock";
 import type {ValidIntervals} from "@/types/BrapiDev/ValidIntervals";
 import type {ValidRanges} from "@/types/BrapiDev/ValidRanges";
+import translate from "@/utils/externalDataTranslator";
 
 /**
  * @description Handles the request to get the list of currency quotes.
@@ -45,6 +46,7 @@ export async function listStocks(
 		return stocks;
 	} catch (error) {
 		console.error(error);
+		throw error;
 	}
 }
 
@@ -79,11 +81,30 @@ export async function stockDetail(
 		}
 
 		if (detailedStock.historicalDataPrice.length > 0) {
+			if (detailedStock.summaryProfile?.longBusinessSummary) {
+				detailedStock.summaryProfile.longBusinessSummary = await translate(
+					detailedStock.summaryProfile.longBusinessSummary,
+				);
+			}
+
+			if (detailedStock.summaryProfile?.sector) {
+				detailedStock.summaryProfile.sector = await translate(
+					detailedStock.summaryProfile.sector,
+				);
+			}
+
+			if (detailedStock.summaryProfile?.industry) {
+				detailedStock.summaryProfile.industry = await translate(
+					detailedStock.summaryProfile.industry,
+				);
+			}
+
 			bus.emit("getDetailedStock", {detailedStock});
 		}
 
 		return detailedStock;
 	} catch (error) {
 		console.error(error);
+		throw error;
 	}
 }

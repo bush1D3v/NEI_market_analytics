@@ -14,6 +14,9 @@ export interface CryptoDataDescription {
 		whitepaper: string;
 		blockchain_site: string[];
 		official_forum_url: string[];
+		chat_url: string[];
+		announcement_url: string[];
+		subreddit_url: string;
 		repos_url: {github: string[]};
 	};
 	image: {
@@ -33,6 +36,51 @@ export interface CryptoDataDescription {
 	price_change_percentage_200d: number;
 	price_change_percentage_1y: number;
 	market_cap_change_percentage_24h: number;
+	market_data: {
+		current_price: {
+			usd: number;
+		};
+		market_cap: {
+			usd: number;
+		};
+		total_volume: {
+			usd: number;
+		};
+		price_change_percentage_24h: number;
+		market_cap_change_percentage_24h: number;
+	};
+	tickers: {
+		target: string;
+		market: {
+			name: string;
+			identifier: string;
+			has_trading_incentive: boolean;
+			has_referral_params: boolean;
+		};
+		last: number;
+		volume: number;
+		converted_last: {
+			btc: number;
+			eth: number;
+			usd: number;
+		};
+		converted_volume: {
+			btc: number;
+			eth: number;
+			usd: number;
+		};
+		trust_score: string;
+		bid_ask_spread_percentage: number;
+		timestamp: string;
+		last_traded_at: string;
+		last_fetch_at: string;
+		is_anomaly: boolean;
+		is_stale: boolean;
+		trade_url: string;
+		token_info_url: string | null;
+		coin_id: string;
+		target_coin_id: string;
+	}[];
 }
 
 export interface CryptoGraphDetail {
