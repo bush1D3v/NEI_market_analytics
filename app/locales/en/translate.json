@@ -416,5 +416,8 @@
 	"ID": "ID",
 	"Ao conversar, você concorda com nossa": "By chatting, you agree to our",
 	"política de privacidade": "privacy policy",
-	"👋 Olá! Eu sou a NEI Market AI, pergunte-me qualquer coisa sobre o NEI Market Analytics!": "👋 Hi! I am NEI Market AI, ask me anything about NEI Market Analytics!"
+	"👋 Olá! Eu sou a NEI Market AI, pergunte-me qualquer coisa sobre o NEI Market Analytics!": "👋 Hi! I am NEI Market AI, ask me anything about NEI Market Analytics!",
+	"Texto copiado para a área de transferência": "Text copied to clipboard",
+	"Chat recarregado": "Chat refreshed",
+	"Erro ao copiar texto para a área de transferência": "Error copying text to clipboard"
 }

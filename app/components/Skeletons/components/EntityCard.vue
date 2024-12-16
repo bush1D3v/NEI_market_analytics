@@ -1,5 +1,5 @@
 <template>
-    <li class="flex flex-col bg-secondaryDarker gap-4 p-4 md:p-5 rounded-lg md:min-w-96 animate-pulse">
+    <div class="flex flex-col bg-secondaryDarker gap-4 p-4 md:p-5 rounded-lg md:min-w-96 animate-pulse">
         <div class="flex gap-4 items-center h-12 md:h-16">
             <div class="rounded-full bg-gray-300 w-10 h-10 md:w-[50px] md:h-[50px]" />
             <div class="flex flex-col gap-2">
@@ -28,5 +28,5 @@
             </div>
         </div>
         <div class="h-9 bg-gray-300 rounded-md w-full mt-2 md:mt-4" />
-    </li>
+    </div>
 </template>

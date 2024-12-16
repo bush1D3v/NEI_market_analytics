@@ -52,10 +52,10 @@ function copyToClipboard(text: string) {
 	navigator.clipboard
 		.writeText(text)
 		.then(() => {
-			useToastNotification("Text copied to clipboard");
+			useToastNotification("Texto copiado para a área de transferência");
 		})
 		.catch((_e) => {
-			useToastNotification("Error copying text to clipboard");
+			useToastNotification("Erro ao copiar texto para a área de transferência");
 		});
 }
 
@@ -77,7 +77,7 @@ function refresh() {
 	sessionId.value = uuidv4();
 	aiMessage = "";
 	messages.value = [defaultMessage];
-	useToastNotification("Chat refreshed");
+	useToastNotification("Chat recarregado");
 }
 
 async function sendMessage(resendMessage?: boolean) {
