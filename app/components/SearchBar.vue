@@ -65,7 +65,7 @@ onMounted(() => {
         </div>
         <kbd
             class="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium text-text opacity-100 absolute top-[10px] right-4 bg-transparent my-0">
-            <span class="text-xs translate-ignore">⌘</span>J
+            <span class="text-xs">⌘</span>J
         </kbd>
         <CommandDialog v-model:open="isFocused">
             <div class="flex items-center border-b bg-darkAlt pl-4" cmdk-input-wrapper>

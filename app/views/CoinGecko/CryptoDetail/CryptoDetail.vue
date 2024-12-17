@@ -19,12 +19,9 @@ import type {
 	CryptoDataDescription,
 } from "@/types/CoinGecko/CryptoDetail";
 import type {ChartData} from "@/components/Chart/types/ChartData";
-import {useTranslation} from "@/config/composable/translate";
 import Image from "@/tags/Image.vue";
 import LinksList from "./components/LinksList.vue";
 import ValuesList from "./components/ValuesList.vue";
-
-useTranslation();
 
 const route = useRoute();
 const crypto = String(route.params.crypto);
@@ -158,17 +155,17 @@ onMounted(async () => {
         <ArticleSkeleton v-if="loading && !error" />
         <ul v-if="!error" class="flex flex-col gap-20 w-full text-center mt-4">
             <li>
-                <h2>Preço</h2>
+                <h2 v-translate>Preço</h2>
                 <BarChart v-if="!loading && !error" :title="crypto" :data="treatedBarData" />
                 <BarChartSkeleton v-if="loading && !error" />
             </li>
             <li>
-                <h2>Capitalização de Mercado</h2>
+                <h2 v-translate>Capitalização de Mercado</h2>
                 <AreaChart v-if="!loading && !error" :title="crypto" :data="treatedAreaData" />
                 <AreaChartSkeleton v-if="loading && !error" />
             </li>
             <li>
-                <h2>Volume</h2>
+                <h2 v-translate>Volume</h2>
                 <LineChart v-if="!loading && !error" :title="crypto" :data="treatedLineData" />
                 <LineChartSkeleton v-if="loading && !error" />
             </li>

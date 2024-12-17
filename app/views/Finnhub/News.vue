@@ -6,11 +6,7 @@ import NewsCardSkeleton from "@/components/Skeletons/components/NewsCard.vue";
 import translate from "@/utils/externalDataTranslator";
 import {ref, onMounted, watch} from "vue";
 import {listMarketNews} from "@/services/Finnhub";
-import {useTranslation} from "@/config/composable/translate";
 import {useNewsStore} from "@/stores/useNewsStore";
-import {t} from "i18next";
-
-useTranslation();
 
 const newStore = useNewsStore();
 const isLoading = ref<boolean>(true);
@@ -65,8 +61,8 @@ watch(limit, async () => {
             <NewsCardSkeleton v-else v-if="!isLoadingMore" v-for="i in 12" :key="i" />
         </ul>
         <div v-if="!error && !isLoading && limit < newStore.news.crypto.length" class="flex justify-center mt-10">
-            <Button @click="loadMore" :disabled="isLoadingMore">
-                {{ isLoadingMore ? t('Carregando...') : t('Carregar Mais') }}
+            <Button v-translate @click="loadMore" :disabled="isLoadingMore">
+                {{ isLoadingMore ? 'Carregando...' : 'Carregar Mais' }}
             </Button>
         </div>
         <InternalServerError v-if="error" />

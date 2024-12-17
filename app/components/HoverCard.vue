@@ -34,8 +34,8 @@ const props = defineProps<HoverCardProps>();
                     </span>
                     <div class="flex items-center pt-2">
                         <CalendarIcon class="mr-2 h-4 w-4 opacity-70" />
-                        <span class="text-xs text-textForeground">
-                            Joined {{ props.startDate }}
+                        <span v-translate class="text-xs text-textForeground">
+                            Começou em {{ props.startDate }}
                         </span>
                     </div>
                 </div>

@@ -3,21 +3,18 @@ import RouterLink from "@/tags/RouterLink.vue";
 import Link from "@/tags/Link.vue";
 import {ExploreDto, ToolsDto, InfoDto} from "@/components/Dto/views/MoreDto";
 import {ChevronRight} from "lucide-vue-next";
-import {useTranslation} from "@/config/composable/translate";
-
-useTranslation();
 </script>
 
 <template>
     <section class="justify-around gap-8 container">
         <article>
-            <h2>Explorar</h2>
+            <h2 v-translate>Explorar</h2>
             <ul>
                 <li v-for="(data, i) in ExploreDto" :key="i">
                     <RouterLink :to="data.href">
                         <div>
                             {{ data.emoji }}
-                            <h4>{{ data.title }}</h4>
+                            <h4 v-translate>{{ data.title }}</h4>
                         </div>
                         <ChevronRight />
                     </RouterLink>
@@ -25,13 +22,13 @@ useTranslation();
             </ul>
         </article>
         <article>
-            <h2 id="tools">Ferramentas</h2>
+            <h2 v-translate id="tools">Ferramentas</h2>
             <ul>
                 <li v-for="(data, i) in ToolsDto" :key="i">
                     <RouterLink :to="data.href">
                         <div>
                             <component :is="data.icon" />
-                            <h4>{{ data.title }}</h4>
+                            <h4 v-translate>{{ data.title }}</h4>
                         </div>
                         <ChevronRight />
                     </RouterLink>
@@ -39,20 +36,20 @@ useTranslation();
             </ul>
         </article>
         <article>
-            <h2>Informações</h2>
+            <h2 v-translate>Informações</h2>
             <ul>
                 <li v-for="(data, i) in InfoDto" :key="i">
                     <Link v-if="data.title === 'Ver no GitHub'" :href="data.href" target="_blank">
                     <div>
                         <component :is="data.icon" />
-                        <h4>{{ data.title }}</h4>
+                        <h4 v-translate>{{ data.title }}</h4>
                     </div>
                     <ChevronRight />
                     </Link>
                     <RouterLink v-else :to="data.href">
                         <div>
                             <component :is="data.icon" />
-                            <h4>{{ data.title }}</h4>
+                            <h4 v-translate>{{ data.title }}</h4>
                         </div>
                         <ChevronRight />
                     </RouterLink>

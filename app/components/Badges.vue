@@ -27,7 +27,7 @@ const props = defineProps<{badges: BadgeProps[]}>();
             <div class="flex flex-col">
                 <div class="flex flex-col gap-y-0">
                     <h3>{{ badge.name }}</h3>
-                    <span class="ml-[2px] -mt-[6px]">{{ badge.occupation }}</span>
+                    <span v-translate class="ml-[2px] -mt-[6px]">{{ badge.occupation }}</span>
                 </div>
                 <HoverCard :description="badge.description" :title="badge.nickname" :start-date="badge.startDate"
                     :avatar-src="badge.github + '.png'" />

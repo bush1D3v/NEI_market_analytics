@@ -5,11 +5,7 @@ import EntityCard from "@/components/EntityCard.vue";
 import InternalServerError from "@/views/Exceptions/InternalServerError.vue";
 import {ref, onMounted} from "vue";
 import {listStocks} from "@/services/BrapiDev";
-import {useTranslation} from "@/config/composable/translate";
 import {useStocksCurrencyStore} from "@/stores/useStocksCurrencyStore";
-import {t} from "i18next";
-
-useTranslation();
 
 const {stocksCurrencies} = useStocksCurrencyStore();
 const isLoading = ref<boolean>(true);
@@ -57,8 +53,8 @@ onMounted(async () => {
             <EntityCardSkeleton v-else v-for="i in 12" :key="i" />
         </ul>
         <div v-if="!error && !isLoading" class="flex justify-center mt-4">
-            <Button @click="loadMore" :disabled="isLoadingMore">
-                {{ isLoadingMore ? t('Carregando...') : t('Carregar Mais') }}
+            <Button v-translate @click="loadMore" :disabled="isLoadingMore">
+                {{ isLoadingMore ? 'Carregando...' : 'Carregar Mais' }}
             </Button>
         </div>
         <InternalServerError v-if="error" />

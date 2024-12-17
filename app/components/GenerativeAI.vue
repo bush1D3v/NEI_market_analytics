@@ -22,6 +22,7 @@ import {
 } from "lucide-vue-next";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible";
 import translate from "@/utils/externalDataTranslator";
+import {t} from "i18next";
 
 interface Message {
 	text: string;
@@ -223,7 +224,7 @@ onMounted(async () => {
                 </ul>
                 <div class="chat-input">
                     <textarea class="flex w-full" maxlength="1000" v-model="prompt" @input="adjustTextareaHeight"
-                        @keyup.enter="sendMessage()" placeholder="Digite sua mensagem..." />
+                        @keyup.enter="sendMessage()" :placeholder="t('Digite sua mensagem...')" />
                     <Button title="NEI Market AI Chat"
                         class="p-2 absolute right-4 bottom-[10px] dark:hover:bg-black/25 hover:bg-slate-100"
                         variant="ghost" @click="() => { error = false, sendMessage() }"

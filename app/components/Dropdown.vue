@@ -47,7 +47,7 @@ const props = defineProps<DropdownProps>();
 <template>
     <DropdownMenu>
         <DropdownMenuTrigger as-child>
-            <Button variant="outline" data-testid="Dropdown" :class="cn(props.class)">
+            <Button v-translate variant="outline" data-testid="Dropdown" :class="cn(props.class)">
                 {{ props.buttonTile }}
             </Button>
         </DropdownMenuTrigger>

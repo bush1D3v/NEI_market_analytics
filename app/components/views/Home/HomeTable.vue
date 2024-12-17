@@ -7,7 +7,6 @@ import type {Stock} from "@/types/BrapiDev/Stock";
 import type {New} from "@/types/Finnhub/New";
 import Link from "@/tags/Link.vue";
 import {ChevronUpIcon, ChevronDownIcon} from "@radix-icons/vue";
-import {t} from "i18next";
 
 interface Props {
 	icon: string;
@@ -36,12 +35,12 @@ const props = defineProps<Props>();
         <ul class="flex flex-col gap-2">
             <ul class="flex gap-8 -mb-2" v-if="!props.news">
                 <li class="flex gap-2 min-w-40 max-w-40 md:min-w-60 md:max-w-60 justify-between items-end">
-                    <p class="text-xs">{{ t('Nome') }}</p>
-                    <p class="text-xs">{{ t('Símbolo') }}</p>
+                    <p v-translate class="text-xs">Nome</p>
+                    <p v-translate class="text-xs">Símbolo</p>
                 </li>
                 <li class="flex gap-2 items-center justify-start mt-1 w-full">
-                    <p class="text-xs">{{ t('Preço') }}</p>
-                    <p class="text-xs">{{ t('Variação 24h %') }}</p>
+                    <p v-translate class="text-xs">Preço</p>
+                    <p v-translate class="text-xs">Variação 24h %</p>
                 </li>
             </ul>
             <li v-if="props.coins" v-for="(data, i) in props.coins" :key="i">

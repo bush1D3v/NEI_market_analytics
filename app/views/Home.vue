@@ -3,14 +3,12 @@ import HomeTable from "@/components/views/Home/HomeTable.vue";
 import HomeTableSkeleton from "@/components/Skeletons/components/views/Home/HomeTable.vue";
 import type {New} from "@/types/Finnhub/New";
 import {onBeforeMount, ref} from "vue";
-import {useTranslation} from "@/config/composable/translate";
 import {listCryptoCurrencies} from "@/services/CoinGecko";
 import {useCryptoCurrencyStore} from "@/stores/useCryptoCurrencyStore";
 import {listCompanyNews} from "@/services/Finnhub";
 import {listStocks} from "@/services/BrapiDev";
 import {useStocksCurrencyStore} from "@/stores/useStocksCurrencyStore";
 import {useNewsStore} from "@/stores/useNewsStore";
-import translate from "@/utils/externalDataTranslator";
 
 const cryptoCurrencyStore = useCryptoCurrencyStore();
 const newsStore = useNewsStore();
@@ -19,8 +17,6 @@ const stocksCurrencyStore = useStocksCurrencyStore();
 const onCryptoLoading = ref<boolean>(false);
 const onNewsLoading = ref<boolean>(false);
 const onStocksLoading = ref<boolean>(false);
-
-useTranslation();
 
 onBeforeMount(async () => {
 	onNewsLoading.value = true;
@@ -46,7 +42,7 @@ onBeforeMount(async () => {
 
 <template>
     <section class="flex flex-col items-center justify-center gap-8">
-        <ul class="flex gap-4 flex-wrap justify-center translate-ignore">
+        <ul class="flex gap-4 flex-wrap justify-center">
             <li v-if="!onCryptoLoading">
                 <HomeTable icon="🪙" table-title="Moedas em alta" redirect-to="/cryptos"
                     :coins="cryptoCurrencyStore.homeCryptoCurrencies" />

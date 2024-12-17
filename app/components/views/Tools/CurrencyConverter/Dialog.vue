@@ -59,7 +59,7 @@ watch(
                 <Cross2Icon class="w-4 h-4" @click="isOpen = false" />
             </template>
             <DialogHeader>
-                <DialogTitle>{{ t("Resultado da Conversão") }}</DialogTitle>
+                <DialogTitle v-translate>Resultado da Conversão</DialogTitle>
             </DialogHeader>
             <p>
                 {{ t("A conversão de") }}
@@ -79,8 +79,8 @@ watch(
             </p>
             <DialogFooter>
                 <DialogClose as-child>
-                    <Button type="submit" @click="isOpen = false">
-                        {{ t("Concluir") }}
+                    <Button v-translate type="submit" @click="isOpen = false">
+                        Concluir
                     </Button>
                 </DialogClose>
             </DialogFooter>

@@ -25,7 +25,7 @@ import {DropdownDto} from "@/components/Dto/DropdownDto";
         </div>
         <div class="justify-end flex gap-8 items-center">
             <RouterLink to="/news" class="hidden lg:flex">
-                <Button variant="outline">
+                <Button v-translate variant="outline">
                     Notícias
                 </Button>
             </RouterLink>

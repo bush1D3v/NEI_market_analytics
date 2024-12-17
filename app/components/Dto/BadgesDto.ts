@@ -3,26 +3,26 @@ import type {BadgeProps} from "@/components/Badges.vue";
 export const BadgesDto: BadgeProps[] = [
 	{
 		name: "Victor Navarro",
-		occupation: "Software Engineer",
+		occupation: "Engenheiro de Software",
 		github: "https://github.com/bush1D3v",
 		nickname: "bush1D3v",
 		description: "Software Engineer | Vue.js | Rust | TypeScript | PHP | Docker | CI/CD",
-		startDate: "February 2023",
+		startDate: "Fevereiro de 2023",
 	},
 	{
 		name: "Erackson Souza",
-		occupation: "Frontend Developer",
+		occupation: "Desenvolvedor FullStack",
 		github: "https://github.com/eracksonsouza",
 		nickname: "eracksonsouza",
 		description: "Web Developer | HTML | CSS | GIT | JavaScript | React | TypeScrip",
-		startDate: "February 2024",
+		startDate: "Fevereiro de 2024",
 	},
 	{
 		name: "Israel Pina",
-		occupation: "FullStack Developer",
+		occupation: "Desenvolvedor FullStack",
 		github: "https://github.com/IsraelPina32",
 		nickname: "IsraelPina32",
 		description: "Software Engineer | Typescript | React | Tailwind | Next.js | Node.js",
-		startDate: "January 2022",
+		startDate: "Janeiro de 2022",
 	},
 ];
