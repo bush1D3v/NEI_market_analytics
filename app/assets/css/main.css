@@ -6,6 +6,7 @@
 	.dark {
 		--text: #ffffff;
 		--text-foreground: #eeeeee;
+        --text-overflow: #dedede;
 		--background: #0f101d;
 		--secondary-darker: #171b2d;
 		--border: #222a44;
@@ -83,6 +84,7 @@
 		--discord: #5865f2;
 		--linkedin: #0a66c2;
 		--instagram: #c13584;
+        --purple: #7013bd;
 		--youtube: #ff0000;
 		--primary-lighter: #4095fc;
 		--primary-darker: #edf2f4;

@@ -22,6 +22,8 @@
 		"COINGECKO",
 		"Colón",
 		"Cotación",
+		"criptoativos",
+		"criptomoedas",
 		"csgo",
 		"Csgs",
 		"csrf",
@@ -110,5 +112,6 @@
 	"css.customData": [
 		".vscode/css_custom_data.json"
 	],
-	"files.autoSave": "onFocusChange"
+	"files.autoSave": "onFocusChange",
+	"makefile.configureOnOpen": false
 }

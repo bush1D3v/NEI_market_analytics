@@ -29,7 +29,7 @@ const breadcrumbs = computed(() => {
 </script>
 
 <template>
-    <Breadcrumb class="pt-4 pl-4 lg:pb-4">
+    <Breadcrumb class="pl-4 lg:pb-4">
         <BreadcrumbList>
             <BreadcrumbItem v-for="(breadcrumb, index) in breadcrumbs" :key="index">
                 <BreadcrumbLink v-if="index < breadcrumbs.length - 1">

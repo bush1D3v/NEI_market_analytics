@@ -16,7 +16,7 @@ onBeforeMount(async () => {
 
 <template>
     <Header />
-    <main class="min-h-[95dvh] mb-[72px] lg:mb-0 relative ">
+    <main class="min-h-[95dvh] mb-[72px] lg:mb-0 py-4 md:py-8 relative px-4">
         <Breadcrumb />
         <RouterView />
         <Toaster />
