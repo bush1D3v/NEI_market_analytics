@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import generateContent, {type GenerateContentProps} from "@/services/Gemini";
+import generateContent, { type GenerateContentProps } from "@/services/Gemini";
 import socket from "@/server/Socket";
 import Button from "@/components/ui/button/Button.vue";
 import Image from "@/tags/Image.vue";
@@ -8,40 +8,40 @@ import LoadingDots from "./Loading/ChatDots.vue";
 import LikeImage from "@/assets/images/like.png";
 import DislikeImage from "@/assets/images/dislike.png";
 import useToastNotification from "@/notification/toast";
-import {v4 as uuidv4} from "uuid";
-import {ref, nextTick, onMounted} from "vue";
+import { v4 as uuidv4 } from "uuid";
+import { ref, nextTick, onMounted } from "vue";
 import {
-	Bot,
-	User,
-	BotMessageSquare,
-	Send,
-	RefreshCw,
-	Copy,
-	ThumbsDown,
-	ThumbsUp,
+    Bot,
+    User,
+    BotMessageSquare,
+    Send,
+    RefreshCw,
+    Copy,
+    ThumbsDown,
+    ThumbsUp,
 } from "lucide-vue-next";
-import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import translate from "@/utils/externalDataTranslator";
-import {t} from "i18next";
+import { t } from "i18next";
 
 interface Message {
-	text: string;
-	sender: "ai" | "user";
-	refs: string[];
-	first?: boolean;
-	isLiked?: boolean;
-	isDisliked?: boolean;
+    text: string;
+    sender: "ai" | "user";
+    refs: string[];
+    first?: boolean;
+    isLiked?: boolean;
+    isDisliked?: boolean;
 }
 
 const defaultMessage: Message = {
-	text: "👋 Oi! Eu sou NEI Market AI, pergunte-me qualquer coisa sobre NEI Market Analytics!",
-	sender: "ai",
-	refs: [],
-	first: true,
+    text: "👋 Oi! Eu sou NEI Market AI, pergunte-me qualquer coisa sobre NEI Market Analytics!",
+    sender: "ai",
+    refs: [],
+    first: true,
 };
 
 const prompt = ref("");
-const messages = ref<Message[]>([defaultMessage]);
+const messages = ref<Message[]>([ defaultMessage ]);
 const loading = ref(false);
 const error = ref(false);
 const sessionId = ref(uuidv4());
@@ -50,126 +50,126 @@ const isOpen = ref(false);
 let aiMessage = "";
 
 function copyToClipboard(text: string) {
-	navigator.clipboard
-		.writeText(text)
-		.then(() => {
-			useToastNotification("Texto copiado para a área de transferência");
-		})
-		.catch((_e) => {
-			useToastNotification("Erro ao copiar texto para a área de transferência");
-		});
+    navigator.clipboard
+        .writeText(text)
+        .then(() => {
+            useToastNotification("Texto copiado para a área de transferência");
+        })
+        .catch((_e) => {
+            useToastNotification("Erro ao copiar texto para a área de transferência");
+        });
 }
 
 function toggleLike(message: Message) {
-	message.isLiked = !message.isLiked;
-	if (message.isLiked) {
-		message.isDisliked = false;
-	}
+    message.isLiked = !message.isLiked;
+    if (message.isLiked) {
+        message.isDisliked = false;
+    }
 }
 
 function toggleDislike(message: Message) {
-	message.isDisliked = !message.isDisliked;
-	if (message.isDisliked) {
-		message.isLiked = false;
-	}
+    message.isDisliked = !message.isDisliked;
+    if (message.isDisliked) {
+        message.isLiked = false;
+    }
 }
 
 function refresh() {
-	sessionId.value = uuidv4();
-	aiMessage = "";
-	messages.value = [defaultMessage];
-	useToastNotification("Chat recarregado");
+    sessionId.value = uuidv4();
+    aiMessage = "";
+    messages.value = [ defaultMessage ];
+    useToastNotification("Chat recarregado");
 }
 
 async function sendMessage(resendMessage?: boolean) {
-	loading.value = true;
+    loading.value = true;
 
-	const lastUserMessage = [...messages.value]
-		.reverse()
-		.find((message) => message.sender === "user");
+    const lastUserMessage = [ ...messages.value ]
+        .reverse()
+        .find((message) => message.sender === "user");
 
-	const userMessage = resendMessage ? (lastUserMessage?.text as string) : prompt.value;
-	if (userMessage.trim() === "" && !resendMessage) return;
+    const userMessage = resendMessage ? (lastUserMessage?.text as string) : prompt.value;
+    if (userMessage.trim() === "" && !resendMessage) return;
 
-	const lastBotMessage = [...messages.value].reverse().find((message) => message.sender === "ai");
+    const lastBotMessage = [ ...messages.value ].reverse().find((message) => message.sender === "ai");
 
-	if (resendMessage) {
-		messages.value.pop();
-	} else {
-		messages.value.push({text: userMessage, sender: "user", refs: []});
-		nextTick(() => {
-			const messagesContainer = document.querySelector(".chat-messages");
-			if (messagesContainer) {
-				messagesContainer.scrollTop = messagesContainer.scrollHeight;
-			}
-		});
-	}
-	prompt.value = "";
+    if (resendMessage) {
+        messages.value.pop();
+    } else {
+        messages.value.push({ text: userMessage, sender: "user", refs: [] });
+        nextTick(() => {
+            const messagesContainer = document.querySelector(".chat-messages");
+            if (messagesContainer) {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        });
+    }
+    prompt.value = "";
 
-	try {
-		const data: GenerateContentProps = {
-			prompt: userMessage,
-			sessionId: sessionId.value,
-			lastUserMessage: lastUserMessage?.text,
-			lastBotMessage: lastBotMessage?.text,
-			likeOrDislikePreviousMessage: lastBotMessage?.isLiked
-				? true
-				: lastBotMessage?.isDisliked
-					? false
-					: undefined,
-		};
-		await generateContent(data);
-	} catch (error) {
-		console.error(error);
-	}
+    try {
+        const data: GenerateContentProps = {
+            prompt: userMessage,
+            sessionId: sessionId.value,
+            lastUserMessage: lastUserMessage?.text,
+            lastBotMessage: lastBotMessage?.text,
+            likeOrDislikePreviousMessage: lastBotMessage?.isLiked
+                ? true
+                : lastBotMessage?.isDisliked
+                    ? false
+                    : undefined,
+        };
+        await generateContent(data);
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 function adjustTextareaHeight(event: Event) {
-	const textarea = event.target as HTMLTextAreaElement;
-	textarea.style.height = "auto";
-	textarea.style.height = `${textarea.scrollHeight}px`;
+    const textarea = event.target as HTMLTextAreaElement;
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
 }
 
 socket.on("content", (data) => {
-	// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
-	if (data.sessionId == sessionId.value) {
-		aiMessage += data.text;
-		if (
-			messages.value.length > 0 &&
-			messages.value[messages.value.length - 1].sender === "ai"
-		) {
-			messages.value[messages.value.length - 1].text = aiMessage;
-		} else {
-			messages.value.push({text: aiMessage, sender: "ai", refs: data.refs});
-		}
-		loading.value = false;
-	}
+    // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+    if (data.sessionId == sessionId.value) {
+        aiMessage += data.text;
+        if (
+            messages.value.length > 0 &&
+            messages.value[ messages.value.length - 1 ].sender === "ai"
+        ) {
+            messages.value[ messages.value.length - 1 ].text = aiMessage;
+        } else {
+            messages.value.push({ text: aiMessage, sender: "ai", refs: data.refs });
+        }
+        loading.value = false;
+    }
 });
 
 socket.on("content_end", (requestSessionId) => {
-	// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
-	if (requestSessionId == sessionId.value) {
-		aiMessage = "";
-		nextTick(() => {
-			const messagesContainer = document.querySelector(".chat-messages");
-			if (messagesContainer) {
-				messagesContainer.scrollTop = messagesContainer.scrollHeight;
-			}
-		});
-	}
+    // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+    if (requestSessionId == sessionId.value) {
+        aiMessage = "";
+        nextTick(() => {
+            const messagesContainer = document.querySelector(".chat-messages");
+            if (messagesContainer) {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        });
+    }
 });
 
 socket.on("error", (data) => {
-	// biome-ignore lint/suspicious/noDoubleEquals: <explanation>
-	if (data.sessionId == sessionId.value) {
-		error.value = true;
-		loading.value = false;
-		console.error(data.error);
-	}
+    // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
+    if (data.sessionId == sessionId.value) {
+        error.value = true;
+        loading.value = false;
+        console.error(data.error);
+    }
 });
 
 onMounted(async () => {
-	messages.value[0].text = await translate(messages.value[0].text, "pt");
+    messages.value[ 0 ].text = await translate(messages.value[ 0 ].text, "pt");
 });
 </script>
 
@@ -181,7 +181,7 @@ onMounted(async () => {
             </Button>
         </CollapsibleTrigger>
         <CollapsibleContent>
-            <div class="chat-container  lg:w-[400px]">
+            <div class="chat-container lg:w-[425px]">
                 <header>
                     <div class="flex items-center gap-2">
                         <Image src="/logo-just-icon.png" alt="NEI Market AI Logo" class="brightness-[100]" width="40"
@@ -234,7 +234,8 @@ onMounted(async () => {
                 </div>
                 <footer>
                     <p v-translate class="text-text text-sm">Ao conversar, você concorda com nossa</p>
-                    <RouterLink v-translate class="underline text-sm hover:opacity-50" to="/privacy-policy">política de privacidade</RouterLink>
+                    <RouterLink v-translate class="underline text-sm hover:opacity-50" to="/privacy-policy">política de
+                        privacidade</RouterLink>
                     .
                 </footer>
             </div>

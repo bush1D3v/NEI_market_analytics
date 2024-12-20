@@ -6,11 +6,12 @@
 	.dark {
 		--text: #ffffff;
 		--text-foreground: #eeeeee;
-        --text-overflow: #dedede;
+		--text-overflow: #dedede;
 		--background: #0f101d;
 		--secondary-darker: #171b2d;
 		--border: #222a44;
 		--accent: #48506d;
+		--accent-mid: #48506d50;
 		--button-bg: #2d375b;
 		--dark: #8b94a3;
 		--card: #2d375b;
@@ -84,12 +85,13 @@
 		--discord: #5865f2;
 		--linkedin: #0a66c2;
 		--instagram: #c13584;
-        --purple: #7013bd;
+		--purple: #7013bd;
 		--youtube: #ff0000;
 		--primary-lighter: #4095fc;
 		--primary-darker: #edf2f4;
 
-		--accent: #dddddd;
+		--accent: #dedede;
+		--accent-mid: #dedede90;
 		--accent-foreground: #ffffff;
 
 		--button-bg: #d6d6d8;

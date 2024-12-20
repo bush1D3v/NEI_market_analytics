@@ -26,6 +26,7 @@ export const theme = {
 	extend: {
 		colors: {
 			primaryForeground: "var(--primary-foreground)",
+            accentMid: "var(--accent-mid)",
 			purple: "var(--purple)",
             textOverflow: "var(--text-overflow)",
 			buttonBg: "var(--button-bg)",
